@@ -15,7 +15,7 @@
     <main>
       <section class="inner_wraper">
         <div class="container_large">
-          <div class="row" v-if="seasons.length">
+          <div class="row" v-if="seasons &&  seasons.length">
             
             <div class="col-md-6" v-for="data in seasons" :key="data.id">
               <div class="calendar_column">
@@ -41,7 +41,7 @@
               </div>
             </div>
           </div>
-          <div class="row" v-if="!seasons.length">
+          <div class="row" v-if="!seasons || !seasons.length">
               <div class="col-md-12">
                 <div class="calendar_column">
                   No seasons exits yet, please contact your admin.
