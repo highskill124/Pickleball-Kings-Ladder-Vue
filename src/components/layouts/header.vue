@@ -30,7 +30,6 @@
               <li><router-link :to="{name:'rules'}">Resources</router-link></li>
               <li><router-link :to="{name:'playoffs'}">Playoffs</router-link></li>
               <li><router-link :to="{name:'covid'}">COVID - 19</router-link></li>
-              <li><router-link :to="{name:'clean'}">cleancloud</router-link></li>
             </ul>
           </div>
         </nav>
