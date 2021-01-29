@@ -1,0 +1,2171 @@
+@font-face {
+    font-family:'Pangram-Light';
+    src: url('../fonts/Pangram-Light.eot');
+    src: url('../fonts/Pangram-Light.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Pangram-Light.woff') format('woff'),
+    url('../fonts/Pangram-Light.ttf') format('truetype'),
+    url('../fonts/Pangram-Light.svg') format('svg');
+        font-weight: normal;
+}
+@font-face {
+    font-family:'Pangram-Regular';
+    src: url('../fonts/Pangram-Regular.eot');
+    src: url('../fonts/Pangram-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Pangram-Regular.woff') format('woff'),
+    url('../fonts/Pangram-Regular.ttf') format('truetype'),
+    url('../fonts/Pangram-Regular.svg') format('svg');
+        font-weight: normal;
+}
+@font-face {
+    font-family:'Pangram-Medium';
+    src: url('../fonts/Pangram-Medium.eot');
+    src: url('../fonts/Pangram-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Pangram-Medium.woff') format('woff'),
+        url('../fonts/Pangram-Medium.ttf') format('truetype'),
+        url('../fonts/Pangram-Medium.svg') format('svg');
+        font-weight: normal;
+}
+@font-face {
+    font-family:'Pangram-Bold';
+    src: url('../fonts/Pangram-Bold.eot');
+    src: url('../fonts/Pangram-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Pangram-Bold.woff') format('woff'),
+        url('../fonts/Pangram-Bold.ttf') format('truetype'),
+        url('../fonts/Pangram-Bold.svg') format('svg');
+        font-weight: normal;
+}
+/* 
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
+}
+a {
+    color: #000000;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+    transition:all 0.3s ease-in-out;
+}
+del {
+    text-decoration: line-through;
+}
+abbr[title], dfn[title] {
+    border-bottom: 1px dotted;
+    cursor: help;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/* change border colour to suit your needs */
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #cccccc;
+    margin: 1em 0;
+    padding: 0;
+}
+img{
+    vertical-align: middle;
+}
+input, select {
+    vertical-align: middle;
+}
+input[type=text]:focus, input[type=email]:focus,
+input[type=password]:focus, select:focus,
+textarea:focus, input[type=submit]:focus,
+button:focus{
+  outline: 0;
+}
+html, body{
+    height: 100%;
+}
+body{
+    color: #3C3C3C;
+    font-family:'Pangram-Regular';
+    font-size: 16px;
+    background: #F7F7F7;
+    display: flex;
+    flex-direction: column;
+}
+.container{
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+.container_large{
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+/*Header*/
+header{
+    background: #fff;
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+header .container_large{
+    position: relative;
+}
+.logo{
+    width: 90px;
+}
+.navbar {
+    padding: 0;
+}
+.navbar-nav {
+    margin-left: 30px;
+}
+.navbar-brand{
+    padding: 0;
+    margin: 0;
+}
+.header_btn{
+    max-width: 160px;
+    width: 100%;
+}
+.header_btn a{
+    background: #5cc9be;
+    color: #fff;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-size: 22px;
+    display: block;
+    text-align: center;
+    padding: 14px 0;
+    box-shadow: 10px 10px 40px rgba(92, 201, 190, 0.12);
+}
+.navbar-nav li{
+    position: relative;
+    padding: 0 20px;
+}
+.navbar-nav li a{
+    font-size: 1.2rem;
+    position: relative;
+}
+.navbar-nav li a:hover{
+    color: #EF4C00;
+}
+.navbar-nav li:last-child a{
+    color: #EF4C00;
+    font-family:'Pangram-Bold';
+}
+.top_right{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 15px;
+    top: 25px;
+}
+.top_social{
+    margin-right: 10px;
+    display: flex;
+}
+.top_social a{
+    display: block;
+    margin: 0 10px;
+    color: #808080;
+    font-size: 22px;
+}
+.top_social a:hover{
+    color: #355947;
+}
+.login_links{
+    display: flex;
+}
+.login_links a{
+    display: block;
+    border-radius: 5px;
+    min-width: 100px;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1.9;
+    padding: 5px 0;
+    margin-left: 10px;
+}
+.login_links a:first-child{
+    background: #E0E915;
+    color: #355947;
+}
+.login_links a:last-child{
+    background: #355947;
+    color: #fff;
+}
+
+/*User Menu*/
+.user_menu {
+    display: flex;
+    align-items: center;
+    margin-top: -5px;
+}
+#profileImage {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: #355947;
+  font-size: 1rem;
+  color: #fff;
+  text-align: center;
+  line-height: 3rem;
+  font-family:'Pangram-Bold';
+  margin-right: 10px;
+}
+
+/*Footer*/
+footer{
+    background: #292929;
+    padding: 40px 0;
+    margin-top: auto
+}
+.footer_column h2{
+    color: #fff;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+.footer_column p{
+    color: #9E9E9E;
+    font-size: 1rem;
+    max-width: 450px;
+}
+.footer_logo img{
+    width: 70px;
+}
+.footer_list li{
+    margin-bottom: 20px;
+}
+.footer_list li a{
+    color: #9E9E9E;
+}
+.footer_list li a:hover{
+    color: #fff;
+}
+.footer_social{
+    display: flex;
+}
+.footer_social li{
+    margin-right: 15px;
+}
+.footer_social li a{
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 42px;
+    border-radius: 50%;
+    text-align: center;
+    background: #FFFFFF;
+    color: #292929;
+    font-size: 20px;
+}
+.footer_social li a:hover{
+    background: #E0E915;
+    color: #355947;
+}
+.copyright{
+    text-align: center;
+    color: #9E9E9E;
+    font-size: 1rem;
+    margin-top: 40px;
+}
+/*Login*/
+.account_wraper .login{
+    padding: 80px 0 250px;
+    margin-top: 115px;
+    position: relative;
+    overflow: hidden;
+}
+.account_wraper .container_large{
+    position: relative;
+    height: 100%;
+}
+.men_playing_tennis{
+    position: absolute;
+    left: 0;
+    bottom: -260px;
+}
+.men_playing_tennis img{
+    max-width: 650px;
+}
+.login_content h1{
+    font-size: 4rem;
+    font-family:'Pangram-Bold';
+    margin-bottom: 2rem;
+}
+.login_content h1 span{
+    display: block;
+    font-size: 3.5rem;
+}
+.login_content p{
+    font-size: 1.3rem;
+    max-width: 680px;
+}
+.login_holder{
+    background: #fff;
+    border-radius: 25px;
+    padding: 40px 30px;
+}
+.login_holder h2{
+    font-size: 2.5rem;
+    font-family:'Pangram-Bold';
+    margin-bottom: 4rem;
+}
+.form_holder{}
+.form_holder label{
+    display: block;
+    margin-bottom: .4rem; 
+    font-size: 1rem;
+    font-family:'Pangram-Bold';
+}
+.form_holder label span{
+    color: #D91010;
+}
+.form_holder label span.optional{
+    color: #B1B1B1;
+    font-size: .8rem;
+    font-family:'Pangram-Regular';
+}
+.form_group{
+    margin-bottom: 3rem;
+}
+.form_holder input[type="text"],
+.form_holder input[type="email"],
+.form_holder input[type="password"],
+.form_holder select,
+.form_holder textarea{
+    width: 100%;
+    display: block;
+    background: #F8F8F8;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 15px 20px;
+}
+.form_holder input[type="text"]:focus,
+.form_holder input[type="email"]:focus,
+.form_holder input[type="password"]:focus,
+.form_holder select:focus,
+.form_holder textarea:focus{
+    border: 1px solid #3C3C3C;
+}
+.form_holder textarea{
+    resize: none;
+    height: 150px;
+}
+.form_holder input[type="submit"]{
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    text-align: center;
+    background: #355947;
+    border: 1px solid transparent;
+    font-size: 1.5rem;
+    color: #fff;
+    padding: 10px 0;
+}
+.form_holder input[type="submit"]:hover{
+    background: #E0E915;
+    color: #355947;
+}
+.forgot_password{
+    text-align: right;
+}
+.forgot_password a{
+    color: #6C63FF;
+}
+.register_here{
+    text-align: center;
+    color: #6D6D6D;
+}
+.register_here a{
+    color: #6C63FF;
+}
+
+/*Register*/
+.register_wraper{
+    padding: 40px 0;
+}
+.register_wraper h2{
+    margin-bottom: 2rem;
+}
+.login_holder p{
+    color: #6D6D6D;
+    font-size: 1.1rem;
+    margin-bottom: 1.1rem;
+}
+.login_holder p strong{
+    color: #3C3C3C;
+    font-family:'Pangram-Bold';
+}
+.login_holder p a{
+    color: #6C63FF;
+}
+.register_form{
+    margin-top: 5rem;
+}
+.register_form h3{
+    font-size: 2.2rem;
+    font-family: 'Pangram-Bold';
+}
+.payment_info{}
+.payment_info li{
+    display: flex;
+    align-items: center;
+    font-family:'Pangram-Medium';
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+.payment_info li span{
+    display: block;
+}
+.payment_info li span:last-child{
+    margin-left: auto;
+}
+.sub_total li:last-child{
+    color: #EF4C00;
+    font-family: 'Pangram-Bold';
+}
+.paypal_btn{
+    text-align: right;
+    margin: 50px 0 10px;
+}
+.paypal_btn p{
+    margin: 1rem 0 0;
+    font-size: 1rem;
+    color: #3C3C3C;
+}
+
+/*Cusotm Radiobutton*/
+.custom_radio [type="radio"]:checked,
+.custom_radio [type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+.custom_radio [type="radio"]:checked + label,
+.custom_radio [type="radio"]:not(:checked) + label{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #666;
+}
+.custom_radio [type="radio"]:checked + label:before,
+.custom_radio [type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 22px;
+    height: 22px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #F8F8F8;
+}
+.custom_radio [type="radio"]:checked + label:after,
+.custom_radio [type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.custom_radio [type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+.custom_radio [type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+.custom_radio [type="radio"]:checked + label:before{
+    background: #6C63FF;
+    border: 1px solid #6C63FF;
+}
+.terms_of_participation{
+    margin: 3rem 0;
+}
+.terms_of_participation h2{
+    font-size: 2.2rem;
+    font-family: 'Pangram-Bold';
+    margin-bottom: 2rem;
+}
+.terms_of_participation p{
+    margin-bottom: 2rem;
+    color: #6D6D6D;
+}
+.forgot_wraper{
+    padding: 80px 0 80px;
+}
+
+/*Account Pages*/
+.default_wraper{
+    padding: 40px 0;
+    margin-top: 115px;
+    position: relative;
+}
+/*Sidebar Menu*/
+.menu_sidebar{
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px 15px;
+}
+.menu_sidebar ul li{
+    border-radius: 10px;
+    padding: 10px 15px;
+    position: relative;
+}
+.menu_sidebar ul li:not(:last-child){
+    margin-bottom: 15px;
+}
+.menu_sidebar ul li a{
+    display: flex;
+    font-size: 1.2rem;
+    color: #3C3C3C;
+}
+.menu_sidebar ul li button{
+    display: flex;
+    font-size: 1.2rem;
+    color: #3C3C3C;
+    border: none;
+    background: transparent;
+    align-items: center;
+    width: 100%;
+}
+.menu_sidebar ul li a img,
+.menu_sidebar ul li button img{
+    margin-right: 15px;
+}
+.menu_sidebar ul li button[aria-expanded]:after{
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    background: url(../images/down-arrow.svg) no-repeat;
+    background-size: 100%;
+    width: 12px;
+    height: 8px;
+    transition: all 0.5s ease;
+}
+.menu_sidebar ul li:hover,
+.menu_sidebar ul li.active{
+    background: #355947;
+}
+.menu_sidebar ul li:hover a,
+.menu_sidebar ul li.active a,
+.menu_sidebar ul li:hover button,
+.menu_sidebar ul li.active button{
+    color: #fff;
+}
+.menu_sidebar ul li:hover a img,
+.menu_sidebar ul li.active a img,
+.menu_sidebar ul li:hover button img,
+.menu_sidebar ul li.active button img{
+    filter: invert(1);
+}
+.menu_sidebar ul li:hover button[aria-expanded]:after,
+.menu_sidebar ul li.active button[aria-expanded]:after{
+    background: url(../images/down-arrow-white.svg) no-repeat;
+    background-size: 100%;
+}
+.menu_sidebar ul li button[aria-expanded="true"]:after{
+    transform: rotate(-180deg);
+    top: 15px;
+}
+.menu_sidebar ul li .submenu{
+    padding-left: 50px;
+    list-style: circle;
+    color: #3C3C3C;
+    margin-top: 10px;
+}
+.menu_sidebar ul li:hover .submenu,
+.menu_sidebar ul li.active .submenu{
+    color: #fff;
+}
+.menu_sidebar ul li .submenu li{
+    padding: 0;
+    border-radius: 0;
+}
+.menu_sidebar ul li .submenu li:after{
+    display: none;
+}
+.menu_sidebar ul li .submenu li:not(:last-child){
+    margin-bottom: 10px;
+}
+.menu_sidebar ul li .submenu li a{
+    font-size: .9rem;
+}
+
+/*Panel Content*/
+.content_column{
+    background: #fff;
+    border-radius: 10px;
+    padding: 30px 25px;
+}
+.content_header{
+    display: flex;
+    justify-content: space-between;
+}
+.content_header h1{
+    font-size: 2.5rem;
+    font-family: 'Pangram-Bold';
+    margin-bottom: 3rem;
+}
+.content_column h2{
+    font-size: 2rem;
+    font-family: 'Pangram-Medium';
+    margin-bottom: 3rem;
+}
+.events_categories{}
+.category_col{
+    margin-bottom: 2rem;
+}
+.category_col a{
+    background: #fff;
+    box-shadow: 0 1px 10px rgb(0 0 0 / 8%);
+    display: block;
+    text-align: center;
+    border-radius: 8px;
+    font-family: 'Pangram-Medium';
+    padding: 35px 5px;
+}
+.category_col a:hover{
+    background: #E0E915;
+    color: #355947;
+}
+.events_top_right{}
+.events_top_right ul{
+    display: flex;
+}
+.events_top_right ul li:not(:last-child){
+    margin-right: 15px;
+}
+.events_top_right ul li a{
+    display: block;
+    background: #fff;
+    box-shadow: 0 1px 10px rgb(0 0 0 / 8%);
+    display: block;
+    text-align: center;
+    border-radius: 8px;
+    font-family: 'Pangram-Medium';
+    padding: 15px 25px;
+    font-size: 1rem;
+}
+.events_top_right ul li a:hover,
+.events_top_right ul li.active a{
+    background: #6C63FF;
+    color: #fff;
+}
+.content_body{}
+.table_header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.table_header h3{
+    font-size: 1.8rem;
+    font-family: 'Pangram-Bold';
+}
+.tables_filters form{
+    display: flex;
+    align-items: center;
+}
+.tables_filters select{
+    border: 1px solid #E5E5E5;
+    border-radius: 5px;
+    padding: 10px 5px;
+    min-width: 180px;
+    margin-left: 5px;
+}
+.tables_filters button{
+    background: #355947;
+    color: #fff;
+    border: 1px solid #355947;
+    border-radius: 5px;
+    padding: 10px 5px; 
+    width: 100px;  
+    margin-left: 5px;
+}
+.tables_filters .checkbox_holder{
+    width: 200px;
+    margin-left: 15px;
+}
+.content_body table thead tr th{
+    background: #355947;
+    color: #fff;
+}
+.content_body table tbody tr:nth-child(even){
+    background: #F7F7F7;
+}
+.content_body table tbody tr:nth-child(odd){
+    background: #fff;
+}
+.content_body table thead tr th,
+.content_body table tbody tr td{
+    padding: .8rem .5rem;
+}
+.content_body table tbody tr td .pending{
+    border-radius: 50px;
+    font-size: 1rem;
+    background: #E0E915;
+    color: #355947;
+    padding: 6px 0;
+    display: block;
+    max-width: 110px;
+    text-align: center;
+}
+.content_body table tbody tr td .accepted{
+    border-radius: 50px;
+    font-size: 1rem;
+    background: #355947;
+    color: #fff;
+    padding: 6px 0;
+    display: block;
+    max-width: 110px;
+    text-align: center;
+}
+
+/*Custom Checkbox*/
+.custom_checkbox{}
+.custom_checkbox .form-check-input{
+    width: 1.4em;
+    height: 1.4em;
+}
+.custom_checkbox .form-check-input:checked{
+    background-color: #6C63FF;
+    border-color: #6C63FF;
+}
+.custom_checkbox .form-check-label{
+    padding-left: 10px;
+}
+
+/*Pagination*/
+.pagination_holder{
+    margin: 40px 0 0;
+}
+.pagination{
+    justify-content: center;
+}
+.pagination .page-link{
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    padding: 0 !important;
+    font-size: 1.2rem;
+    color: #6D6D6D;
+}
+.pagination .page-link:hover,
+.pagination .page-item.active .page-link{
+    background: #E0E915;
+    color: #355947;
+}
+.page-item:last-child .page-link,
+.page-item:first-child .page-link{
+    border-radius: 50%;
+}
+
+.save_btn{
+    max-width: 180px;
+}
+.support_content{
+    text-align: center;
+}
+.support_content p{
+    font-family: 'Pangram-Medium';
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.support_content p span{
+    display: block;
+}
+.support_content p a{
+    color: #6C63FF;
+}
+
+/*Calendar*/
+.inner_banner{
+    position: relative;
+    background: url(../images/inner-banner.jpg) no-repeat;
+    background-size: cover;
+    margin-top: 115px;
+}
+.inner_banner:before{
+    content: "";
+    background: rgb(53 89 71 / 95%);
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+.inner_banner h1{
+    font-family: 'Pangram-Bold';
+    font-size: 3rem;
+    color: #fff;
+    position: relative;
+    text-align: center;
+    padding: 90px 0;
+}
+.inner_wraper{
+    padding: 50px 0;
+}
+.calendar_column{
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px 30px;
+    margin-bottom: 30px;
+}
+.calendar_column h2{
+    font-size: 2rem;
+    font-family: 'Pangram-Bold';
+    margin-bottom: 5rem;
+    text-align: center;
+}
+.calendar_column ul li{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding-left: 45px;
+}
+.calendar_column ul li:before{
+    content: "";
+    background: url(../images/ball-icon.png) no-repeat;
+    background-size: 100%;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.calendar_column ul li:not(:last-child){
+    margin-bottom: 40px;
+}
+.calendar_column ul li span{
+    display: block;
+}
+.calendar_column ul li span:first-child{
+    font-size: 1.7rem;
+}
+.calendar_column ul li span:last-child{
+    font-size: 1.2rem;
+    color: #6D6D6D;
+}
+.full_bg{
+    background: #fff;
+}
+.rules_holder h3{
+    font-size: 2.2rem;
+    font-family: 'Pangram-Bold';
+    margin-bottom: 1rem;
+}
+.rules_holder p{
+    color: #6D6D6D;
+    font-size: 1.3rem;
+}
+.rules_holder p a{
+    color: #6C63FF;
+}
+
+/*Playoffs*/
+.single_col{
+    margin-bottom: 30px;
+    position: relative;
+}
+.single_col_img img{
+    border-radius: 20px 20px 0 0;
+}
+.single_content{
+    background: #fff;
+    padding: 20px 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 0 0 20px 20px;
+    justify-content: space-between;
+    box-shadow: 0 4px 10px rgb(0 0 0 / 0.04);
+}
+.single_content h2{
+    font-size: 1.5rem;
+    font-family: 'Pangram-Medium';
+}
+.match_ver{
+    background: rgb(53 89 71 / 30%);
+    color: #355947;
+    font-family: 'Pangram-Bold';
+    font-size: 1rem;
+    padding: 5px 10px;
+}
+.playoffs_holder{
+    margin: 50px 0 0;
+}
+.playoffs_header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+.playoffs_header h2{
+    font-size: 2rem;
+    font-family: 'Pangram-Bold';
+}
+.playoffs_dropdown select{
+    border: 1px solid #E5E5E5;
+    border-radius: 5px;
+    padding: 10px 10px;
+    min-width: 250px;
+}
+.playoff_row{
+    background: #F8F8F8;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.playoff_row:not(:last-child){
+    margin-bottom: 10px;
+}
+.playoff_category{
+    background: #355947;
+    color: #fff;
+    font-size: 1.5rem;
+    font-family: 'Pangram-Medium';
+    border-radius: 5px;
+    padding: 15px 10px;
+    width: 15%;
+    text-align: center;
+}
+.playoff_player1{
+    font-size: 1.5rem;
+    font-family: 'Pangram-Medium';
+}
+.playoff_player1 span{
+    background: #6C63FF;
+    color: #fff;
+    font-size: 1rem;
+    font-family: 'Pangram-Bold';
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 50px;
+    margin-left: 20px;
+    min-width: 60px;
+    text-align: center;
+}
+.playoff_player2{
+    font-size: 1.5rem;
+    font-family: 'Pangram-Medium';
+    margin-right: 100px;
+}
+.playoff_player2 span{
+    background: #E0E915;
+    color: #355947;
+    font-size: 1rem;
+    font-family: 'Pangram-Bold';
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 50px;
+    margin-left: 20px;
+    min-width: 60px;
+    text-align: center;
+}
+.playoff_vs{
+    font-size: 1.5rem;
+    font-family: 'Pangram-Bold';
+    text-transform: uppercase;
+}
+.covid_content{}
+.covid_content ol{
+    list-style: decimal;
+}
+.covid_content ol li{
+    font-size: 1.2rem;
+}
+.covid_content ol li:not(:last-child){
+    margin-bottom: 30px;
+}
+.covid_content ol li ul{
+    margin-top: 30px;
+    list-style: disc;
+    padding-left: 20px;
+}
+
+/*Home*/
+.home_banner{
+    margin-top: 115px;
+}
+.slider_item{
+    position: relative;
+}
+.slider_img{
+    position: relative;
+}
+.slider_img:before{
+    content: "";
+    background: rgb(53 87 73 / 90%);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.slider_img img{
+    width: 100%;
+    height: 850px;
+    object-fit: cover;
+}
+.slider_content{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+}
+.slider_content h3{
+    color: #F8F9D0;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+.slider_content h2{
+    color: #fff;
+    font-size: 3.8rem;
+    font-family: 'Pangram-Bold';
+    margin-bottom: 40px;
+    max-width: 1020px;
+}
+.slider_content h2 span{
+    color: #E0E915;
+}
+.slider_content h4{
+    color: #355947;
+    font-size: 2rem;
+    font-family: 'Pangram-Bold';
+    background: #E0E915;
+    display: inline-block;
+    padding: 15px 30px;
+}
+.bx-wrapper .bx-controls-direction a {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    bottom: 50px;
+    top: auto;
+    z-index: 99;
+}
+.bx-wrapper .bx-prev {
+    background: url(../images/right-arrow.png) no-repeat;
+    background-size: 100%;
+    left: auto;
+    right: 100px;
+}
+.bx-wrapper .bx-next {
+    background: url(../images/left-arrow.png) no-repeat;
+    background-size: 100%;
+    right: 170px;
+}
+.bx-wrapper .bx-controls-direction a:hover,
+.bx-wrapper .bx-controls-direction a:focus{
+    background-position: 0 0;
+}
+.about_wraper{
+    padding: 250px 0 100px;
+    overflow: hidden;
+}
+.about_holder{
+    background: #fff;
+    border-radius: 30px;
+    padding: 100px 100px;
+    position: relative;
+}
+.about_holder:before{
+    content: "";
+    position: absolute;
+    left: -40px;
+    top: 50px;
+    background: url(../images/green-circle.png) no-repeat;
+    background-size: 100%;
+    width: 90px;
+    height: 90px;
+}
+.about_content{
+    max-width: 900px;
+    position: relative;
+    z-index: 1;
+}
+.about_content h2{
+    text-transform: uppercase;
+    color: #3C3C3C;
+    font-size: 3.8rem;
+    margin-bottom: 30px;
+    font-family: 'Pangram-Bold';
+}
+.about_content h2 span{
+    color: #6C63FF;
+    font-size: 2rem;
+    display: block;
+    font-family: 'Pangram-Medium';
+}
+.about_content p{
+    color: #6D6D6D;
+    font-size: 1.5rem;
+}
+.read_more{
+    margin: 40px 0 0;
+}
+.read_more a{
+    background: #E0E915;
+    color: #355947;
+    border-radius: 5px;
+    display: block;
+    max-width: 150px;
+    text-align: center;
+    padding: 15px 0;
+    text-transform: uppercase;
+}
+.about_img{
+    position: absolute;
+    top: -200px;
+    right: 0;
+}
+.about_img img{
+    max-width: 550px;
+}
+.about_img:before{
+    content: "";
+    position: absolute;
+    right: -40px;
+    bottom: 120px;
+    background: url(../images/perot-circle.png) no-repeat;
+    background-size: 100%;
+    width: 90px;
+    height: 90px;
+}
+.about_img:after{
+    content: "";
+    position: absolute;
+    right: 380px;
+    bottom: -40px;
+    background: url(../images/purpal-circle.png) no-repeat;
+    background-size: 100%;
+    width: 90px;
+    height: 90px;
+}
+.guess_wraper{
+    padding: 60px 0 180px;
+}
+.guess_wraper .container_large{
+    position: relative;
+}
+.guess_img img{
+    border-radius: 15px;
+}
+.guess_content{
+    position: absolute;
+    right: 0;
+    bottom: -100px;
+    max-width: 850px;
+    background: #fff;
+    border-radius: 15px;
+    padding: 80px 30px;
+}
+.guess_content h2{
+    font-size: 3rem;
+    font-family: 'Pangram-Bold';
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.guess_content h4{
+    color: #355947;
+    font-size: 2rem;
+    font-family: 'Pangram-Medium';
+    margin-bottom: 20px;
+}
+.guess_content p{
+    color: #6D6D6D;
+    font-size: 1.2rem;
+}
+.seasons_wraper{
+    background: #fff;
+    padding: 80px 0;
+}
+.seasons_content h2{
+    font-size: 3rem;
+    font-family: 'Pangram-Bold';
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.seasons_content p{
+    color: #6D6D6D;
+    font-size: 1.2rem;
+    max-width: 650px;
+}
+.seasons_content ul{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+.seasons_content ul li{
+    width: 50%;
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    position: relative;
+    padding-left: 45px
+}
+.seasons_content ul li:before{
+    content: "";
+    background: url(../images/racket.png) no-repeat;
+    background-size: 100%;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.current_season{
+    color: #355947;
+    background: #E0E915;
+    border-radius: 25px;
+    padding: 50px 30px;
+    text-align: center;
+}
+.current_season h3{
+    position: relative;
+    font-size: 2rem;
+    margin-bottom: 50px;
+    font-family: 'Pangram-Bold';
+}
+.current_season h3:before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: url(../images/tennis-men.png) no-repeat;
+    background-size: 100%;
+    width: 40px;
+    height: 40px;
+}
+.current_season h3:after{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: url(../images/tennis-men2.png) no-repeat;
+    background-size: 100%;
+    width: 40px;
+    height: 40px;
+}
+.current_season ul li{
+    font-size: 1.2rem;
+}
+.current_season ul li:not(:last-child){
+    margin-bottom: 25px;
+}
+.current_season ul li strong{
+    font-family: 'Pangram-Bold';
+}
+.question_wraper{
+    padding: 60px 0;
+}
+.question_holder{
+    background: #355947;
+    text-align: center;
+    padding: 60px 0;
+    border-radius: 25px;
+    position: relative;
+}
+.question_holder:before{
+    content: "";
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: url(../images/circle-placeholder.png) no-repeat;
+    background-size: 100%;
+    width: 160px;
+    height: 200px;
+}
+.question_holder h2{
+    color: #fff;
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.question_holder h3{
+    color: #fff;
+    font-size: 2rem;
+    position: relative;
+}
+.question_holder h3 span{
+    color: #E0E915;
+}
+.question_holder .read_more a{
+    margin: 0 auto;
+}
+.modal_content{
+    position: relative;
+    text-align: center;
+    padding: 25px 20px;
+}
+.close_modal{
+    position: absolute;
+    right: 10px;
+    top: 0;
+}
+.modal_content h2{
+    font-size: 1.8rem;
+    font-family: 'Pangram-Medium';
+    margin-bottom: 2rem;
+}
+.modal_actions{
+    margin: 40px 0 0;
+    display: flex;
+    justify-content: center;
+}
+.modal_actions button{
+    border: 1px solid transparent;
+    color: #355947;
+    border-radius: 5px;
+    display: block;
+    max-width: 130px;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    text-transform: uppercase;
+    margin: 0 5px;
+}
+.modal_actions button.close_btn{
+    color: #3C3C3C;
+}
+.modal_actions button.confirm_btn{
+    background: #355947;
+    color: #fff;
+}
+
+
+/*Media Queries*/
+@media screen and (max-width: 1680px){
+    .container_large{
+        max-width: 1400px;
+    }
+    .slider_content h2{
+        font-size: 3.5rem;
+    }
+    .slider_content h4{
+        font-size: 1.5rem;
+    }
+    .about_content h2{
+        font-size: 3rem;
+    }
+    .about_content h2 span{
+        font-size: 1.5rem;
+    }
+    .about_content {
+        max-width: 800px;
+    }
+    .about_content p{
+        font-size: 1.3rem;
+    }
+    .about_img img {
+        max-width: 510px;
+    }
+    .guess_content h4{
+        font-size: 1.5rem;
+    }
+    .login_content h1{
+        font-size: 3.5rem;
+    }
+    .login_content h1 span{
+        font-size: 3rem;
+    }
+    .login_content p{
+        font-size: 1.2rem;
+    }
+    .single_content h2{
+        font-size: 1.2rem;
+    }
+    .match_ver{
+        font-size: .8rem;
+    }
+    .playoff_category{
+        font-size: 1.2rem;
+    }
+    .playoff_player1,
+    .playoff_player2{
+        font-size: 1.3rem;
+    }
+}
+@media screen and (max-width:1440px){
+    .container_large {
+        max-width: 1280px;
+    }
+    .slider_img img{
+        height: 800px;
+    }
+    .slider_content h3{
+        font-size: 1.5rem;
+    }
+    .slider_content h2 {
+        font-size: 3rem;
+        max-width: 800px;
+    }
+    .slider_content h4 {
+        font-size: 1.2rem;
+    }
+    .about_content h2 {
+        font-size: 2.5rem;
+    }
+    .about_content {
+        max-width: 700px;
+    }
+    .about_content p {
+        font-size: 1.2rem;
+    }
+    .about_img img {
+        max-width: 490px;
+    }
+    .guess_content h2{
+        font-size: 2.5rem;
+    }
+    .seasons_content h2{
+        font-size: 2.5rem;
+    }
+    .current_season h3{
+        font-size: 1.5rem;
+    }
+    .current_season ul li {
+        font-size: 1rem;
+    }
+    .question_holder h2{
+        font-size: 2.5rem;
+    }
+    .question_holder h3{
+        font-size: 1.5rem;
+    }
+    .inner_banner h1{
+        padding: 60px 0;
+        font-size: 2.5rem;
+    }
+    .login_content h1 {
+        font-size: 3rem;
+    }
+    .login_content h1 span {
+        font-size: 2.5rem;
+    }
+    .single_content h2{
+        font-size: 1rem;
+    }
+    .playoff_category {
+        font-size: 1rem;
+    }
+    .playoff_player1, .playoff_player2 {
+        font-size: 1.2rem;
+    }
+}
+@media screen and (max-width:1280px){
+    .container_large {
+        max-width: 1140px;
+    }
+    .current_season{
+        padding: 50px 20px;
+    }
+    .about_content {
+        max-width: 600px;
+    }
+    .calendar_column h2{
+        font-size: 1.5rem;
+    }
+    .calendar_column ul li span:first-child {
+        font-size: 1.4rem;
+    }
+    .login_content h1 {
+        font-size: 2.5rem;
+    }
+    .login_content h1 span {
+        font-size: 2rem;
+    }
+    .login_content p {
+        font-size: 1.1rem;
+        max-width: 550px;
+    }
+    .men_playing_tennis{
+        bottom: -130px;
+    }
+    .men_playing_tennis img {
+        max-width: 500px;
+    }
+    .login_holder{
+        padding: 30px 30px;
+    }
+    .login_holder h2{
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
+    .account_wraper{
+        padding: 80px 0 120px;
+    }
+    .menu_sidebar ul li a{
+        font-size: 1rem;
+    }
+    .form_holder input[type="submit"]{
+        font-size: 1.2rem;
+    }
+    .content_header h1{
+        font-size: 2rem;
+    }
+    .events_top_right ul li a{
+        padding: 10px 12px;
+        font-size: .7rem;
+    }
+    .events_top_right ul li:not(:last-child) {
+        margin-right: 8px;
+    }
+    .table_header h3{
+        font-size: 1.2rem;
+    }
+    .tables_filters select{
+        padding: 8px 5px;
+        min-width: 150px;
+    }
+    .content_body table tbody tr td .accepted,
+    .content_body table tbody tr td .pending{
+        font-size: .7rem;
+    }
+    .tables_filters button{
+        padding: 8px 5px;
+    }
+}
+@media screen and (max-width:1040px){
+    .container_large {
+        max-width: 980px;
+    }
+    .navbar-nav li{
+        padding: 0 15px;
+    }
+    .login_links a{
+        min-width: 90px;
+    }
+    .slider_img img {
+        height: 700px;
+    }
+    .slider_content h2 {
+        font-size: 2.5rem;
+        max-width: 680px;
+    }
+    .about_img {
+        position: absolute;
+        top: -60px;
+        right: -100px;
+    }
+    .about_img img {
+        max-width: 400px;
+    }
+    .guess_img img{
+        width: 100%;
+    }
+    .guess_content{
+        right: 50%;
+        bottom: -140px;
+        transform: translateX(50%);
+        width: 100%;
+    }
+    .about_wraper{
+        padding: 100px 0 50px;
+    }
+    .seasons_content p{
+        max-width: 550px;
+    }
+    .current_season h3 {
+        font-size: 1.2rem;
+    }
+    .covid_content {
+        padding-left: 30px;
+    }
+    .form_holder label{
+        font-size: .8rem;
+    }
+    .single_content h2{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-right: 10px;
+    }
+    .playoff_player2{
+        margin-right: 0;
+    }
+    .menu_sidebar{
+        padding: 15px 10px;
+    }
+    .menu_sidebar ul li{
+        padding: 8px 10px;
+    }
+    .menu_sidebar ul li:not(:last-child) {
+        margin-bottom: 10px;
+    }
+    .category_col a{
+        font-size: .9rem;
+    }
+    .menu_sidebar ul li[aria-expanded]:after{
+        top: 18px;
+    }
+    .content_body .table-responsive{
+        white-space: nowrap;
+    }
+    .top_social{
+        display: none;
+    }
+}
+@media screen and (max-width:991px){
+    .toggler-icon {
+        display: block;
+        background: #000;
+        width: 30px;
+        height: 2px;
+        margin: 7px 0;
+    }
+    .navbar-toggler .toggler-icon:nth-child(2) {
+        width: 20px;
+        margin: 9px 0 9px auto;
+    }
+    .navbar-toggler:focus{
+        outline: none;
+        border: none;
+        box-shadow: none;
+    }
+    .logo {
+        width: 60px;
+    }
+    .home_banner,
+    .inner_banner,
+    .account_wraper{
+        margin-top: 90px;
+    }
+    .slider_img img {
+        height: 500px;
+    }
+    .slider_content h3 {
+        font-size: 1.2rem;
+    }
+    .slider_content h2 {
+        font-size: 2rem;
+        max-width: 550px;
+    }
+    .bx-wrapper .bx-controls-direction a{
+        width: 50px;
+        height: 50px;
+    }
+    .bx-wrapper .bx-prev{
+        right: 30px;
+    }
+    .bx-wrapper .bx-next{
+        right: 90px;
+    }
+    .slider_content{
+        padding: 0 30px;
+    }
+    .slider_content h4 {
+        font-size: 1rem;
+    }
+    .about_content h2 {
+        font-size: 2rem;
+    }
+    .about_content h2 span {
+        font-size: 1rem;
+    }
+    .about_img{
+        top: -90px;
+        right: -50px;
+    }
+    .about_img img {
+        max-width: 200px;
+    }
+    .about_img:after{
+        display: none;
+    }
+    .about_img:before{
+        right: 20px;
+        bottom: -150px;
+    }
+    .about_holder{
+        padding: 50px 100px;
+    }
+    .guess_content{
+        width: 90%;
+        padding: 40px 30px;
+    }
+    .guess_content h2 {
+        font-size: 2rem;
+    }
+    .seasons_wraper{
+        padding: 50px 20px;
+    }
+    .current_season h3 {
+        font-size: 1.5rem;
+    }
+    .question_holder:before{
+        left: 0px;
+        width: 120px;
+        height: 150px;
+    }
+    .question_holder h2 {
+        font-size: 2rem;
+    }
+    .question_holder h3 {
+        font-size: 1.2rem;
+    }
+    .question_holder{
+        padding: 40px 0;
+    }
+    .footer_column h2{
+        font-size: 1.2rem;
+    }
+    .footer_column p{
+        font-size: .8rem;
+    }
+    .navbar-toggler{
+        padding: 0;
+    }
+    .inner_banner h1 {
+        padding: 50px 0;
+        font-size: 2.2rem;
+    }
+    .calendar_column{
+        padding: 30px 20px;
+    }
+    .calendar_column h2 {
+        font-size: 1.2rem;
+        margin-bottom: 3rem;
+    }
+    .calendar_column ul li:before{
+        width: 15px;
+        height: 15px;
+    }
+    .calendar_column ul li{
+        padding-left: 25px;
+    }
+    .calendar_column ul li span:first-child {
+        font-size: 1.1rem;
+    }
+    .calendar_column ul li span:last-child{
+        font-size: 1rem;
+    }
+    .rules_holder h3{
+        font-size: 2rem;
+    }
+    .rules_holder p{
+        font-size: 1.2rem;
+    }
+    .login_holder h2{
+        font-size: 2rem;
+    }
+    .register_form h3{
+        font-size: 2rem;
+    }
+    .terms_of_participation h2{
+        font-size: 2rem;
+    }
+    .men_playing_tennis{
+        display: none;
+    }
+    .account_wraper {
+        padding: 30px 0 50px;
+    }
+    .login_content{
+        margin-bottom: 40px;
+        padding: 0 20px;
+    }
+    .playoff_category {
+        font-size: .7rem;
+    }
+    .playoff_player1, .playoff_player2 {
+        font-size: 1rem;
+    }
+    .playoff_vs{
+        font-size: 1.1rem;
+    }
+    .playoff_player1 span,
+    .playoff_player2 span{
+        font-size: .8rem;
+    }
+    .default_wraper{
+        padding: 30px 0;
+        margin-top: 90px;
+    }
+    .content_column{
+        padding: 20px 20px;
+    }
+    .content_header h1{
+        font-size: 2rem;
+    }
+    .menu_sidebar ul li a img {
+        margin-right: 10px;
+    }
+    .menu_sidebar{
+        margin-bottom: 20px;
+    }
+    .navbar-nav{
+        margin: 20px 0;
+    }
+    .navbar-nav li:not(:last-child){
+        margin-bottom: 15px;
+    }
+    .top_right{
+        right: 70px;
+        top: 10px;
+    }
+}
+@media screen and (max-width:767px){
+    header{
+        padding: 10px 0;
+    }
+    .logo {
+        width: 50px;
+    }
+    .home_banner, 
+    .inner_banner,
+    .account_wraper{
+        margin-top: 70px;
+    }
+    .slider_content {
+        padding: 0 10px;
+    }
+    .slider_content h3 {
+        font-size: 1rem;
+    }
+    .slider_content h2 {
+        font-size: 1.5rem;
+        max-width: 100%;
+    }
+    .slider_content h4{
+        padding: 12px 20px;
+    }
+    .bx-wrapper .bx-controls-direction a {
+        width: 40px;
+        height: 40px;
+        bottom: 30px;
+    }
+    .bx-wrapper .bx-prev {
+        right: 15px;
+    }
+    .bx-wrapper .bx-next {
+        right: 65px;
+    }
+    .about_img{
+        display: none;
+    }
+    .about_holder:before{
+        left: -10px;
+        top: -30px;
+        width: 60px;
+        height: 60px;
+    }
+    .about_holder {
+        padding: 50px 20px;
+    }
+    .about_content h2 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+    .about_content p {
+        font-size: 1rem;
+    }
+    .read_more {
+        margin: 20px 0 0;
+    }
+    .read_more a{
+        max-width: 140px;
+        padding: 12px 0;
+    }
+    .about_wraper {
+        padding: 50px 0 0px;
+    }
+    .guess_content {
+        width: 100%;
+        padding: 30px 20px;
+        position: relative;
+        bottom: 30px;
+        right: 0;
+        transform: translateX(0);
+    }
+    .guess_content h2 {
+        font-size: 1.6rem;
+    }
+    .guess_content h4 {
+        font-size: 1.2rem;
+    }
+    .guess_content p{
+        font-size: 1rem;
+    }
+    .guess_wraper {
+        padding: 60px 0 30px;
+    }
+    .seasons_content h2 {
+        font-size: 1.6rem;
+    }
+    .seasons_content p{
+        font-size: 1rem;
+    }
+    .seasons_content ul{
+        margin-top: 40px;
+    }
+    .seasons_content ul li{
+        font-size: 1rem;
+        padding-left: 25px;
+    }
+    .seasons_content ul li:before{
+        width: 15px;
+        height: 15px;
+    }
+    .current_season {
+        padding: 30px 20px;
+    }
+    .current_season h3:before,
+    .current_season h3:after{
+        width: 25px;
+        height: 25px;
+    }
+    .question_holder:before{
+        display: none;
+    }
+    .question_holder h2 {
+        font-size: 1.6rem;
+    }
+    .question_holder h3 {
+        font-size: 1rem;
+    }
+    footer{
+        padding: 20px 0;
+    }
+    .footer_logo img {
+        width: 50px;
+    }
+    .footer_column{
+        margin-bottom: 30px;
+    }
+    .footer_column h2{
+        margin-bottom: 15px !important;
+    }
+    .copyright{
+        font-size: .8rem;
+    }
+    .inner_banner h1 {
+        padding: 40px 0;
+        font-size: 1.5rem;
+    }
+    .covid_content ol li {
+        font-size: 1rem;
+    }
+    .rules_holder h3 {
+        font-size: 1.4rem;
+    }
+    .rules_holder p {
+        font-size: 1rem;
+    }
+    .register_wraper {
+        padding: 20px 0;
+    }
+    .login_holder h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .login_holder p{
+        font-size: 1rem;
+    }
+    .register_form {
+        margin-top: 3rem;
+    }
+    .register_form h3 {
+        font-size: 1.5rem;
+    }
+    .form_group {
+        margin-bottom: 1.5rem;
+    }
+    .form_holder input[type="text"], 
+    .form_holder input[type="email"], 
+    .form_holder input[type="password"], 
+    .form_holder select, .form_holder textarea{
+        padding: 10px 15px;
+    }
+    .payment_info li{
+        font-size: .8rem;
+    }
+    .login_holder{
+        padding: 30px 20px;
+    }
+    .terms_of_participation h2{
+        font-size: 1.5rem;
+    }
+    .login_content h1 {
+        font-size: 1.8rem;
+    }
+    .login_content h1 span {
+        font-size: 1.4rem;
+    }
+    .login_content p {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+    .form_holder input[type="submit"]{
+        font-size: 1.2rem;
+    }
+    .single_content{
+        padding: 12px 10px;
+    }
+    .match_ver{
+        position: absolute;
+        right: 0;
+        bottom: 50px;
+        background: #355947;
+        color: #ffffff;
+    }
+    .single_content h2{
+        margin-right: 0;
+    }
+    .playoffs_header{
+        flex-direction: column;
+    }
+    .playoffs_header h2{
+        margin-bottom: 20px;
+    }
+    .playoffs_dropdown select{
+        width: 100%;
+    }
+    .playoff_category {
+        font-size: 1rem;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .playoff_player1, .playoff_player2 {
+        width: 42%;
+    }
+    .playoff_player1 span, .playoff_player2 span {
+        display: block;
+        margin-left: 0;
+        max-width: 70px;
+        margin-top: 5px;
+    }
+    .playoff_player2{
+        text-align: right;
+    }
+    .playoff_player2 span{
+        margin-left: auto;
+    }
+    .playoff_row:not(:last-child) {
+        margin-bottom: 20px;
+    }
+    .playoff_category{
+        background: rgb(53 89 71 / 30%);
+        color: #355947;
+    }
+    .playoffs_holder {
+        margin: 20px 0 0;
+    }
+    .default_wraper {
+        padding: 30px 0;
+        margin-top: 70px;
+    }
+    .support_content p{
+        font-size: 1.1rem;
+    }
+    .support_content p span{
+        display: inline-block;
+    }
+    .content_column h2{
+        font-size: 1.2rem;
+    }
+    .category_col a{
+        padding: 25px 5px;
+    }
+    .content_header{
+        flex-direction: column;
+        margin-bottom: 3rem;
+    }
+    .content_header h1{
+        margin-bottom: 1rem;
+    }
+    .table_header{
+        flex-direction: column;
+        margin-bottom: 2rem;
+        align-items: flex-start;
+    }
+    .tables_filters {
+        margin-top: 20px;
+    }
+    .tables_filters select{
+        margin-left: 0;
+        margin-right: 5px;
+    }
+    .content_body .table-responsive{
+        white-space: nowrap;
+    }
+    .tables_filters form{
+        flex-wrap: wrap;
+    }
+    .tables_filters form select{
+        width: 48%;
+    }
+    .tables_filters button{
+        width: 100%;
+        margin-top: 8px;
+    }
+    .content_body table tbody tr td .accepted, 
+    .content_body table tbody tr td .pending{
+        padding: 4px 10px;
+    }
+    .tables_filters .checkbox_holder{
+        width: 140px;
+    }
+    .ranking_table {
+        display: block;
+    }
+    .ranking_table .tables_filters form select {
+        width: 100%;
+    }
+    .login_links a{
+        font-size: .8rem;
+        min-width: 80px;
+        padding: 4px 0;
+    }
+    .user_menu{
+        margin-top: -8px;
+    }
+}
+@media screen and (max-width:680px){}
+@media screen and (max-width:480px){}
