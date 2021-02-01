@@ -75,7 +75,7 @@
                                <!-- <button class="btn btn-primary">Match</button> -->
                                <router-link :to="{name:'account-match', params:{type:$route.params.type,  category:$route.params.category, id: data.matches_id, rank:ladder.match_rank_categories_id } }"><button class="btn btn-primary">Match</button></router-link>
                                </span>
-                              <span v-if="data.request_by == user_id && !data.match.played"><button class="btn btn-danger" @click.prevent="challengeDelete(data.id)">Delete</button></span>
+                              <span v-if="data.request_by == user_id && !data.match"><button class="btn btn-danger" @click.prevent="challengeDelete(data.id)">Delete</button></span>
                           </td>
                         </tr>
                       </tbody>
@@ -158,7 +158,9 @@ export default {
  const gender = (getCurrentUser()).gender;
  if(this.ladder.gender==gender){
   const paidCategories = (getCurrentUser()).categories;
- this.is_shown =  paidCategories.find(data => data.matchrankcategories.id==this.ladder.match_rank_categories_id);
+      if(paidCategories){
+          this.is_shown =  paidCategories.find(data => data.matchrankcategories.id==this.ladder.match_rank_categories_id);
+      }
  }
 
   

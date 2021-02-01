@@ -24,7 +24,7 @@
                   <div class="row" v-if="ladders">
                     <div class="col-md-3" v-for="data in ladders" :key="data.id">
                       <div class="category_col">
-                        <router-link :to="{ name: 'account-event_details', params:{season:$route.params.season,ladder: data.id} }"
+                        <router-link :to="{ name: 'account-rankings', params:{season:$route.params.season,ladder: data.id} }"
                           >{{data.title}}</router-link
                         >
                       </div>

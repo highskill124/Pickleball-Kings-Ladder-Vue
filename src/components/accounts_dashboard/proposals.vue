@@ -87,7 +87,7 @@
                               <!-- actions for accept -->
                               <button class="btn btn-info" @click.prevent="purposalAccept(data.id)">Accept</button>
                             </span>
-                            <span v-if="data.request_by == user_id && !data.match.played">
+                            <span v-if="data.request_by == user_id && !data.match">
                               <button class="btn btn-danger" @click.prevent="purposalDelete(data.id)">Delete</button>
                             </span>
                              <!-- <span v-if="data.request_to == user_id"><button class="btn btn-primary">Accepted</button></span> -->
@@ -250,8 +250,10 @@ export default {
        const gender = (getCurrentUser()).gender;
         if(this.ladder.gender==gender){
              const paidCategories = (getCurrentUser()).categories;
+          if(paidCategories){
            this.is_shown =  paidCategories.find(data => data.matchrankcategories.id==this.ladder.match_rank_categories_id);
             console.log(this.is_shown);
+          }
     
 
         // console.log(obj);
