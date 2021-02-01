@@ -92,6 +92,10 @@ export default {
         }
       });
       this.$store.dispatch('setSocials', social_links);
+      if(localStorage.getItem('current_user') && localStorage.getItem('current_user').length){
+          const user = JSON.parse(localStorage.getItem('current_user'));
+          this.$store.dispatch('islogedIn', user);
+        }
      }
   }
 }
