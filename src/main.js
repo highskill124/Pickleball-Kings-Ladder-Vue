@@ -13,6 +13,8 @@ Vue.config.devtools = true
 Vue.prototype.$axios = axios
 axios.defaults.withCredentials = true;
 Vue.component("v-errors", ValidationErrors);
+Vue.component('pagination', require('laravel-vue-pagination'));
+
 new Vue({
   el: '#app',
   store,

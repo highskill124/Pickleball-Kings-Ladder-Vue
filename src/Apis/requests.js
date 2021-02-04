@@ -29,7 +29,12 @@ export default{
     unacceptPurposal(data){
         return axios.post(`${process.env.API_URL}/requests/unaccept-purposal`, data);
     }, 
-    getByRankCategory(type, rank_category){
-        return axios.get(`${process.env.API_URL}/request-by-rank-category/${rank_category}?type=${type}`);
+    getByLadder(type, ladder_id, req_type, filters){
+        if(req_type=="get"){
+            return axios.get(`${process.env.API_URL}/request-by-ladder/${ladder_id}?type=${type}`);
+        } else{
+            return axios.post(`${process.env.API_URL}/request-by-ladder/${ladder_id}?type=${type}`, filters);
+        }
+        
     }
 };

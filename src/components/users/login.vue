@@ -6,12 +6,12 @@
     <div class="row">
       <div class="col-md-7">
         <div class="login_content">
-          <h1><span>Sign In to</span>Kings Tennis Ladder</h1>
+          <h1><span>Sign In to</span>Kings Pickleball Ladder</h1>
           <p>
             If you have forgotten your password, click
             <strong>Forgot your password</strong>, and it will be emailed to
             you. If you have forgotten your user account, email
-            <strong>terriesanz@yahoo.com</strong> to obtain it.
+            <strong>{{admin_email}}@yahoo.com</strong> to obtain it.
           </p>
         </div>
       </div>
@@ -85,6 +85,7 @@ export default {
       loader: true,
       errors: null,
       status: null,
+      admin_email: null,
       loginObj: {
         email: null,
         password: null,
@@ -165,6 +166,7 @@ export default {
     },
   },
   async created() {
+    this.admin_email = window.location.hostname;
     setTimeout(() => {
       this.loader = false;
     }, 1000);

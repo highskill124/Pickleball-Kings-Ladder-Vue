@@ -25,17 +25,16 @@
                   <div class="table_header">
                     <h3>Proposals</h3>
                     <div class="tables_filters">
-                      <form method="" action="">
-                        <select>
-                          <option>Proposer</option>
-                          <option>Men's 3.0 Singles</option>
-                          <option>Men's 3.5 Singles</option>
-                          <option>Men's 4.0 Singles</option>
-                          <option>Men's 4.5+ Singles</option>
-                          <option>Women's 2.5 Singles</option>
-                          <option>Women's 3.0 Singles</option>
-                          <option>Women's 3.5 Singles</option>
-                          <option>Women's 4.0+ Singles</option>
+                      <form method="" action="" @submit.prevent="search()">
+                        <select v-model="searchForm.by">
+                          <option value="">Proposer</option>
+                          <option
+                                v-for="data in users"
+                                :key="data.id"
+                                :value="data.user_id"
+                              >
+                                {{ data.user && data.user.full_name  ? data.user.full_name :''}}
+                              </option>
                         </select>
                         <div class="checkbox_holder">
                           <div class="custom_checkbox">
@@ -44,6 +43,7 @@
                                 class="form-check-input"
                                 type="checkbox"
                                 value=""
+                                v-model="searchForm.pending_only"
                                 id="flexCheckDefault"
                               />
                               <label
@@ -83,7 +83,7 @@
                           <td><span class="pending">{{data.status}}</span></td>
                           <td>{{data.to && data.to.full_name ? data.to.full_name :'' }}</td>
                           <td>
-                            <span v-if="data.request_by != user_id && data.request_to != user_id && data.status=='pending'  && !data.matches_id && is_shown">
+                            <span v-if="data.request_by != user_id && data.request_to != user_id && !data.matches_id && is_shown && (data.status=='pending' || data.status=='emailed' ) ">
                               <!-- actions for accept -->
                               <button class="btn btn-info" @click.prevent="purposalAccept(data.id)">Accept</button>
                             </span>
@@ -99,7 +99,11 @@
                         </tr>
                       </tbody>
                         <tbody v-if="!proposals || !proposals.length">
-                          No proposals created yet in this category
+                          <tr>
+                            <td colspan="6">
+                              <div class="no_record">No proposals created yet in this category</div>
+                            </td>
+                          </tr>
                         </tbody>
                     </table>
                   </div>
@@ -156,7 +160,7 @@
 <script>
 import sidebarComponent from "./sidebar";
 import eventDetailsHeader from "./event-details-header";
-import manageAccess from '../../Apis/manage-access';
+import userApis from '../../Apis/users';
 import requestsApis from '../../Apis/requests';
 import matchLaddersApis from '../../Apis/match-ladders'
 import { getCurrentUserId, getCurrentUser } from "../../utils/auth";
@@ -170,8 +174,13 @@ export default {
       loader: true,
        ladder: null,
       proposals: null,
+      users: null,
       is_shown: false,
       user_id: getCurrentUserId(),
+      searchForm:{
+        by: "",
+        pending_only: false,
+      }
     };
   },
   methods:{
@@ -180,7 +189,7 @@ export default {
       const Objects={accepted_by:getCurrentUserId(),  purposal_id:purposalId};
         await requestsApis.acceptPurposal(Objects).then((response) => {
            if (response.status == 200 || response.status == 204) {
-             this.getPurposals();
+            this.getPurposals("get", "");
            }
         })
          .catch((error) => {
@@ -210,7 +219,7 @@ export default {
       const Objects={id:purposalId};
         await requestsApis.sendRequests('delete',Objects).then((response) => {
             if (response.status == 200 || response.status == 204) {
-                 this.getPurposals();
+                 this.getPurposals("get", "");
             }
         })
         .catch((error) => {
@@ -221,11 +230,11 @@ export default {
         });
     },
     async purposeAll(){
-      console.log('ssssss');
-      const Objects={request_by:getCurrentUserId(), type:'purpose', category:'3.5'};
+      this.loader = true;
+      const Objects={request_by:getCurrentUserId(), type:'purpose', ladder: this.ladder.id, category:this.ladder.match_rank_categories_id};
        await requestsApis.purposeAll(Objects).then((response) => {
           if (response.status == 200 || response.status == 204) {
-             this.getPurposals();
+             this.getPurposals("get", "");
             $("body").removeClass("modal-open");
             $(".fade").removeClass("show");
             $("body").css("padding-right", "0px");           
@@ -239,9 +248,18 @@ export default {
           this.loader = false;
         });
     },
-    async getPurposals(){
-        this.proposals = (await requestsApis.getByRankCategory('purpose',this.ladder.match_rank_categories_id)).data;
+    async getPurposals(type, filters){
+        this.loader = true;
+        this.proposals = (await requestsApis.getByLadder('purpose',this.ladder.id, type, filters)).data;
         this.loader = false;
+    },
+    search(){
+      if(this.searchForm.pending_only || this.searchForm.by!=""){
+           this.getPurposals("post", this.searchForm);
+      } else{
+         this.getPurposals("get", "");
+      }
+
     }
   },
   async created() {
@@ -250,15 +268,15 @@ export default {
        const gender = (getCurrentUser()).gender;
         if(this.ladder.gender==gender){
              const paidCategories = (getCurrentUser()).categories;
-          if(paidCategories){
-           this.is_shown =  paidCategories.find(data => data.matchrankcategories.id==this.ladder.match_rank_categories_id);
-            console.log(this.is_shown);
-          }
-    
-
-        // console.log(obj);
+           if(paidCategories){
+              // this.is_shown =  paidCategories.find(data => data.matchrankcategories.id==this.ladder.match_rank_categories_id);
+              this.is_shown =  paidCategories.find(data => data.match_ladder_id==this.ladder.id);
+              console.log(this.is_shown);
+            }
         }
-      this.getPurposals();
+        // const user =  getCurrentUser();
+      this.users  = (await userApis.PaidUserInLadderWithCurrent(gender, this.$route.params.ladder)).data;
+      this.getPurposals("get", "");
     setTimeout(() => {
       this.loader = false;
     }, 1000);

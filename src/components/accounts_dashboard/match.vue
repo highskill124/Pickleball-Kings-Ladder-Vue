@@ -9,7 +9,6 @@
         <div class="container_large">
           <div class="row">
             <div class="col-md-12 col-lg-3">
-              <!-- Sidebar Panel -->
               <sidebar-component></sidebar-component>
             </div>
             <div class="col-md-12 col-lg-9">
@@ -26,7 +25,7 @@
                             <label>Challenged</label>
                             <input
                               type="datetime-local"
-                              v-model="formObj.challenged"
+                              v-model="formObj.challenged" disabled
                             />
                           </div>                          
                       </div>
@@ -47,7 +46,7 @@
                          <div class="col-md-6">
                           <div class="form_group">
                             <label>Challenged By</label>
-                            <select v-model="formObj.to" required disabled>
+                            <select v-model="formObj.by" required disabled>
                               <option value="">Select</option>
                               <option
                                 v-for="data in users"
@@ -63,7 +62,7 @@
                        <div class="col-md-6">
                           <div class="form_group">
                             <label>Challenged To</label>
-                           <select v-model="formObj.by" required disabled>
+                           <select v-model="formObj.to" required disabled>
                               <option value="">Select</option>
                               <option
                                 v-for="data in users"
@@ -91,7 +90,9 @@
                             />
                           </div>                          
                       </div>
+
                       <div class="col-md-4 col-md-offset-4"></div>
+
                        <div class="col-md-4">
                           <div class="form_group">
                             <input
@@ -109,7 +110,9 @@
                             />
                           </div>                          
                       </div>
+
                       <div class="col-md-4 col-md-offset-4"></div>
+
                        <div class="col-md-4">
                           <div class="form_group">
                             <input
@@ -125,15 +128,23 @@
                               type="number"
                               v-model="formObj.point3_user1"
                             />
+                            <v-errors
+                              :errors="errorFor('point3_user1')"
+                            ></v-errors>
                           </div>                          
                       </div>
+
                       <div class="col-md-4 col-md-offset-4"></div>
+
                        <div class="col-md-4">
                           <div class="form_group">
                             <input
                               type="number"
                               v-model="formObj.point3_user2"
                             />
+                            <v-errors
+                              :errors="errorFor('point3_user2')"
+                            ></v-errors>
                           </div>                          
                       </div>
                       

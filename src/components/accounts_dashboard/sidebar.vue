@@ -166,8 +166,8 @@ export default {
             $("body").css("padding-right", "0px");
            
              this.loader = false;
-             window.location.href ='/';
-            // this.$router.push({ name: "home" });
+            //  window.location.href ='/';
+            this.$router.push({ name: "login" });
           }
         })
         .catch((error) => {

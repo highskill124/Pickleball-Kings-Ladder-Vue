@@ -14,4 +14,7 @@ export default{
                 return axios.get(`${process.env.API_URL}/matches-rankings`);
             }
         },
+        getBySeason(id){
+            return axios.get(`${process.env.API_URL}/matches-rankings-by-season/${id}`);
+        }
 }

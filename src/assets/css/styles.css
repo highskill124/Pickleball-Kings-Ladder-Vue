@@ -546,9 +546,13 @@ footer{
     padding: 20px 15px;
 }
 .menu_sidebar ul li{
-    border-radius: 10px;
-    padding: 10px 15px;
+    /* padding: 10px 15px; */
     position: relative;
+    border-radius: 10px;
+}
+.menu_sidebar ul li a{
+    padding: 10px 15px;
+    border-radius: 10px;
 }
 .menu_sidebar ul li:not(:last-child){
     margin-bottom: 15px;
@@ -566,6 +570,7 @@ footer{
     background: transparent;
     align-items: center;
     width: 100%;
+    padding: 10px 15px;
 }
 .menu_sidebar ul li a img,
 .menu_sidebar ul li button img{
@@ -625,10 +630,11 @@ footer{
     display: none;
 }
 .menu_sidebar ul li .submenu li:not(:last-child){
-    margin-bottom: 10px;
+    margin-bottom: 0;
 }
 .menu_sidebar ul li .submenu li a{
     font-size: .9rem;
+    padding: 10px 15px;
 }
 
 /*Panel Content*/
@@ -645,6 +651,7 @@ footer{
     font-size: 2.5rem;
     font-family: 'Pangram-Bold';
     margin-bottom: 3rem;
+    text-transform: capitalize;
 }
 .content_column h2{
     font-size: 2rem;
@@ -742,23 +749,35 @@ footer{
 }
 .content_body table tbody tr td .pending{
     border-radius: 50px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     background: #E0E915;
     color: #355947;
     padding: 6px 0;
     display: block;
     max-width: 110px;
     text-align: center;
+    text-transform: capitalize;
 }
 .content_body table tbody tr td .accepted{
     border-radius: 50px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     background: #355947;
     color: #fff;
     padding: 6px 0;
     display: block;
     max-width: 110px;
     text-align: center;
+    text-transform: capitalize;
+}
+.content_body table tbody tr td .btn-primary {
+    color: #fff;
+    background-color: #6c63ff;
+    border-color: #6c63ff;
+}
+.content_body table tbody tr td .btn-info {
+    color: #355947;
+    background-color: #E0E915;
+    border-color: #E0E915;
 }
 
 /*Custom Checkbox*/
@@ -1377,6 +1396,18 @@ footer{
 .modal_actions button.confirm_btn{
     background: #355947;
     color: #fff;
+}
+.user_menu_route{
+    padding: 0;
+    background: none;
+    color: #3C3C3C !important;
+    border-radius: 0;
+}
+.no_record{
+    text-align: center;
+    font-size: 1.5rem;
+    color: #6D6D6D;
+    padding: 60px 0 0;
 }
 
 

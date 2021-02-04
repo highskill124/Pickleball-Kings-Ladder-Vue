@@ -20,11 +20,11 @@ export default{
     getBySeason(id){
         return axios.get(`${process.env.API_URL}/matches-ladder-by-season/${id}`);
     },
-    getUserRankingsByLadder(id, filter=null){
+    getUserRankingsByLadder(id, filter=null,page=1){
         if(filter){
             return axios.post(`${process.env.API_URL}/matches-ladder-user-ranking/${id}`, filter);
         } else{
-            return axios.get(`${process.env.API_URL}/matches-ladder-user-ranking/${id}`);
+            return axios.get(`${process.env.API_URL}/matches-ladder-user-ranking/${id}?page=${page}`);
         }
     }
 }

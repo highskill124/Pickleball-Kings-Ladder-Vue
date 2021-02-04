@@ -79,16 +79,6 @@
                         </div>
                         <div class="col-md-6">
                           <div class="form_group">
-                            <label>Playoff date</label>
-                            <input
-                              type="date"
-                               v-model="formObj.playoff_date" required
-                            />
-                            <v-errors :errors="errorFor('playoff_date')"></v-errors>
-                          </div>
-                        </div>
-                         <div class="col-md-6">
-                          <div class="form_group">
                             <label>Weeks in season</label>
                             <select v-model="formObj.number_of_weeks" required>
                               <option value="">Select</option>
@@ -97,6 +87,37 @@
                             <v-errors :errors="errorFor('number_of_weeks')"></v-errors>
                           </div>
                         </div>
+                        <div class="col-md-6">
+                          <div class="form_group">
+                            <label>Playoff date</label>
+                            <input
+                              type="date"
+                               v-model="formObj.playoff_date" required
+                            />
+                            <v-errors :errors="errorFor('playoff_date')"></v-errors>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form_group">
+                            <label>Playoff date2</label>
+                            <input
+                              type="date"
+                               v-model="formObj.playoff_date2" required
+                            />
+                            <v-errors :errors="errorFor('playoff_date2')"></v-errors>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form_group">
+                            <label>Late registration fine</label>
+                            <input
+                              type="number"
+                               v-model="formObj.late_fee" required
+                            />
+                            <v-errors :errors="errorFor('late_fee')"></v-errors>
+                          </div>
+                        </div>
+                         
                         
                         <div class="col-md-12">
                           <div class="form_group">
@@ -150,6 +171,8 @@ export default {
         end_date: "",
         registration_deadline:"",
         playoff_date: "",
+        playoff_date2:"",
+        late_fee: 10
       },
     };
   },
@@ -219,6 +242,7 @@ export default {
         response['end_date'] = moment(response['end_date']).format('YYYY-MM-DD');
         response['registration_deadline'] = moment(response['registration_deadline']).format('YYYY-MM-DD');
         response['playoff_date'] = moment(response['playoff_date']).format('YYYY-MM-DD');
+        response['playoff_date2'] = moment(response['playoff_date2']).format('YYYY-MM-DD');
        this.formObj = response;
     }
     this.single_doubles = (await singleDoubles.requestSingleDoubles("get",'')).data;

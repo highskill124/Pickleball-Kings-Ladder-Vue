@@ -9,13 +9,10 @@
         <div class="container_large">
           <div class="row">
             <div class="col-md-12 col-lg-3">
-              <!-- Sidebar Panel -->
               <sidebar-component></sidebar-component>
             </div>
-            <!-- Content Panel -->
             <div class="col-md-12 col-lg-9">
               <div class="content_column">
-                <!-- event detail header component -->
                 <div class="content_header">
                   <h1>{{ ladder && ladder.title ? ladder.title : "" }}</h1>
                   <event-details-header></event-details-header>
@@ -25,22 +22,22 @@
                     <h3>Matches</h3>
                     <div class="tables_filters">
                       <form method="" action="">
-                        <select v-model="searchForm.match_rank_categories_id">
-                          <option value="null">From</option>
-                          <option
-                            v-for="data in match_ladders"
-                            :key="data"
-                            :value="data.match_rank_categories_id"
+                        <select v-model="searchForm.week">
+                          <option value="">From week</option>
+                           <option
+                            v-for="index in weeks"
+                            :key="index"
+                            :value="index"
                           >
-                            {{ data.title }}
+                            Week {{ index }} of {{weeks}}
                           </option>
                         </select>
                         <select v-model="searchForm.for">
-                          <option value="null">For</option>
+                          <option value="">For</option>
                             <option
                                 v-for="data in users"
                                 :key="data.id"
-                                :value="data.id"
+                                :value="data.user_id"
                               >
                                 {{ data.user && data.user.full_name  ? data.user.full_name :''}}
                               </option>
@@ -59,8 +56,8 @@
                           <th>Played</th>
                           <th>Contestants</th>
                           <th>Scores</th>
-                          <th>LP</th>
                           <th>WP</th>
+                          <th>LP</th>
                         </tr>
                       </thead>
                       <tbody v-if="matches && matches.length">
@@ -106,7 +103,11 @@
                         </tr>
                       </tbody>
                       <tbody v-if="!matches || !matches.length">
-                        No match played in this category
+                        <tr>
+                          <td colspan="6">
+                            <div class="no_record">No match played in this category</div>
+                          </td>
+                        </tr>
                       </tbody>
                     </table>
                   </div>
@@ -126,8 +127,8 @@ import eventDetailsHeader from "./event-details-header";
 import matchesApis from "../../Apis/matches";
 import matchLaddersApis from "../../Apis/match-ladders";
 import userApis from '../../Apis/users';
+import seasonsApis from '../../Apis/seasons';
 import { getCurrentUser } from "../../utils/auth";
-// import manageAccess from '../../Apis/manage-access';
 export default {
   components: {
     sidebarComponent,
@@ -135,42 +136,39 @@ export default {
   },
   data() {
     return {
-      loader: false,
+      loader: true,
       ladder: null,
       users: null,
       match_ladders: null,
       matches: null,
+      weeks: 24,
       searchForm: {
-        match_rank_categories_id: "null",
-        for: "null",
+        week: "",
+        for: "",
       },
     };
   },
   methods: {
-    async getMatches() {
+    async getMatches(type,filters) {
+      this.loader = true;
       this.matches = (
-        await matchesApis.getByRankCategory(
-          this.ladder.match_rank_categories_id,
-          null
+        await matchesApis.getByLadder(
+          this.ladder.id,
+          type, filters
         )
       ).data;
       this.loader = false;
     },
     async Submit() {
       this.loader = true;
-      if (this.searchForm && this.searchForm.match_rank_categories_id != "null" || this.searchForm.for!='null') {
-        console.log('in if');
+      if (this.searchForm && this.searchForm.week != "" || this.searchForm.for!='') {
+
         /*
         as seach button clicks and have match rank category then it will pass new match rank category for seachin
         */
-        this.matches = (
-          await matchesApis.filterMatches(
-            this.searchForm
-          )
-        ).data;
-        this.loader = false;
+        this.getMatches("post",this.searchForm);
       } else {
-        this.getMatches();
+        this.getMatches("get","");
       }
     },
   },
@@ -181,11 +179,14 @@ export default {
     ).data;
   
     const user =  getCurrentUser();
-     this.users  = (await userApis.PaidUserInLadderWithCurrent(user.gender, this.ladder.match_rank_categories_id)).data;
-    this.match_ladders = (
-      await matchLaddersApis.getBySeason(this.$route.params.season)
-    ).data;
-      this.getMatches();
+     this.users  = (await userApis.PaidUserInLadderWithCurrent(user.gender, this.ladder.id)).data;
+
+
+      // get season to show its weeks on search filters
+      this.weeks = parseInt(((await seasonsApis.getById(this.$route.params.season)).data).number_of_weeks);
+
+
+      this.getMatches("get","");
     setTimeout(() => {
       this.loader = false;
     }, 1000);

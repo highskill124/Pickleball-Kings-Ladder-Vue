@@ -4,9 +4,9 @@
       <div class="spinner"></div>
     </div>
     <div class="login_holder">
-      <h2>Kings Tennis Ladder</h2>
+      <h2>Kings Pickleball Ladder</h2>
       <p>
-        To register for Terri’s Tennis Ladder, please fill out the information
+        To register for Kings’s Pickleball Ladder, please fill out the information
         below. After completing, the button at the bottom will take you to
         PayPal’s secure payment site where you can either log in to your
         existing PayPal account or pay with credit card.
@@ -475,14 +475,14 @@
                     /></a>  -->
                     <p>
                       ***Note: By Registering, you agree to the Terms of
-                      Participation in King's Tennis Ladder
+                      Participation in King's Pickleball Ladder
                     </p>
                   </div>
                 </div>
               </div>
             </div>
             <div class="form_group mb-4">
-              <input type="submit" value="Signup" />
+              <input type="submit" value="Signup" :disabled="!paidFor"/>
             </div>
           </div>
         </form>
@@ -496,8 +496,8 @@
         Statement:
       </p>
       <p>
-        I do hereby agree to indemnify and hold Terri’s Tennis Ladder, LLC,
-        TerrisTennisLadder.com, and its creator, Terri Sanz, from and against
+        I do hereby agree to indemnify and hold King’s Pickleball Ladder, LLC,
+        kingspickleballladder.com, from and against
         any and all liability for any injuries which may be incurred by me
         arising out of, or in any way connected with, my participation on the
         ladder.
@@ -514,11 +514,14 @@ import validationErrors from "../../mixins/validationErrors";
 import { is422 } from "../../utils/response";
 import userApis from '../../Apis/users';
 import matchRankingApis from '../../Apis/match-ranks';
+import seasonsApis from './../../Apis/seasons';
+import moment from 'moment';
 export default {
   mixins: [validationErrors],
   data() {
     return {
       status: null,
+      is_deadline_passed: null,
       paidFor: false,
       total_amount:[],
       errors: null,
@@ -548,6 +551,7 @@ export default {
         state: null,
         zip_code: null,
         source: null,
+        season_id: '',
         singles: '',
         additional_singles: '',
         doubles: '',
@@ -573,7 +577,10 @@ export default {
     document.body.appendChild(script);
   },
   methods: {
-
+//  method which check season deadline date is after today
+ isAfterToday(date) {
+    return new Date(date).valueOf() > new Date().valueOf();
+  },
 // calculating total amount due able
   amountDue(label,key, value, price){
 
@@ -684,7 +691,22 @@ export default {
     },
   },
  async created() {
+ 
    const rankings = (await matchRankingApis.requestRankings("get","")).data;
+    const season = (await seasonsApis.getNextUpcomingSeason()).data;
+    if(season){
+        this.signUpobj.season_id = season.id;
+        this.is_deadline_passed = moment(new Date()).isSameOrBefore(season.registration_deadline , "day");
+        // it will return false if current date is after deadline
+        // console.log(this.is_deadline_passed);
+        if(!this.is_deadline_passed){
+          const item={label:'late registration',key:'late_registration',value:'fee', price: season.late_fee};
+          this.total_amount.push(item);
+          this.total += season.late_fee;
+        }
+    }
+ 
+  
    rankings.forEach(element => {
      if(element.type=='singles'){
        this.single_rankings.push(element);
@@ -696,6 +718,8 @@ export default {
        this.mixed_rankings.push(element);
      }
    });
+
+   /** sort rankings  */
    if(this.single_rankings){
      this.single_rankings= this.single_rankings.sort((a, b) => (a.title > b.title) ? 1 : -1)
    }

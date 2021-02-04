@@ -39,7 +39,7 @@
                         <div class="col-md-6" v-if="type!='purpose'">
                           <div class="form_group">
                             <label>{{ type ? type : "" }} To</label>
-                            <select class="2222" v-model="formObj.request_to" required  @change="getRequested()">
+                            <select v-model="formObj.request_to" required  @change="getRequested()">
                               <option value="">Select</option>
                               <option
                                 v-for="data in users"
@@ -54,7 +54,7 @@
                             ></v-errors>
                           </div>
                         </div>
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                           <div class="form_group">
                             <label>Category(ladder)</label>
                             
@@ -63,14 +63,14 @@
                                  <option
                                 v-for="data in categories"
                                 :key="data.id"
-                                :value="data.match_rank_categories_id"
+                                :value="data.id"
                               >
                                 {{ data.matchrankcategories && data.matchrankcategories.title ? data.matchrankcategories.title :''  }}
                               </option>
                             </select>
                             <v-errors :errors="errorFor('category')"></v-errors>
                           </div>
-                        </div>
+                        </div> -->
                         <div class="col-md-6">
                           <div class="form_group">
                             <label>Preferred Area</label>
@@ -90,6 +90,7 @@
                               type="datetime-local"
                               v-model="formObj.time"
                             />
+                             <span v-if="errors && errors.time_error" class="invalid-feedback">{{errors.time_error}}</span>
                             <v-errors :errors="errorFor('time')"></v-errors>
                           </div>
                         </div>
@@ -120,7 +121,6 @@
 <script>
 import sidebarComponent from "./sidebar";
 import requestsApis from "../../Apis/requests";
-import manageAccess from '../../Apis/manage-access'
 import userApis from "../../Apis/users";
 import validationErrors from "../../mixins/validationErrors";
 import { is422 } from "../../utils/response";
@@ -147,7 +147,9 @@ export default {
         request_by: getCurrentUserId(),
         request_by_gender: (getCurrentUser()).gender,
         type: null,
-        category: "",
+        season_id: this.$route.params.season,
+        category: this.$route.params.rank,
+        ladder: this.$route.params.ladder,
         location: "",
         time: null,
       },
@@ -200,7 +202,7 @@ export default {
     }
   },
   async created() {
-    this.categories = (getCurrentUser()).categories;
+    // this.categories = (getCurrentUser()).categories;
     if (this.$route.params.type) {
       this.type = this.$route.params.type;
     /* not sending requset if it is pupose */

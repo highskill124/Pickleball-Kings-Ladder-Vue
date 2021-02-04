@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-Vue.config.devtools = true;
 Vue.use(Vuex);
+Vue.config.devtools = true;
 
 export default new Vuex.Store({
     state: {

@@ -24,22 +24,26 @@
                   <div class="table_header">
                     <h3>Challenges</h3>
                     <div class="tables_filters">
-                      <form method="" action="">
-                        <select>
-                          <option>Challenger</option>
-                          <option>Men's 3.0 Singles</option>
-                          <option>Men's 3.5 Singles</option>
-                          <option>Men's 4.0 Singles</option>
-                          <option>Men's 4.5+ Singles</option>
-                          <option>Women's 2.5 Singles</option>
-                          <option>Women's 3.0 Singles</option>
-                          <option>Women's 3.5 Singles</option>
-                          <option>Women's 4.0+ Singles</option>
-                        </select>
-                        <select>
-                          <option>Challengee</option>
-                          <option>Week 9 of 13</option>
-                          <option>Week 8 of 13</option>
+                      <form method="" action="" @submit.prevent="search()">
+                        <select v-model="searchForm.by">
+                              <option value="">Challenge by</option>
+                              <option
+                                v-for="data in users"
+                                :key="data.id"
+                                :value="data.user_id"
+                              >
+                                {{ data.user && data.user.full_name  ? data.user.full_name :''}}
+                              </option>
+                            </select>
+                        <select v-model="searchForm.to">
+                          <option value="">Challenge to</option>
+                          <option
+                                v-for="data in users"
+                                :key="data.id"
+                                :value="data.user_id"
+                              >
+                                {{ data.user && data.user.full_name  ? data.user.full_name :''}}
+                              </option>
                         </select>
                         <button type="submit">Show</button>
                         <span v-if="is_shown">
@@ -80,7 +84,11 @@
                         </tr>
                       </tbody>
                        <tbody v-if="!matches || !matches.length">
-                          No challenge created yet in this category
+                         <tr>
+                            <td colspan="5">
+                              <div class="no_record">No challenge created yet in this category</div>
+                            </td>
+                          </tr>
                         </tbody>
                     </table>
                   </div>
@@ -99,7 +107,7 @@ import sidebarComponent from "./sidebar";
 import eventDetailsHeader from "./event-details-header";
 import requestsApis from '../../Apis/requests';
 import { getCurrentUserId, getCurrentUser} from "../../utils/auth";
-import manageAccess from '../../Apis/manage-access';
+import userApis from '../../Apis/users';
 import matchLaddersApis from '../../Apis/match-ladders';
 export default {
   components: {
@@ -110,9 +118,14 @@ export default {
       return{
           loader:true,
           matches: null,
+          users: null,
           is_shown: false,
           ladder: null,
-          user_id: getCurrentUserId()
+          user_id: getCurrentUserId(),
+          searchForm:{
+            by: "",
+            to: "",
+          }
       }
   },
   methods:{
@@ -121,7 +134,7 @@ export default {
       const Objects={id:cid};
         await requestsApis.sendRequests('delete',Objects).then((response) => {
             if (response.status == 200 || response.status == 204) {
-                 this.getChallenges();
+                 this.getChallenges("get", "");
             }
         })
         .catch((error) => {
@@ -137,7 +150,7 @@ export default {
       const Objects={accepted_by:getCurrentUserId(),  purposal_id:cid};
         await requestsApis.acceptPurposal(Objects).then((response) => {
            if (response.status == 200 || response.status == 204) {
-             this.getChallenges();
+               this.getChallenges("get", "");
            }
         })
          .catch((error) => {
@@ -148,23 +161,34 @@ export default {
         });
 
     },
-   async getChallenges(){
-      this.matches = (await requestsApis.getByRankCategory('challenge',this.ladder.match_rank_categories_id)).data;
+   async getChallenges(type, filters){
+     this.loader = true
+      this.matches = (await requestsApis.getByLadder('challenge',this.ladder.id, type,filters)).data;
        this.loader = false
     },
+    search(){
+     
+      if(this.searchForm.by!="" || this.searchForm.to!=""){
+          console.log(this.searchForm);
+          this.getChallenges("post", this.searchForm);
+      } else{
+        this.getChallenges("get", "");
+      }
+    }
   },
  async created(){
  this.ladder=(await matchLaddersApis.getById(this.$route.params.ladder)).data;
  const gender = (getCurrentUser()).gender;
  if(this.ladder.gender==gender){
   const paidCategories = (getCurrentUser()).categories;
-      if(paidCategories){
-          this.is_shown =  paidCategories.find(data => data.matchrankcategories.id==this.ladder.match_rank_categories_id);
-      }
+  console.log(paidCategories);
+  if(paidCategories){
+    this.is_shown =  paidCategories.find(data => data.match_ladder_id==this.$route.params.ladder);
+   }
  }
-
-  
-   this.getChallenges();
+        this.users  = (await userApis.PaidUserInLadderWithCurrent(gender, this.$route.params.ladder)).data;
+          
+  this.getChallenges("get", "");
 
       setTimeout(() => {
           this.loader = false

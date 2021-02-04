@@ -10,13 +10,11 @@ import forgetPasswordComponent from './components/users/forgetPassword';
 import resetPasswordComponent from './components/users/resetPassword';
 
 import acountsEvents from './components/accounts_dashboard/events';
-import accountEventsDoubles from './components/accounts_dashboard/events_doubles';
-import accountEventsMixed from './components/accounts_dashboard/events_mixed';
 import acountsEventDetail from './components/accounts_dashboard/event_details';
 import accountResetPassword from './components/accounts_dashboard/reset-password';
 import accountProfileSettings from './components/accounts_dashboard/profile-settings';
-import adminResetPassword from './components/admin/reset-password';
-import adminProfileSettings from './components/admin/profile-settings';
+
+
 import accountMatches from './components/accounts_dashboard/matches';
 import accountChallengs from './components/accounts_dashboard/challenges';
 import accountProposals from './components/accounts_dashboard/proposals';
@@ -30,7 +28,11 @@ import adminAddUpdateSocials from './components/admin/addUpdateSocial_links';
 import adminSeasons from './components/admin/seasons';
 import adminAddUpdateSeasons from './components/admin/addUpdateSeasons';
 import cleancloud from './components/cleancloud';
-
+import adminResetPassword from './components/admin/reset-password';
+import adminProfileSettings from './components/admin/profile-settings';
+import listUsers from './components/admin/users';
+import updateUserPassword from './components/admin/updateUserPassword';
+import updateUserSeason from'./components/admin/updateUserSeason';
 
 import { isLoggedIn, isloginAdmin } from "./utils/auth";
 const routes = [
@@ -125,26 +127,6 @@ const routes = [
         },
         reuse: true
     },
-    // {
-    //     path: "/account/events_doubles/:type",
-    //     name: "account-events_doubles",
-    //     component: accountEventsDoubles,
-    //     meta: {
-    //         NoLoginRequired: false,
-    //         UserLoginRequired: true,
-    //         AdminLoginRequired: false
-    //     }
-    // },
-    // {
-    //     path: "/account/events_mixed/:type",
-    //     name: "account-events_mixed",
-    //     component: accountEventsMixed,
-    //     meta: {
-    //         NoLoginRequired: false,
-    //         UserLoginRequired: true,
-    //         AdminLoginRequired: false
-    //     }
-    // },
     {
         path: "/account/event_details/:season/:ladder",
         name: "account-event_details",
@@ -261,6 +243,36 @@ const routes = [
         path: "/admin/reset-password",
         name: "admin-reset-password",
         component: adminResetPassword,
+        meta: {
+            NoLoginRequired: false,
+            UserLoginRequired: false,
+            AdminLoginRequired: true
+        }
+    },
+    {
+        path: "/admin/list-users",
+        name: "admin-users",
+        component: listUsers,
+        meta: {
+            NoLoginRequired: false,
+            UserLoginRequired: false,
+            AdminLoginRequired: true
+        }
+    },
+    {
+        path: "/admin/update-user/:id",
+        name: "admin-user-password",
+        component: updateUserPassword,
+        meta: {
+            NoLoginRequired: false,
+            UserLoginRequired: false,
+            AdminLoginRequired: true
+        }
+    },
+    {
+        path: "/admin/update-user-season/:id",
+        name: "admin-user-season",
+        component: updateUserSeason,
         meta: {
             NoLoginRequired: false,
             UserLoginRequired: false,

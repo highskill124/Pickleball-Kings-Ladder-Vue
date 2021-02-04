@@ -13,13 +13,16 @@ export default {
             return axios.get(`${process.env.API_URL}/matches`);
         }
     },
-    getByRankCategory(rank_category){
-        return axios.get(`${process.env.API_URL}/request-matches-by-rank-category/${rank_category}`);
+    getByLadder(id, req_type, filters){
+        if(req_type=="get"){
+            return axios.get(`${process.env.API_URL}/request-matches-by-ladder/${id}`);
+        } else{
+            return axios.post(`${process.env.API_URL}/request-matches-by-ladder/${id}`, filters);
+        }
+       
     },
     getById(id){
         return axios.get(`${process.env.API_URL}/matches/${id}`);
     },
-    filterMatches(filters){
-        return axios.post(`${process.env.API_URL}/filter-matches-by-rank-category`, filters);
-    }
+    
 }

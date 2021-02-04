@@ -46,10 +46,12 @@
             <!-- <a href="#">Sign Up</a> -->
           </div>
           <!-- User Menu -->
-          <div class="user_menu"  v-if="user && full_name">
-              <div id="profileImage">{{intials}}</div>
-              <span id="fullName">{{full_name}}</span>
+           <router-link :to="{name:redirect_name}" class="user_menu_route" v-if="user && user.length"> 
+            <div class="user_menu">             
+             <div id="profileImage">{{intials}}</div>
+              <span id="fullName">{{full_name}}</span>              
           </div>
+           </router-link>         
         </div>
       </div>
     </header>
@@ -64,21 +66,28 @@ export default {
       full_name: null,
       intials: null,
       facebook_link: null,
-       instagram_link: null,
+      redirect_name: null,
+      instagram_link: null,
     }
   },
-  
    computed:{
     user(){
       if(this.$store.state.logedInUser){       
         if(this.$store.state.logedInUser[0] && this.$store.state.logedInUser[0].full_name){
+          const user = this.$store.state.logedInUser[0];
+          if(user.is_admin=='1'){
+            this.redirect_name = 'admin-socials';
+          } else{
+            this.redirect_name = 'account-profile-settings';
+          }
            this.full_name = this.$store.state.logedInUser[0].full_name;
             const intials = this.full_name.split(' ').map(name => name[0]).join('').toUpperCase();
             this.intials = intials;
           }   
         return this.$store.state.logedInUser;
-      }
+      } else if(!this.$store.state.logedInUser[0].length){
        return null;
+       }
     }
   },
   async created(){
@@ -92,10 +101,10 @@ export default {
         }
       });
       this.$store.dispatch('setSocials', social_links);
-      if(localStorage.getItem('current_user') && localStorage.getItem('current_user').length){
-          const user = JSON.parse(localStorage.getItem('current_user'));
-          this.$store.dispatch('islogedIn', user);
-        }
+     }
+     if(localStorage.getItem('current_user') && localStorage.getItem('current_user').length){
+       const user = JSON.parse(localStorage.getItem('current_user'));
+       this.$store.dispatch('islogedIn', user);
      }
   }
 }

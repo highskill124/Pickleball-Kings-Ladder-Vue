@@ -6,7 +6,7 @@
     <!--  Banner Starts Here   -->
     <div class="inner_banner">
       <div class="container_large">
-        <h1>Tennis Ladder Calendar</h1>
+        <h1>Pickleball Ladder Calendar</h1>
       </div>
     </div>
     <!--  Banner Ends Here   -->
@@ -15,7 +15,7 @@
     <main>
       <section class="inner_wraper">
         <div class="container_large">
-          <div class="row" v-if="seasons &&  seasons.length">
+          <div class="row" v-if="seasons && seasons.length">
             
             <div class="col-md-6" v-for="data in seasons" :key="data.id">
               <div class="calendar_column">

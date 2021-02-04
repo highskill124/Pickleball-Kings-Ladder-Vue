@@ -24,6 +24,12 @@ export default {
     updatePassword(id,form){
         return axios.post(`${process.env.API_URL}/user/update-password/${id}`, form);
     },
+    adminUpdatePassword(form){
+        return axios.post(`${process.env.API_URL}/user/admin-update-password/${form.id}`, form);
+    },
+    adminUpdateSeason(form){
+        return axios.post(`${process.env.API_URL}/user/admin-update-season/${form.id}`, form);
+    },
     requestUsers(type, form) {
         if (type == 'put') {
             return axios.put(`${process.env.API_URL}/users/${form.id}`, form);

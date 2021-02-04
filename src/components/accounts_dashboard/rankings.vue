@@ -30,13 +30,13 @@
                           v-model="filter_week"
                           @change.prevent="WeekFilter()"
                         >
-                          <option value="null">Select</option>
+                          <option value="null">Select week</option>
                           <option
-                            v-for="index in 24"
+                            v-for="index in weeks"
                             :key="index"
                             :value="index"
                           >
-                            Week {{ index }} of 24
+                            Week {{ index }} of {{weeks}}
                           </option>
                         </select>
                       </form>
@@ -53,8 +53,8 @@
                           <th>Pts</th>
                         </tr>
                       </thead>
-                      <tbody v-if="rankings && rankings.length">
-                        <tr v-for="(data, index) in rankings" :key="index">
+                      <tbody v-if="rankings && rankings.data && rankings.data.length">
+                        <tr v-for="(data, index) in rankings.data" :key="index">
                           <td>
                             {{
                               data.user && data.user.full_name
@@ -63,41 +63,26 @@
                             }}
                           </td>
                           <td><strong>{{data.rank ? data.rank :'' }}</strong></td>
-                         <td>{{data.WP ? data.WP :''}}</td>
-                          <td>{{data.LP ? data.LP :''}}</td>
+                         <td>{{data.WP ? data.WP :'0'}}</td>
+                          <td>{{data.LP ? data.LP :'0'}}</td>
                           <td>
                             {{ data.rank_points ? data.rank_points : "" }}
                           </td>
                         </tr>
                       </tbody>
-                      <tbody v-if="!rankings || !rankings.length">
-                        No ranking exists
+                      <tbody v-if="!rankings || !rankings.data || !rankings.data.length">
+                        <tr>
+                          <td colspan="6">
+                            <div class="no_record">No Ranking Exists</div>
+                          </td>
+                        </tr>
                       </tbody>
                     </table>
                   </div>
                   <div class="pagination_holder">
+                   
                     <nav aria-label="Page navigation example">
-                      <ul class="pagination">
-                        <li class="page-item">
-                          <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                          </a>
-                        </li>
-                        <li class="page-item active">
-                          <a class="page-link" href="#">1</a>
-                        </li>
-                        <li class="page-item">
-                          <a class="page-link" href="#">2</a>
-                        </li>
-                        <li class="page-item">
-                          <a class="page-link" href="#">3</a>
-                        </li>
-                        <li class="page-item">
-                          <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                          </a>
-                        </li>
-                      </ul>
+                      <pagination :data="rankings" :limit="2" @pagination-change-page="getRankings"></pagination>
                     </nav>
                   </div>
                 </div>
@@ -114,6 +99,7 @@
 import sidebarComponent from "./sidebar";
 import eventDetailsHeader from "./event-details-header";
 import matchLaddersApis from "../../Apis/match-ladders";
+import seasonsApis from '../../Apis/seasons';
 export default {
   components: {
     sidebarComponent,
@@ -122,6 +108,7 @@ export default {
   data() {
     return {
       loader: true,
+      weeks: 24,
       ladder: null,
       rankings: null,
       filter_week: 'null',
@@ -141,19 +128,28 @@ export default {
         this.getRankings();
       }
     },
-    async getRankings() {
+    async getRankings(page = 1) {
+      this.loader = true;
       this.rankings = (
         await matchLaddersApis.getUserRankingsByLadder(
-          this.$route.params.ladder, null
+          this.$route.params.ladder, null, page
         )
       ).data;
       this.loader = false;
     },
   },
+   mounted() {
+    // Fetch initial results
+    this.getRankings();
+  },
   async created() {
     this.ladder = (
       await matchLaddersApis.getById(this.$route.params.ladder)
     ).data;
+
+    // get season to show its weeks on search filters
+      this.weeks = parseInt(((await seasonsApis.getById(this.$route.params.season)).data).number_of_weeks);
+
     this.getRankings();
 
     // setTimeout(() => {

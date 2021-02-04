@@ -46,9 +46,9 @@
         </div>
       </li>
       <li>
-        <router-link :to="{ name: 'account-support' }"
+        <router-link :to="{ name: 'admin-users' }"
           ><img src="/src/assets/images/support.svg" alt="" />
-          <span>Support</span></router-link
+          <span>Users</span></router-link
         >
       </li>
       <li>
@@ -131,8 +131,8 @@ export default {
             $("body").css("padding-right", "0px");
 
             this.loader = false;
-            window.location.href = "/";
-            // this.$router.push({ name: "home" });
+            // window.location.href = "/";
+            this.$router.push({ name: "login" });
           }
         })
         .catch((error) => {

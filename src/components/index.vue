@@ -16,9 +16,9 @@
           </div>
           <div class="slider_content">
             <div class="container_large">
-              <h3>Welcome to Kings Tennis Ladder</h3>
+              <h3>Welcome to Kings Pickleball Ladder</h3>
               <h2>
-                Want to Play Tennis in a <span>Super Fun</span> Super Flexible
+                Want to Play Pickleball in a <span>Super Fun</span> Super Flexible
                 league?
               </h2>
               <h4>First Season Spring 2021!</h4>
@@ -35,9 +35,9 @@
           </div>
           <div class="slider_content">
             <div class="container_large">
-              <h3>Welcome to Kings Tennis Ladder</h3>
+              <h3>Welcome to Kings Pickleball Ladder</h3>
               <h2>
-                Want to Play Tennis in a <span>Super Fun</span> Super Flexible
+                Want to Play Pickleball in a <span>Super Fun</span> Super Flexible
                 league?
               </h2>
               <h4>First Season Spring 2021!</h4>
@@ -54,9 +54,9 @@
         <div class="container_large">
           <div class="about_holder">
             <div class="about_content">
-              <h2><span>About</span>Kings Tennis Ladder</h2>
+              <h2><span>About</span>Kings Pickleball Ladder</h2>
               <p>
-                Kings Tennis ladder is a year-round tennis ladder open to Adult
+                Kings Pickleball ladder is a year-round tennis ladder open to Adult
                 Men and Women of all skill levels in Upstate South Carolina.
                 This league is based out of Greenville, SC but players from
                 Anderson, Clemson, and any other surrounding areas in Upstate SC
@@ -103,7 +103,7 @@
           <div class="row">
             <div class="col-md-12 col-lg-8">
               <div class="seasons_content">
-                <h2>Kings Tennis Seasons</h2>
+                <h2>Kings Pickleball Seasons</h2>
                 <p>
                   There will be 4 seasons every year, each lasting 8 weeks. At
                   the end of each season, there will be a special tournament
@@ -142,7 +142,7 @@
             <h2>More Questions?</h2>
             <h3>
               Head to the <span>How it Works</span> tab or email
-              <span>kings@tennis.com</span>
+              <span>{{admin_email}}@tennis.com</span>
             </h3>
             <div class="read_more"><a href="#">Sign up Today! </a></div>
           </div>
@@ -157,9 +157,11 @@ export default {
   data() {
     return {
       loader: true,
+      admin_email: '',
     };
   },
   created() {
+    this.admin_email = window.location.hostname;
     setTimeout(() => {
       this.loader = false;
     }, 1000);

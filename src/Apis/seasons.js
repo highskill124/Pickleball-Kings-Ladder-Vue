@@ -15,5 +15,8 @@ export default {
     },
     getById(id){
         return axios.get(`${process.env.API_URL}/seasons/${id}`);
+    },
+    getNextUpcomingSeason(){
+        return axios.get(`${process.env.API_URL}/get-next-available-season`);
     }
 }
