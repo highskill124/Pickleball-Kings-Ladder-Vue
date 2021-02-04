@@ -121,14 +121,14 @@
             <div class="col-md-12 col-lg-4">
               <div class="current_season">
                 <h3>Current Season</h3>
-                <ul>
-                  <li>Spring 2021 Dates</li>
-                  <li>Monday March 15th- Sunday May 16th</li>
+                <ul v-if="season">
+                  <li>{{season.title ? season.title :''}} Dates</li>
+                  <li>{{season.start_date_formated ? season.start_date_formated :'' }}- {{season.end_date_formated ? season.end_date_formated :'' }}</li>
                   <li>
-                    <strong>Deadline to register</strong> for $5 off March 10th
+                    <strong>Deadline to register</strong> for $30 off {{season.registration_deadline_formated ? season.registration_deadline_formated :'' }}
                   </li>
                   <li>
-                    <strong>Playoff Tournament</strong> May 22nd and May 23rd
+                    <strong>Playoff Tournament</strong> {{season.playoff1_formated ? season.playoff1_formated :'' }} and {{season.playoff2_formated ? season.playoff2_formated :'' }}
                   </li>
                 </ul>
               </div>
@@ -153,15 +153,18 @@
   </div>
 </template>
 <script>
+import seasonsApis from '../Apis/seasons';
 export default {
   data() {
     return {
       loader: true,
+      season: null,
       admin_email: '',
     };
   },
-  created() {
+  async created() {
     this.admin_email = window.location.hostname;
+    this.season = (await seasonsApis.getNextUpcomingSeason()).data;
     setTimeout(() => {
       this.loader = false;
     }, 1000);
