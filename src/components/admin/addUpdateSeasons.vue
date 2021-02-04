@@ -238,7 +238,7 @@ export default {
   async created() {
     if(this.$route.params.id){
       const response = (await seasonsApis.getById(this.$route.params.id)).data;
-        response['start_date'] = moment(response['start_data']).format('YYYY-MM-DD');
+        response['start_date'] = moment(response['start_date']).format('YYYY-MM-DD');
         response['end_date'] = moment(response['end_date']).format('YYYY-MM-DD');
         response['registration_deadline'] = moment(response['registration_deadline']).format('YYYY-MM-DD');
         response['playoff_date'] = moment(response['playoff_date']).format('YYYY-MM-DD');
