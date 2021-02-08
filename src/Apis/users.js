@@ -4,6 +4,9 @@ export default {
     getCSRF() {
         return axios.get(`${process.env.Backend_URL}/sanctum/csrf-cookie`);
     },
+    verifyEmail(id){
+        return axios.get(`${process.env.API_URL}/email/verify/${id}`);
+    },
     login(loginObj) {
         return axios.post(`${process.env.Backend_URL}/login`, loginObj);
     },

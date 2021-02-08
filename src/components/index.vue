@@ -5,7 +5,48 @@
     </div>
     <!--  Banner Starts Here   -->
     <div class="home_banner">
-      <div class="bxslider">
+      <VueSlickCarousel v-bind="settings">
+        <div>
+          <div class="slider_img">
+            <img
+              src="/src/assets/images/slider-1.png"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+          <div class="slider_content">
+            <div class="container_large">
+              <h3>Welcome to Kings Pickleball Ladder</h3>
+              <h2>
+                Want to Play Tennis in a <span>Super Fun</span> Super Flexible
+                league?
+              </h2>
+              <h4>First Season Spring 2021!</h4>
+            </div>
+          </div>
+        </div>
+        <!-- slide two -->
+        <div>
+          <div class="slider_img">
+            <img
+              src="/src/assets/images/slider-1.png"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+          <div class="slider_content">
+            <div class="container_large">
+              <h3>Welcome to Kings Pickleball Ladder</h3>
+              <h2>
+                Want to Play Tennis in a <span>Super Fun</span> Super Flexible
+                league?
+              </h2>
+              <h4>First Season Spring 2021!</h4>
+            </div>
+          </div>
+        </div>
+      </VueSlickCarousel>
+      <!-- <div class="bxslider">
         <div class="slider_item">
           <div class="slider_img">
             <img
@@ -18,7 +59,7 @@
             <div class="container_large">
               <h3>Welcome to Kings Pickleball Ladder</h3>
               <h2>
-                Want to Play Pickleball in a <span>Super Fun</span> Super Flexible
+                Want to Play Tennis in a <span>Super Fun</span> Super Flexible
                 league?
               </h2>
               <h4>First Season Spring 2021!</h4>
@@ -37,14 +78,14 @@
             <div class="container_large">
               <h3>Welcome to Kings Pickleball Ladder</h3>
               <h2>
-                Want to Play Pickleball in a <span>Super Fun</span> Super Flexible
+                Want to Play Tennis in a <span>Super Fun</span> Super Flexible
                 league?
               </h2>
               <h4>First Season Spring 2021!</h4>
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
     <!--  Banner Ends Here   -->
 
@@ -122,13 +163,34 @@
               <div class="current_season">
                 <h3>Current Season</h3>
                 <ul v-if="season">
-                  <li>{{season.title ? season.title :''}} Dates</li>
-                  <li>{{season.start_date_formated ? season.start_date_formated :'' }}- {{season.end_date_formated ? season.end_date_formated :'' }}</li>
+                  <li>{{ season.title ? season.title : "" }} Dates</li>
                   <li>
-                    <strong>Deadline to register</strong> for $30 off {{season.registration_deadline_formated ? season.registration_deadline_formated :'' }}
+                    {{
+                      season.start_date_formated
+                        ? season.start_date_formated
+                        : ""
+                    }}-
+                    {{
+                      season.end_date_formated ? season.end_date_formated : ""
+                    }}
                   </li>
                   <li>
-                    <strong>Playoff Tournament</strong> {{season.playoff1_formated ? season.playoff1_formated :'' }} and {{season.playoff2_formated ? season.playoff2_formated :'' }}
+                    <strong>Deadline to register</strong> for $30 off
+                    {{
+                      season.registration_deadline_formated
+                        ? season.registration_deadline_formated
+                        : ""
+                    }}
+                  </li>
+                  <li>
+                    <strong>Playoff Tournament</strong>
+                    {{
+                      season.playoff1_formated ? season.playoff1_formated : ""
+                    }}
+                    and
+                    {{
+                      season.playoff2_formated ? season.playoff2_formated : ""
+                    }}
                   </li>
                 </ul>
               </div>
@@ -142,7 +204,7 @@
             <h2>More Questions?</h2>
             <h3>
               Head to the <span>How it Works</span> tab or email
-              <span>{{admin_email}}@tennis.com</span>
+              <span>kings@tennis.com</span>
             </h3>
             <div class="read_more"><a href="#">Sign up Today! </a></div>
           </div>
@@ -153,17 +215,30 @@
   </div>
 </template>
 <script>
-import seasonsApis from '../Apis/seasons';
+import seasonsApis from "../Apis/seasons";
+import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+// optional style for arrows & dots
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 export default {
+  components: { VueSlickCarousel },
   data() {
     return {
       loader: true,
       season: null,
-      admin_email: '',
+      settings: {
+        dots: true,
+        arrows: true,
+        dotsClass: "slick-dots custom-dot-class",
+        edgeFriction: 0.35,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
     };
   },
   async created() {
-    this.admin_email = window.location.hostname;
     this.season = (await seasonsApis.getNextUpcomingSeason()).data;
     setTimeout(() => {
       this.loader = false;

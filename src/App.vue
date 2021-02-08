@@ -58,9 +58,12 @@ export default {
 }
 .router-link-exact-active{
     border-radius: 10px;
-    padding: 10px 15px;
+    /* padding: 10px 15px; */
     position: relative;
     color: #fff !important;
+}
+.nav-admin .router-link-exact-active{
+    padding: 10px 15px;
 }
 .menu_sidebar .router-link-exact-active img{
     filter: invert(1);
@@ -81,4 +84,8 @@ input[type="date"], input[type="datetime-local"], input[type="number"]{
     border-radius: 10px;
     padding: 15px 20px;
     }
+
+.user_menu_route .router-link-exact-active{
+    background: none !important;
+}
 </style>

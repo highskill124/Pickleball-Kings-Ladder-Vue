@@ -4,15 +4,6 @@
   <link rel="icon" href="/src/assets/images/favicon.png" type="image/x-icon">
   <title>tennis-ladder-vue</title> -->
 
-  <!--   Bootstrap CSS   -->
-  <link href="/src/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-
-  <!--    Font Awesome CSS   -->
-  <!-- <link href="./src/assets/css/all.min.css" rel="stylesheet" type="text/css">  -->
-<!--   Bx Slider CSS   -->
-  <link href="/src/assets/css/jquery.bxslider.css" rel="stylesheet" type="text/css"> 
-  <!--    Custome CSS   -->
-  <link href="/src/assets/css/styles.css" rel="stylesheet" type="text/css">
     <!--  Header Start Here   -->
       <header>
       <div class="container_large">

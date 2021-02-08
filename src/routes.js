@@ -6,6 +6,7 @@ import covidomponent from './components/covid';
 import rulesComponent from'./components/rules';
 import loginComponent from './components/users/login';
 import signUpcomponent from './components/users/signup';
+import verifyEmailComponent from './components/users/verifyEmail';
 import forgetPasswordComponent from './components/users/forgetPassword';
 import resetPasswordComponent from './components/users/resetPassword';
 
@@ -56,6 +57,14 @@ const routes = [
         path: "/signup",
         name: "signup",
         component: signUpcomponent,
+        meta: {
+            NoLoginRequired: false,
+        }
+    },
+    {
+        path: "/verify-email-address/:id",
+        name: "verify-email-address",
+        component: verifyEmailComponent,
         meta: {
             NoLoginRequired: false,
         }

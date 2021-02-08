@@ -52,7 +52,7 @@
                             <label>Start Date</label>
                              <input
                               type="date"
-                               v-model="formObj.start_date" required
+                               v-model="formObj.start_date" 
                             />
                             <v-errors :errors="errorFor('start_date')"></v-errors>
                           </div>
@@ -62,7 +62,7 @@
                             <label>End date</label>
                             <input
                               type="date"
-                               v-model="formObj.end_date" required
+                               v-model="formObj.end_date" 
                             />
                             <v-errors :errors="errorFor('end_date')"></v-errors>
                           </div>
@@ -72,7 +72,7 @@
                             <label>Deadline for registration</label>
                              <input
                               type="date"
-                               v-model="formObj.registration_deadline" required
+                               v-model="formObj.registration_deadline" 
                             />
                             <v-errors :errors="errorFor('registration_deadline')"></v-errors>
                           </div>
@@ -92,7 +92,7 @@
                             <label>Playoff date</label>
                             <input
                               type="date"
-                               v-model="formObj.playoff_date" required
+                               v-model="formObj.playoff_date" 
                             />
                             <v-errors :errors="errorFor('playoff_date')"></v-errors>
                           </div>
@@ -102,7 +102,7 @@
                             <label>Playoff date2</label>
                             <input
                               type="date"
-                               v-model="formObj.playoff_date2" required
+                               v-model="formObj.playoff_date2" 
                             />
                             <v-errors :errors="errorFor('playoff_date2')"></v-errors>
                           </div>
@@ -115,6 +115,23 @@
                                v-model="formObj.late_fee" required
                             />
                             <v-errors :errors="errorFor('late_fee')"></v-errors>
+                          </div>
+                        </div>
+                         <div class="col-md-6">
+                          <div class="form_group">
+                            <label>Dates not decided</label>
+                            <div class="custom_checkbox">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  value=""
+                                   v-model="formObj.dates_not_decided"
+                                  id="date-finalized"
+                                />
+                                
+                              </div>
+                            </div>
                           </div>
                         </div>
                          
@@ -165,13 +182,14 @@ export default {
         id: null,  
         title: null,   
         number_of_weeks: "",
-        weeks:[],
+        weeks: '',
         match_single_doubles_id: "",   
         start_date: "",
         end_date: "",
         registration_deadline:"",
         playoff_date: "",
         playoff_date2:"",
+        dates_not_decided: '',
         late_fee: 10
       },
     };

@@ -136,7 +136,7 @@ export default {
            this.loader = false;
             if(response.data.is_admin!=0){ 
               loginAdmin();
-              this.$router.push({ name: "admin-socials" });
+              this.$router.push({ name: "admin-seasons" });
             } else{
               this.$router.push({ name: "account-profile-settings" });
             }

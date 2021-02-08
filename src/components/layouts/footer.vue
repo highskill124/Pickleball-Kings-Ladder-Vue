@@ -42,13 +42,7 @@
       </div>
       <div class="copyright">© Copyright 2020 Kings Tennis Ladder</div>
     </div>
-     <!-- JS   -->
-  <script src="/src/assets/js/jquery-3.4.1.min.js" type="application/javascript"></script>
-  <script src="/src/assets/js/popper.min.js" type="application/javascript"></script>
-  <script src="/src/assets/js/bootstrap.min.js" type="application/javascript"></script>
-  <script src="/src/assets/js/all.min.js" type="application/javascript"></script>
-   <script src="/src/assets/js/jquery.bxslider.min.js" type="application/javascript"></script>
-  <script src="/src/assets/js/custom-scripts.js" type="application/javascript"></script>
+    
   </footer>
 </template>
 <script>

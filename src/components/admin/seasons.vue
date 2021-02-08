@@ -39,15 +39,15 @@
                       <tbody>
                         <tr v-for="data in seasons" :key="data.id">
                           <td>{{data.title}}</td>
-                          <td>{{ data.start_date }}</td>
+                          <td>{{ data.start_date ? data.start_date  :'Not decided yet' }}</td>
                           <td>
-                            <strong>{{ data.end_date }}</strong>
+                            <strong>{{ data.end_date ? data.end_date  :'Not decided yet'  }}</strong>
                           </td>
                           <td>
-                            {{ data.registration_deadline }}
+                            {{ data.registration_deadline ? data.registration_deadline  :'Not decided yet' }}
                           </td>
                           <td>
-                            {{ data.playoff_date }}
+                            {{ data.playoff_date ? data.playoff_date  :'Not decided yet' }}
                           </td>
                           <td>
                             <router-link
