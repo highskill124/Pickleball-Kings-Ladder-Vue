@@ -11,7 +11,7 @@
             If you have forgotten your password, click
             <strong>Forgot your password</strong>, and it will be emailed to
             you. If you have forgotten your user account, email
-            <strong>{{admin_email}}@yahoo.com</strong> to obtain it.
+            <strong>{{admin_email && admin_email.url ? admin_email.url :''}}</strong> to obtain it.
           </p>
         </div>
       </div>
@@ -78,6 +78,7 @@ import validationErrors from "../../mixins/validationErrors";
 import { is422 } from "../../utils/response";
 import { logIn, getCurrentUser, loginAdmin, setCurrentUser } from "../../utils/auth";
 import usersApis from "../../Apis/users";
+import socialLinksApis from '../../Apis/socialLinks';
 export default {
   mixins: [validationErrors],
   data() {
@@ -85,6 +86,7 @@ export default {
       loader: true,
       errors: null,
       status: null,
+      admin_email: null,
       admin_email: null,
       loginObj: {
         email: null,
@@ -166,7 +168,7 @@ export default {
     },
   },
   async created() {
-    this.admin_email = window.location.hostname;
+   this.admin_email = (await socialLinksApis.getByType({type : 'admin_email'})).data
     setTimeout(() => {
       this.loader = false;
     }, 1000);

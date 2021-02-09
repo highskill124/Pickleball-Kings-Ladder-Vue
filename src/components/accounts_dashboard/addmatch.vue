@@ -209,7 +209,7 @@ export default {
       if(this.type!='purpose'){
         const user =  getCurrentUser();
           //  this.users = (await userApis.getByGenger(user.gender)).data;
-          this.users  = (await userApis.PaidUserInLadder(user.gender, this.$route.params.rank)).data;
+          this.users  = (await userApis.PaidUserInLadder(user.gender, this.$route.params.ladder)).data;
            /* remove current user from users */
            
            if(this.users){

@@ -34,6 +34,7 @@
                               <option value="">Select</option>
                               <option value="facebook">Facebook</option>
                               <option value="instagram">Instagram</option>
+                               <option value="admin_email">Admin email</option>
                             </select>
                             <v-errors :errors="errorFor('type')"></v-errors>
                           </div>
@@ -44,7 +45,7 @@
                             <input
                               type="text"
                                v-model="formObj.url" required
-                              placeholder="https://google.com/"
+                              :placeholder="formObj.type && formObj.type =='admin_email' ? 'enter admin email here' : 'enter ' +formObj.type +' url here'"
                             />
                             <v-errors :errors="errorFor('url')"></v-errors>
                           </div>

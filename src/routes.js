@@ -4,6 +4,7 @@ import playoffsComponent from './components/playoffs';
 import calendarComponent from './components/calendar';
 import covidomponent from './components/covid';
 import rulesComponent from'./components/rules';
+import ratingsComponent from'./components/ratings';
 import loginComponent from './components/users/login';
 import signUpcomponent from './components/users/signup';
 import verifyEmailComponent from './components/users/verifyEmail';
@@ -121,6 +122,14 @@ const routes = [
         path:'/rules',
         name:'rules',
         component:rulesComponent,
+        meta: {
+            NoLoginRequired: false,
+        }
+    },
+    {
+        path:'/ratings',
+        name:'ratings',
+        component:ratingsComponent,
         meta: {
             NoLoginRequired: false,
         }

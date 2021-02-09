@@ -17,7 +17,7 @@
       </p>
       <p>
         Unsure what level to register for? please visit the
-        <a href="#">Ratings</a> page for reference
+        <router-link :to="{name:'ratings'}">Ratings</router-link> page for reference
       </p>
       <div class="register_form">
         <form method="post" @submit.prevent="submit()" >

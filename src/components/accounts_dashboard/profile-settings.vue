@@ -154,26 +154,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-6">
-                          <div class="form_group">
-                            <div class="custom_checkbox">
-                              <div class="form-check">
-                                <input
-                                  class="form-check-input"
-                                  type="checkbox"
-                                  value=""
-                                  id="seicolons-email"
-                                />
-                                <label
-                                  class="form-check-label"
-                                  for="seicolons-email"
-                                >
-                                  Email with semicolons
-                                </label>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                       
                         <div class="col-md-12">
                           <div class="form_group">
                             <input

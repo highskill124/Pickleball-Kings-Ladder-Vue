@@ -2203,5 +2203,8 @@ footer{
         margin-top: -8px;
     }
 }
+.user_menu_route .user_menu #fullName{
+    color: #3C3C3C !important;
+}
 @media screen and (max-width:680px){}
 @media screen and (max-width:480px){}

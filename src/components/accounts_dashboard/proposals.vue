@@ -173,6 +173,7 @@ export default {
     return {
       loader: true,
        ladder: null,
+       gender: null,
       proposals: null,
       users: null,
       is_shown: false,
@@ -231,7 +232,7 @@ export default {
     },
     async purposeAll(){
       this.loader = true;
-      const Objects={request_by:getCurrentUserId(), type:'purpose', ladder: this.ladder.id, category:this.ladder.match_rank_categories_id};
+      const Objects={request_by:getCurrentUserId(), type:'purpose', ladder: this.ladder.id, category:this.ladder.match_rank_categories_id, gender: this.gender};
        await requestsApis.purposeAll(Objects).then((response) => {
           if (response.status == 200 || response.status == 204) {
              this.getPurposals("get", "");
@@ -266,6 +267,7 @@ export default {
      this.ladder=(await matchLaddersApis.getById(this.$route.params.ladder)).data;
     
        const gender = (getCurrentUser()).gender;
+       this.gender = gender;
         if(this.ladder.gender==gender){
              const paidCategories = (getCurrentUser()).categories;
            if(paidCategories){

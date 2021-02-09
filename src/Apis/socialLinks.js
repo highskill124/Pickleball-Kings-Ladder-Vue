@@ -16,5 +16,8 @@ export default {
     },
     getById(id){
         return axios.get(`${process.env.API_URL}/social_links/${id}`);
+    },
+    getByType(data){
+        return axios.post(`${process.env.API_URL}/social_links/get-by-type`, data);
     }
 }

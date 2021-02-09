@@ -204,9 +204,9 @@
             <h2>More Questions?</h2>
             <h3>
               Head to the <span>How it Works</span> tab or email
-              <span>kings@tennis.com</span>
+              <span>{{admin_email && admin_email.url ? admin_email.url:''}}</span>
             </h3>
-            <div class="read_more"><a href="#">Sign up Today! </a></div>
+            <div class="read_more"><router-link :to="{name:'signup'}">Sign up Today! </router-link></div>
           </div>
         </div>
       </section>
@@ -220,12 +220,14 @@ import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 // optional style for arrows & dots
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+import socialLinksApis from '../Apis/socialLinks';
 export default {
   components: { VueSlickCarousel },
   data() {
     return {
       loader: true,
       season: null,
+      admin_email: null,
       settings: {
         dots: true,
         arrows: true,
@@ -240,6 +242,7 @@ export default {
   },
   async created() {
     this.season = (await seasonsApis.getNextUpcomingSeason()).data;
+    this.admin_email = (await socialLinksApis.getByType({type : 'admin_email'})).data
     setTimeout(() => {
       this.loader = false;
     }, 1000);

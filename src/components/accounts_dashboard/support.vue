@@ -21,13 +21,13 @@
                 </div>
                 <div class="content_body">
                   <div class="support_content">
-                    <p>Click <a href="#">here</a> to email your coordinator</p>
-                    <p>
+                      <p v-if="admin_email && admin_email.url">Click <a v-bind:href="'mailto:' +  admin_email.url">here</a> to email your coordinator</p>
+                    <!-- <p>
                       Click <a href="#">here</a> to return to your home website
-                    </p>
+                    </p> -->
                     <p>
                       This interactive service and all its pages are Copyright ©
-                      2020 <span>Portable Databases LLC.</span>
+                      2021 <span>Portable Databases LLC.</span>
                     </p>
                     <p>All rights reserved.</p>
                   </div>
@@ -42,7 +42,9 @@
   </div>
 </template>
 <script>
+import socialLinksApis from '../../Apis/socialLinks';
 import sidebarComponent from "./sidebar";
+
 export default {
   components: {
     sidebarComponent,
@@ -50,9 +52,11 @@ export default {
   data() {
       return{
           loader:true,
+          admin_email: null,
       }
   },
   created(){
+    this.admin_email = (await socialLinksApis.getByType({type : 'admin_email'})).data
       setTimeout(() => {
           this.loader = false
       }, 1000);
