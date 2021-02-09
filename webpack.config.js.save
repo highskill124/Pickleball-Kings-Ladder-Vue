@@ -66,9 +66,9 @@ if (process.env.NODE_ENV === 'production') {
         // APP_URL:'"http://localhost:8080"',
         // API_URL: '"http://localhost:8000/api"',
         // Backend_URL:'"http://localhost:8000"',
-        APP_URL:'"https://kingspickleballladder.com/"',
-        API_URL: '"https://api01.kingspickleballladder.com/api"',
-        Backend_URL:'"https://api01.kingspickleballladder.com"',
+        APP_URL:'/"',
+        API_URL: '"https://pickleball-kings-api.nextscrum.dev/api"',
+        Backend_URL:'"https://pickleball-kings-api.nextscrum.dev"',
       }
     }),
     new webpack.optimize.UglifyJsPlugin({
