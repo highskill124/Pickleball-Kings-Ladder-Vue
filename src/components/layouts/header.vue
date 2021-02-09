@@ -37,12 +37,14 @@
             <!-- <a href="#">Sign Up</a> -->
           </div>
           <!-- User Menu -->
+          <div>
            <router-link :to="{name:redirect_name}" class="user_menu_route" v-if="user && user.length"> 
             <div class="user_menu">             
              <div id="profileImage">{{intials}}</div>
               <span id="fullName">{{full_name}}</span>              
           </div>
-           </router-link>         
+           </router-link>  
+           </div>       
         </div>
       </div>
     </header>
