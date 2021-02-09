@@ -15,7 +15,7 @@
             />
           </div>
           <div class="slider_content">
-            <div class="container_large">
+            <div class="">
               <h3>Welcome to Kings Pickleball Ladder</h3>
               <h2>
                 Want to Play Tennis in a <span>Super Fun</span> Super Flexible
@@ -35,7 +35,7 @@
             />
           </div>
           <div class="slider_content">
-            <div class="container_large">
+            <div class="">
               <h3>Welcome to Kings Pickleball Ladder</h3>
               <h2>
                 Want to Play Tennis in a <span>Super Fun</span> Super Flexible

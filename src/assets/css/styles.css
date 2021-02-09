@@ -1049,6 +1049,7 @@ footer{
 /*Home*/
 .home_banner{
     margin-top: 115px;
+    overflow: hidden;
 }
 .slider_item{
     position: relative;
@@ -1074,6 +1075,7 @@ footer{
     top: 50%;
     transform: translateY(-50%);
     width: 100%;
+    left: 5%;
 }
 .slider_content h3{
     color: #F8F9D0;
@@ -1097,6 +1099,9 @@ footer{
     background: #E0E915;
     display: inline-block;
     padding: 15px 30px;
+}
+.slick-dots{
+    display: none;
 }
 .bx-wrapper .bx-controls-direction a {
     width: 60px;
