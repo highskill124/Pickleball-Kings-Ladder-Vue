@@ -55,7 +55,7 @@ export default {
           admin_email: null,
       }
   },
-  created(){
+ async created(){
     this.admin_email = (await socialLinksApis.getByType({type : 'admin_email'})).data
       setTimeout(() => {
           this.loader = false
