@@ -61,6 +61,11 @@ export default {
       instagram_link: null,
     }
   },
+   watch: {
+    $route() {
+      $("#navbarSupportedContent").collapse("hide");
+    },
+  },
    computed:{
     user(){
       if(this.$store.state.logedInUser){       

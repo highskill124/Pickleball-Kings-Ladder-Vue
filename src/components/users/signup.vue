@@ -11,9 +11,9 @@
         PayPal’s secure payment site where you can either log in to your
         existing PayPal account or pay with credit card.
       </p>
-      <p><strong>$15 for singles, $10 for doubles by the deadline</strong></p>
+      <p><strong>$30 for singles, $30 for doubles by the deadline</strong></p>
       <p>
-        <strong>$20 for singles, $15 for doubles after the deadline</strong>
+        <strong>$30 for singles, $30 for doubles after the deadline with additional ${{upcoming_season && upcoming_season.late_fee ? upcoming_season.late_fee :''}} for late fee</strong>
       </p>
       <p>
         Unsure what level to register for? please visit the
@@ -536,6 +536,7 @@ export default {
       single_rankings: [],
       double_rankings: [],
       mixed_rankings: [],
+      upcoming_season: null,
       signUpobj: {
         first_name: null,
         larst_name: null,
@@ -600,8 +601,6 @@ export default {
       }
 
     }
-    
-    console.log(this.total_amount);
   },
 
 // paypal integration
@@ -694,6 +693,7 @@ export default {
  
    const rankings = (await matchRankingApis.requestRankings("get","")).data;
     const season = (await seasonsApis.getNextUpcomingSeason()).data;
+    this.upcoming_season = season;
     if(season){
         this.signUpobj.season_id = season.id;
         this.is_deadline_passed = moment(new Date()).isSameOrBefore(season.registration_deadline , "day");
