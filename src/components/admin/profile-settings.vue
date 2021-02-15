@@ -133,6 +133,42 @@
                             </select>
                           </div>
                         </div>
+                         <div class="row">
+                          <div class="col-md-6 browser-content">
+                            <div class="form_group">
+                              <label>Preview</label>
+                              <div v-if="url && url.length">
+                                <img
+                                  :src="url ? url : '/images/avatar.png'"
+                                  class="preview-image-width"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form_group">
+                              <file-upload
+                                class="btn-browser"
+                                :post-action="postAction"
+                                :extensions="extensions"
+                                :accept="accept"
+                                :multiple="multiple"
+                                :directory="directory"
+                                :size="size || 0"
+                                :thread="
+                                  thread < 1 ? 1 : thread > 5 ? 5 : thread
+                                "
+                                v-model="formObj.profile_picture"
+                                @input-filter="inputFilter"
+                                @input-file="inputFile"
+                                ref="upload"
+                                >BROWSER</file-upload
+                              >
+                            </div>
+                          </div>
+                         </div>
+
+
                         <div class="col-md-12">
                           <div class="form_group">
                             <input
@@ -158,7 +194,7 @@
 </template>
 <script>
 import sidebarComponent from "./sidebar";
-import userApis from '../../Apis/users';
+import axios from 'axios';
 import validationErrors from "../../mixins/validationErrors";
 import { is422 } from "../../utils/response";
 import { setCurrentUser, getCurrentUser } from "../../utils/auth";
@@ -173,6 +209,19 @@ export default {
       loader: true,
       errors: null,
       status: null,
+      accept: "image/png,image/gif,image/jpeg,image/webp",
+      extensions: "gif,jpg,jpeg,png,webp",
+      minSize: 1024,
+      size: 1024 * 1024 * 10,
+      multiple: false,
+      directory: false,
+      thread: 3,
+      name: "file",
+      postAction: "/index.php/api/user",
+      putAction: "/index.php/api/user",
+      autoCompress: 1024 * 1024,
+      uploadAuto: false,
+      url: null,
       formObj: {
         id: null,
         first_name: null,
@@ -186,6 +235,7 @@ export default {
         zip_code: null,
         get_proposal_emails: true,
         skill_level: null,
+        profile_picture: [],
       },
     };
   },
@@ -194,10 +244,44 @@ export default {
       return 422 === this.status && this.errors !== null;
     },
   },
+   watch: {
+    "formObj.profile_picture": function(val, oldVal) {
+      if (
+        this.formObj.profile_picture &&
+        this.formObj.profile_picture[0] &&
+        this.formObj.profile_picture[0].blob
+      ) {
+        this.url = this.formObj.profile_picture[0].blob;
+      }
+    }
+  },
   methods: {
    async submit() {
      this.loader= true;
-      await userApis.requestUsers("put", this.formObj)
+
+            const dataObj = new FormData();
+      dataObj.append("id", this.formObj.id);
+      dataObj.append("first_name", this.formObj.first_name);
+      dataObj.append("last_name", this.formObj.last_name);
+      dataObj.append("email", this.formObj.email);
+      dataObj.append("phone", this.formObj.phone);
+      dataObj.append("gender", this.formObj.gender);
+      dataObj.append("address", this.formObj.address);
+      dataObj.append("city", this.formObj.city);
+      dataObj.append("state", this.formObj.state);
+      dataObj.append("zip_code", this.formObj.zip_code);
+      dataObj.append("get_proposal_emails", this.formObj.get_proposal_emails);
+      dataObj.append("skill_level", this.formObj.skill_level);
+      dataObj.append("_method", "PATCH");
+
+      if (this.formObj.profile_picture[0] != null) {
+        dataObj.append("profile_picture", this.formObj.profile_picture[0].file);
+      }
+
+      //  having issues in getting form data id in users apis file so thats why writing api here
+
+      await axios
+      .post(`${process.env.API_URL}/users/${this.formObj.id}`, dataObj)
       .then((response) => {
          this.loader= false;
         console.log(response);
@@ -219,12 +303,96 @@ export default {
           this.loader = false;
         });
     },
+      // image upload
+    inputFilter(newFile, oldFile, prevent) {
+      if (newFile && !oldFile) {
+        // Add file
+
+        // Filter non-image file
+        // Will not be added to files
+        if (!/\.(jpeg|jpe|jpg|gif|png|webp)$/i.test(newFile.name)) {
+          return prevent();
+        }
+        // Create the 'blob' field for thumbnail preview
+        newFile.blob = "";
+        let URL = window.URL || window.webkitURL;
+        if (URL && URL.createObjectURL) {
+          newFile.blob = URL.createObjectURL(newFile.file);
+        }
+      }
+
+      if (newFile && oldFile) {
+        // Update file
+
+        // Increase the version number
+        if (!newFile.version) {
+          newFile.version = 0;
+        }
+        newFile.version++;
+      }
+
+      if (!newFile && oldFile) {
+        // Remove file
+        // Refused to remove the file
+        // return prevent()
+      }
+    },
+    //
+    // add, update, remove File Event
+    inputFile(newFile, oldFile) {
+      if (newFile && oldFile) {
+        // update
+        if (newFile.active && !oldFile.active) {
+          // beforeSend
+          // min size
+          if (
+            newFile.size >= 0 &&
+            this.minSize > 0 &&
+            newFile.size < this.minSize
+          ) {
+            this.$refs.upload.update(newFile, { error: "size" });
+          }
+        }
+        if (newFile.progress !== oldFile.progress) {
+          // progress
+        }
+        if (newFile.error && !oldFile.error) {
+          // error
+        }
+        if (newFile.success && !oldFile.success) {
+          // success
+        }
+      }
+      if (!newFile && oldFile) {
+        // remove
+        if (oldFile.success && oldFile.response.id) {
+          // $.ajax({
+          //   type: 'DELETE',
+          //   url: '/upload/delete?id=' + oldFile.response.id,
+          // })
+        }
+      }
+      // Automatically activate upload
+      if (
+        Boolean(newFile) !== Boolean(oldFile) ||
+        oldFile.error !== newFile.error
+      ) {
+        if (this.uploadAuto && !this.$refs.upload.active) {
+          this.$refs.upload.active = true;
+        }
+      }
+    }
+    
   },
   created() {
     setTimeout(() => {
       this.loader = false;
     }, 1000);
     this.formObj = getCurrentUser();
+     if (this.formObj.profile_picture) {
+      this.url = `${process.env.Backend_URL}/images/users/${this.formObj.profile_picture}`;
+      this.formObj.profile_picture = [this.formObj.profile_picture];
+    }
   },
 };
 </script>

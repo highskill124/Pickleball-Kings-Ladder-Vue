@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-md-12 col-lg-7">
         <div class="login_content">
-          <h1><span>Sign In to</span>Kings Pickleball Ladder</h1>
+          <h1><span>Sign In to</span>Kings Tennis Ladder</h1>
           <p>
             If you have forgotten your password, click
             <strong>Forgot your password</strong>, and it will be emailed to
@@ -15,7 +15,7 @@
           </p>
         </div>
       </div>
-      <div class="col-md-12 col-lg-7">
+      <div class="col-md-12 col-lg-5">
         <div class="login_holder">
           <h2>Sign In</h2>
           <form method="post" @submit.prevent="submit()">
@@ -78,7 +78,7 @@ import validationErrors from "../../mixins/validationErrors";
 import { is422 } from "../../utils/response";
 import { logIn, getCurrentUser, loginAdmin, setCurrentUser } from "../../utils/auth";
 import usersApis from "../../Apis/users";
-import socialLinksApis from '../../Apis/socialLinks';
+import socialLinksApis from '../..//Apis/socialLinks';
 export default {
   mixins: [validationErrors],
   data() {
@@ -86,7 +86,6 @@ export default {
       loader: true,
       errors: null,
       status: null,
-      admin_email: null,
       admin_email: null,
       loginObj: {
         email: null,
@@ -168,7 +167,7 @@ export default {
     },
   },
   async created() {
-   this.admin_email = (await socialLinksApis.getByType({type : 'admin_email'})).data
+    this.admin_email = (await socialLinksApis.getByType({type : 'admin_email'})).data
     setTimeout(() => {
       this.loader = false;
     }, 1000);
