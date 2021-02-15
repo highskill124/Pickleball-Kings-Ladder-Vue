@@ -27,6 +27,7 @@
                     <div class="tables_filters">
                       <form method="" action="">
                         <select
+                        class="form-select"
                           v-model="filter_week"
                           @change.prevent="WeekFilter()"
                         >

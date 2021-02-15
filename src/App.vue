@@ -88,4 +88,7 @@ input[type="date"], input[type="datetime-local"], input[type="number"]{
 .user_menu_route .router-link-exact-active{
     background: none !important;
 }
+.preview-image-width {
+  width: 15%;
+}
 </style>

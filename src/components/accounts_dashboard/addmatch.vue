@@ -39,7 +39,7 @@
                         <div class="col-md-6" v-if="type!='purpose'">
                           <div class="form_group">
                             <label>{{ type ? type : "" }} To</label>
-                            <select v-model="formObj.request_to" required  @change="getRequested()">
+                            <select class="form-select" v-model="formObj.request_to" required  @change="getRequested()">
                               <option value="">Select</option>
                               <option
                                 v-for="data in users"
@@ -86,10 +86,21 @@
                         <div class="col-md-6">
                           <div class="form_group">
                             <label>Preferred Time</label>
-                            <input
+                            <div class="row">
+                              <div class="col-md-6">
+                                <input type="date"  v-model="date"/>
+                              </div>
+                              <div class="col-md-3">
+                                <input type="text" placeholder="HH"  v-model="hours" @input.prevent="timeChanges()"/>
+                              </div>
+                              <div class="col-md-3">
+                                <input type="text" placeholder="MM" v-model="minitues"  @input.prevent="timeChanges()"/>
+                              </div>
+                            </div>
+                                <!-- <input
                               type="datetime-local"
                               v-model="formObj.time"
-                            />
+                            /> -->
                              <span v-if="errors && errors.time_error" class="invalid-feedback">{{errors.time_error}}</span>
                             <v-errors :errors="errorFor('time')"></v-errors>
                           </div>
@@ -125,7 +136,7 @@ import userApis from "../../Apis/users";
 import validationErrors from "../../mixins/validationErrors";
 import { is422 } from "../../utils/response";
 import { getCurrentUserId, getCurrentUser } from "../../utils/auth";
-
+import moment from 'moment';
 export default {
   mixins: [validationErrors],
   components: {
@@ -136,9 +147,18 @@ export default {
       loader: true,
       errors: null,
       status: null,
+      date: '',
+      hours: '00',
+      minitues: '00',
       type: "",
       users: null,
       categories: null,
+       lang: {
+          formatLocale: {
+            firstDayOfWeek: 1,
+          },
+          monthBeforeYear: false,
+        },
       formObj: {
         id: null,
         request_to: "",
@@ -199,6 +219,12 @@ export default {
     },
     getRequested(){
       this.formObj.requested_to_gender = this.formObj.request_to.gender;
+    },
+
+    timeChanges(){
+      console.log('ddddd');
+   const timeString = this.hours + ':' + this.minitues ;
+    this.formObj.time = moment(`${this.date} ${timeString}`, 'YYYY-MM-DD HH:mm:s').format();
     }
   },
   async created() {

@@ -25,7 +25,7 @@
                     <h3>Challenges</h3>
                     <div class="tables_filters">
                       <form method="" action="" @submit.prevent="search()">
-                        <select v-model="searchForm.by">
+                        <select class="form-select" v-model="searchForm.by">
                               <option value="">Challenge by</option>
                               <option
                                 v-for="data in users"
@@ -35,7 +35,7 @@
                                 {{ data.user && data.user.full_name  ? data.user.full_name :''}}
                               </option>
                             </select>
-                        <select v-model="searchForm.to">
+                        <select class="form-select" v-model="searchForm.to">
                           <option value="">Challenge to</option>
                           <option
                                 v-for="data in users"
@@ -79,7 +79,7 @@
                                <!-- <button class="btn btn-primary">Match</button> -->
                                <router-link :to="{name:'account-match', params:{type:$route.params.type,  category:$route.params.category, id: data.matches_id, rank:ladder.match_rank_categories_id } }"><button class="btn btn-primary">Match</button></router-link>
                                </span>
-                              <span v-if="data.request_by == user_id && !data.match"><button class="btn btn-danger" @click.prevent="challengeDelete(data.id)">Delete</button></span>
+                              <span v-if="data.request_by == user_id && !data.matches_id"><button class="btn btn-danger" @click.prevent="challengeDelete(data.id)">Delete</button></span>
                           </td>
                         </tr>
                       </tbody>

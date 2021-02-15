@@ -26,7 +26,7 @@
                     <h3>Proposals</h3>
                     <div class="tables_filters">
                       <form method="" action="" @submit.prevent="search()">
-                        <select v-model="searchForm.by">
+                        <select class="form-select" v-model="searchForm.by">
                           <option value="">Proposer</option>
                           <option
                                 v-for="data in users"
@@ -87,7 +87,7 @@
                               <!-- actions for accept -->
                               <button class="btn btn-info" @click.prevent="purposalAccept(data.id)">Accept</button>
                             </span>
-                            <span v-if="data.request_by == user_id && !data.match">
+                            <span v-if="data.request_by == user_id && !data.matches_id">
                               <button class="btn btn-danger" @click.prevent="purposalDelete(data.id)">Delete</button>
                             </span>
                              <!-- <span v-if="data.request_to == user_id"><button class="btn btn-primary">Accepted</button></span> -->
@@ -173,7 +173,7 @@ export default {
     return {
       loader: true,
        ladder: null,
-       gender: null,
+       gender : null,
       proposals: null,
       users: null,
       is_shown: false,

@@ -22,7 +22,7 @@
                     <h3>Matches</h3>
                     <div class="tables_filters">
                       <form method="" action="">
-                        <select v-model="searchForm.week">
+                        <select class="form-select" v-model="searchForm.week">
                           <option value="">From week</option>
                            <option
                             v-for="index in weeks"
@@ -32,7 +32,7 @@
                             Week {{ index }} of {{weeks}}
                           </option>
                         </select>
-                        <select v-model="searchForm.for">
+                        <select class="form-select" v-model="searchForm.for">
                           <option value="">For</option>
                             <option
                                 v-for="data in users"

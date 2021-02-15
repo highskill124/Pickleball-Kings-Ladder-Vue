@@ -118,6 +118,36 @@
                   </div>
                 </div>
                 <div class="row">
+                  <div class="col-md-6 browser-content">
+                    <div class="form_group">
+                      <label>Preview</label>
+                      <div v-if="url && url.length">
+                        <img :src="url?url:'/images/avatar.png'" class="preview-image-width" />
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form_group">
+                     <file-upload
+                        class="btn-browser"
+                        :post-action="postAction"
+                        :extensions="extensions"
+                        :accept="accept"
+                        :multiple="multiple"
+                        :directory="directory"
+                        :size="size || 0"
+                        :thread="thread < 1 ? 1 : (thread > 5 ? 5 : thread)"
+                        v-model="signUpobj.profile_picture"
+                        @input-filter="inputFilter"
+                        @input-file="inputFile"
+                        ref="upload"
+                      >BROWSER</file-upload>
+                     
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
                   <div class="col-md-3">
                     <div class="form_group">
                       <label>Gender</label>
@@ -482,7 +512,8 @@
               </div>
             </div>
             <div class="form_group mb-4">
-              <input type="submit" value="Signup" :disabled="!paidFor"/>
+              <!-- :disabled="!paidFor" -->
+              <input type="submit" value="Signup" />
             </div>
           </div>
         </form>
@@ -518,9 +549,33 @@ import seasonsApis from './../../Apis/seasons';
 import moment from 'moment';
 export default {
   mixins: [validationErrors],
+  watch: {
+    "signUpobj.profile_picture": function (val, oldVal) {
+      if (
+        this.signUpobj.profile_picture &&
+        this.signUpobj.profile_picture[0] &&
+        this.signUpobj.profile_picture[0].blob
+      ) {
+        this.url = this.signUpobj.profile_picture[0].blob;
+      }
+    },
+  },
   data() {
     return {
       status: null,
+       url: null,
+      accept: "image/png,image/gif,image/jpeg,image/webp",
+      extensions: "gif,jpg,jpeg,png,webp",
+      minSize: 1024,
+      size: 1024 * 1024 * 10,
+      multiple: false,
+      directory: false,
+      thread: 3,
+      name: "file",
+      postAction: "/index.php/api/user",
+      putAction: "/index.php/api/user",
+      autoCompress: 1024 * 1024,
+      uploadAuto: false,
       is_deadline_passed: null,
       paidFor: false,
       total_amount:[],
@@ -544,6 +599,7 @@ export default {
         phone: null,
         password: null,
         confirm_password: null,
+        profile_picture: [],
         get_proposal_emails: true,
         skill_level: null,
         gender: 'M',
@@ -687,6 +743,88 @@ export default {
         }).then(()=>{
           this.loader = false;
         });
+    },
+
+
+
+            // image upload
+    inputFilter(newFile, oldFile, prevent) {
+      if (newFile && !oldFile) {
+        // Add file
+
+        // Filter non-image file
+        // Will not be added to files
+        if (!/\.(jpeg|jpe|jpg|gif|png|webp)$/i.test(newFile.name)) {
+          return prevent();
+        }
+        // Create the 'blob' field for thumbnail preview
+        newFile.blob = "";
+        let URL = window.URL || window.webkitURL;
+        if (URL && URL.createObjectURL) {
+          newFile.blob = URL.createObjectURL(newFile.file);
+        }
+      }
+
+      if (newFile && oldFile) {
+        // Update file
+
+        // Increase the version number
+        if (!newFile.version) {
+          newFile.version = 0;
+        }
+        newFile.version++;
+      }
+
+      if (!newFile && oldFile) {
+        // Remove file
+        // Refused to remove the file
+        // return prevent()
+      }
+    },
+    //
+    // add, update, remove File Event
+    inputFile(newFile, oldFile) {
+      if (newFile && oldFile) {
+        // update
+        if (newFile.active && !oldFile.active) {
+          // beforeSend
+          // min size
+          if (
+            newFile.size >= 0 &&
+            this.minSize > 0 &&
+            newFile.size < this.minSize
+          ) {
+            this.$refs.upload.update(newFile, { error: "size" });
+          }
+        }
+        if (newFile.progress !== oldFile.progress) {
+          // progress
+        }
+        if (newFile.error && !oldFile.error) {
+          // error
+        }
+        if (newFile.success && !oldFile.success) {
+          // success
+        }
+      }
+      if (!newFile && oldFile) {
+        // remove
+        if (oldFile.success && oldFile.response.id) {
+          // $.ajax({
+          //   type: 'DELETE',
+          //   url: '/upload/delete?id=' + oldFile.response.id,
+          // })
+        }
+      }
+      // Automatically activate upload
+      if (
+        Boolean(newFile) !== Boolean(oldFile) ||
+        oldFile.error !== newFile.error
+      ) {
+        if (this.uploadAuto && !this.$refs.upload.active) {
+          this.$refs.upload.active = true;
+        }
+      }
     },
   },
  async created() {

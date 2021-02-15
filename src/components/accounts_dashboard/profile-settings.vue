@@ -126,7 +126,7 @@
                         <div class="col-md-6">
                           <div class="form_group">
                             <label>Gender</label>
-                            <select v-model="formObj.gender">
+                            <select class="form-select" v-model="formObj.gender">
                               <option value="">Select</option>
                               <option value="M">Male</option>
                               <option value="F">Female</option>

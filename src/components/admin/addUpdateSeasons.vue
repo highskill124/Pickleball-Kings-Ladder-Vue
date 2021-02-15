@@ -189,7 +189,7 @@ export default {
         registration_deadline:"",
         playoff_date: "",
         playoff_date2:"",
-        dates_not_decided: '',
+        dates_not_decided: false,
         late_fee: 10
       },
     };

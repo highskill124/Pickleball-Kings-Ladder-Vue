@@ -311,7 +311,7 @@ footer{
 .men_playing_tennis{
     position: absolute;
     left: 0;
-    bottom: -260px;
+    bottom: 0px;
 }
 .men_playing_tennis img{
     max-width: 650px;
@@ -379,6 +379,12 @@ footer{
 .form_holder textarea{
     resize: none;
     height: 150px;
+}
+.form_holder select{
+    background: #F8F8F8 url(../images/down-arrow.svg);
+    background-repeat: no-repeat;
+    background-position: right .75rem center;
+    background-size: 12px 12px;
 }
 .form_holder input[type="submit"]{
     width: 100%;
@@ -1415,7 +1421,9 @@ footer{
     color: #6D6D6D;
     padding: 60px 0 0;
 }
-
+.signup_btn{
+    max-width: 200px;
+}
 
 /*Media Queries*/
 @media screen and (max-width: 1680px){
@@ -1474,7 +1482,7 @@ footer{
         max-width: 1280px;
     }
     .slider_img img{
-        height: 800px;
+        height: 750px;
     }
     .slider_content h3{
         font-size: 1.5rem;
@@ -1540,6 +1548,9 @@ footer{
     .container_large {
         max-width: 1140px;
     }
+    .slider_img img {
+        height: 700px;
+    }
     .current_season{
         padding: 50px 20px;
     }
@@ -1563,7 +1574,7 @@ footer{
         max-width: 550px;
     }
     .men_playing_tennis{
-        bottom: -130px;
+        bottom: 0;
     }
     .men_playing_tennis img {
         max-width: 500px;
@@ -1576,7 +1587,7 @@ footer{
         margin-bottom: 3rem;
     }
     .account_wraper{
-        padding: 80px 0 120px;
+        padding: 0;
     }
     .menu_sidebar ul li a{
         font-size: 1rem;
@@ -1608,6 +1619,9 @@ footer{
     .tables_filters button{
         padding: 8px 5px;
     }
+    .account_wraper .login{
+        padding: 50px 0 140px;
+    }
 }
 @media screen and (max-width:1040px){
     .container_large {
@@ -1620,7 +1634,7 @@ footer{
         min-width: 90px;
     }
     .slider_img img {
-        height: 700px;
+        height: 600px;
     }
     .slider_content h2 {
         font-size: 2.5rem;
@@ -1842,11 +1856,11 @@ footer{
         display: none;
     }
     .account_wraper {
-        padding: 30px 0 50px;
+        padding: 0;
     }
     .login_content{
         margin-bottom: 40px;
-        padding: 0 20px;
+        padding: 0;
     }
     .playoff_category {
         font-size: .7rem;
@@ -1887,6 +1901,10 @@ footer{
         right: 70px;
         top: 10px;
     }
+    .account_wraper .login {
+        padding: 50px 30px 20px;
+        margin-top: 30px;
+    }
 }
 @media screen and (max-width:767px){
     header{
@@ -1901,14 +1919,15 @@ footer{
         margin-top: 70px;
     }
     .slider_content {
-        padding: 0 10px;
+        padding: 0 20px;
+        margin-left: 0;
     }
     .slider_content h3 {
         font-size: 1rem;
     }
     .slider_content h2 {
         font-size: 1.5rem;
-        max-width: 100%;
+        max-width: 360px;
     }
     .slider_content h4{
         padding: 12px 20px;
@@ -2206,6 +2225,23 @@ footer{
 }
 .user_menu_route .user_menu #fullName{
     color: #3C3C3C !important;
+}
+.browser-content {
+    font-size: 17px;
+    padding-left: 24px !important;
+    display: flex;
+    align-items: center;
+}
+
+.btn-browser {
+    border: none;
+    color: #355947;
+    padding: 7px 25px;
+    background:#E0E915;
+    float: right;
+}
+.file-uploads.file-uploads-html5 label{
+    cursor: pointer !important;
 }
 @media screen and (max-width:680px){}
 @media screen and (max-width:480px){}

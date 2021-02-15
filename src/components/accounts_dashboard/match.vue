@@ -29,7 +29,8 @@
                             />
                           </div>                          
                       </div>
-                       <div class="col-md-6">
+                      <!-- removing played as per client suggestions -->
+                       <!-- <div class="col-md-6">
                           <div class="form_group">
                             <label>Played</label>
                             <input
@@ -41,7 +42,7 @@
                               :errors="errorFor('played')"
                             ></v-errors>
                           </div>
-                        </div>
+                        </div> -->
 
                          <div class="col-md-6">
                           <div class="form_group">
@@ -218,7 +219,7 @@ export default {
   },
   methods: {
      async submit(){
-       console.log(this.formObj)
+       this.formObj.played = 
            await matchesApis.requestMatches("put", this.formObj)
         .then((response) => {
           this.loader = false;
@@ -275,6 +276,9 @@ export default {
         this.match && this.match.request && this.match.request.by
           ? this.match.request.by.id
           : "";
+
+          // as client have removed played from design so we are sending it from value as hidden
+          this.formObj.played = this.match.request.time;
     }
     setTimeout(() => {
       this.loader = false;

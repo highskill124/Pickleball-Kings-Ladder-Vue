@@ -17,23 +17,23 @@
         <div class="container_large">
           <!-- Single Champions -->
           <div class="singles_champions">
-            <div class="row justify-content-center">
-              <div class="col-6 col-md-4 col-lg-3">
+            <div class="row justify-content-left" v-if="playoffs && playoffs.length">
+              <div class="col-6 col-md-4 col-lg-3" v-for="data in playoffs" :key="data.id">
                 <div class="single_col">
                   <div class="single_col_img">
                     <img
-                      src="/src/assets/images/champion-1.png"
+                      :src="data.user && data.user.profile_picture ? backend_url + '/images/users/'+data.user.profile_picture : backend_url+'/images/users/avatar.png'"
                       class="img-fluid"
                       alt=""
                     />
                   </div>
                   <div class="single_content">
-                    <h2>Brian Martens</h2>
-                    <div class="match_ver">M3.0</div>
+                    <h2>{{data.user && data.user.full_name ? data.user.full_name :''}}</h2>
+                    <div class="match_ver">{{data.match_ladder && data.match_ladder.title ? data.match_ladder.title :''}}</div>
                   </div>
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-lg-3">
+              <!-- <div class="col-6 col-md-4 col-lg-3">
                 <div class="single_col">
                   <div class="single_col_img">
                     <img
@@ -137,7 +137,7 @@
                     <div class="match_ver">W4.0+</div>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
 
@@ -254,13 +254,18 @@
   </div>
 </template>
 <script>
+import seasonApis from '../Apis/seasons';
+
 export default {
     data() {
       return{
           loader:true,
+          backend_url: process.env.Backend_URL,
+          playoffs: null,
       }
   },
-  created(){
+  async created(){
+   this.playoffs =  (await seasonApis.getRecentlyCompletedSeasonWithPlayers()).data;
       setTimeout(() => {
           this.loader = false
       }, 1000);

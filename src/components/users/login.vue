@@ -4,7 +4,7 @@
       <div class="spinner"></div>
     </div>
     <div class="row">
-      <div class="col-md-7">
+      <div class="col-md-12 col-lg-7">
         <div class="login_content">
           <h1><span>Sign In to</span>Kings Pickleball Ladder</h1>
           <p>
@@ -15,7 +15,7 @@
           </p>
         </div>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-12 col-lg-7">
         <div class="login_holder">
           <h2>Sign In</h2>
           <form method="post" @submit.prevent="submit()">
