@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-md-12 col-lg-7">
         <div class="login_content">
-          <h1><span>Sign In to</span>Kings Tennis Ladder</h1>
+          <h1><span>Sign In to</span>Kings Pickleball Ladder</h1>
           <p>
             If you have forgotten your password, click
             <strong>Forgot your password</strong>, and it will be emailed to
