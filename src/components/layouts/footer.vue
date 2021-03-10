@@ -7,7 +7,7 @@
             <div class="footer_logo mb-4">
               <img src="../../assets/images/logo.png" alt="" />
             </div>
-            <p>
+            <p class="d-none">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry.
             </p>
@@ -17,10 +17,10 @@
           <div class="footer_column">
             <h2 class="mb-5">Quick Links</h2>
             <ul class="footer_list">
-              <li><a href="#">Calendar</a></li>
-              <li><a href="#">Rules</a></li>
-              <li><a href="#">Faq's</a></li>
-              <li><a href="#">News</a></li>
+              <li><router-link :to="{name:'calendar'}">Calendar</router-link></li>
+              <li><router-link :to="{name:'rules'}">Rules</router-link></li>
+              <li><router-link :to="{name:'playoffs'}">Faq's</router-link></li>
+              <li class="d-none"><a href="#">News</a></li>
             </ul>
           </div>
         </div>
@@ -40,7 +40,7 @@
           </div>
         </div>
       </div>
-      <div class="copyright">© Copyright 2020 Kings Tennis Ladder</div>
+      <div class="copyright">© Copyright 2020 Kings Pickleball Ladder</div>
     </div>
     
   </footer>

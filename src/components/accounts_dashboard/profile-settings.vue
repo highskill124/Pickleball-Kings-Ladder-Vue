@@ -64,7 +64,7 @@
                           <div class="form_group">
                             <label>Phone Number</label>
                             <input
-                              type="text"
+                              type="number"
                               name=""
                               value="8646175102"
                                v-model="formObj.phone"
@@ -293,7 +293,7 @@ export default {
       dataObj.append("skill_level", this.formObj.skill_level);
       dataObj.append("_method", "PATCH");
 
-      if (this.formObj.profile_picture[0] != null) {
+      if (this.formObj.profile_picture[0] != null && this.formObj.profile_picture[0].file) {
         dataObj.append("profile_picture", this.formObj.profile_picture[0].file);
       }
 

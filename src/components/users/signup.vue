@@ -69,7 +69,7 @@
                     <div class="form_group">
                       <label>Phone</label>
                       <input
-                        type="text"
+                        type="number"
                         name=""
                         placeholder="XXXXXXXXXX"
                         v-model="signUpobj.phone"
@@ -522,7 +522,7 @@
     <div class="terms_of_participation">
       <h2>Terms of Participation</h2>
       <p>
-        Participation in any/all tennis ladders is at the player’s own risk. By
+        Participation in any/all pickleball ladders is at the player’s own risk. By
         registering on the website, you agree to the following Liability Release
         Statement:
       </p>

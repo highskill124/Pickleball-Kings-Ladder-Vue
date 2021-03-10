@@ -59,12 +59,25 @@
                             </router-link>
                             <span
                               class="btn btn-danger"
-                              data-bs-toggle="modal"
-                              data-bs-target="#deleteModal"
+                            @click.prevent="openModal(id)"
                               >Delete</span
                             >
                           </td>
-                          <!-- Modal -->
+                          
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!--   Main Content End Here   -->
+
+    <!-- Modal -->
                           <div
                             class="modal fade"
                             id="deleteModal"
@@ -100,7 +113,8 @@
                                       <button
                                         type="button"
                                         class="confirm_btn"
-                                        @click.prevent="deleteObj(data)"
+                                        @click.prevent="deleteObj()"
+                                        data-bs-dismiss="modal"
                                       >
                                         Confirm
                                       </button>
@@ -110,18 +124,6 @@
                               </div>
                             </div>
                           </div>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-    <!--   Main Content End Here   -->
   </div>
 </template>
 <script>
@@ -135,28 +137,45 @@ export default {
     return {
       loader: true,
       seasons: null,
+      delete_id: null,
     };
   },
   methods: {
-    async deleteObj(data) {
+openModal(id){
+      this.delete_id = id
+      let myModal = new bootstrap.Modal(
+        document.getElementById("deleteModal")
+      );
+       myModal.show();
+    },
+    async deleteObj() {
       this.loader = true;
+       let myModal = new bootstrap.Modal(
+        document.getElementById("deleteModal")
+      );
       await seasonApis
-        .requestSeasons("delete", data)
+        .requestSeasons("delete", this.delete_id)
         .then((response) => {
           if (response.status == 200 || response.status == 204) {
+             myModal.hide();
             this.getSeasons();
             $("body").removeClass("modal-open");
             $(".fade").removeClass("modal-backdrop");
             $("body").css("padding-right", "0px");
+            
+            this.delete_id =null;
             this.loader = false;
           }
         })
         .catch((error) => {
           this.loader = false;
+           myModal.hide();
         })
         .then(() => {
           this.loader = false;
+           myModal.hide();
         });
+         myModal.hide();
     },
     async getSeasons() {
       this.seasons = (await seasonApis.requestSeasons("get", "")).data;

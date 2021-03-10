@@ -10,6 +10,7 @@ import signUpcomponent from './components/users/signup';
 import verifyEmailComponent from './components/users/verifyEmail';
 import forgetPasswordComponent from './components/users/forgetPassword';
 import resetPasswordComponent from './components/users/resetPassword';
+import howItWorksComponent from './components/howItWorks';
 
 import acountsEvents from './components/accounts_dashboard/events';
 import acountsEventDetail from './components/accounts_dashboard/event_details';
@@ -92,6 +93,16 @@ const routes = [
         component: resetPasswordComponent,
         meta: {
             NoLoginRequired: false,
+        }
+    },
+    {
+        path: "/how-it-works",
+        name: "how-it-works",
+        component: howItWorksComponent,
+        meta: {
+            NoLoginRequired: false,
+            UserLoginRequired: false,
+            AdminLoginRequired: false
         }
     },
     {

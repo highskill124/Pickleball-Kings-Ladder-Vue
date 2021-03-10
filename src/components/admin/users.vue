@@ -30,6 +30,7 @@
                         <tr>
                           <th>Name</th>
                           <th>Email</th>
+                          <th>Phone</th>
                           <th>City</th>
                           <th>Action</th>
                         </tr>
@@ -40,6 +41,7 @@
                           <td>
                             <strong>{{ data.email }}</strong>
                           </td>
+                          <td>{{ data.phone }}</td>
                           <td>{{ data.city }}</td>
                           <td>
                             <span  v-if="data.id != current_user.id">

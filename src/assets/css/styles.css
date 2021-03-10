@@ -1424,6 +1424,45 @@ footer{
 .signup_btn{
     max-width: 200px;
 }
+.navbar-nav li.custom_dropdown ul {
+    position: absolute;
+    background-color: #fff;
+    min-width: 150px;
+    z-index: 1;
+    border-radius: 10px;
+    margin-top: 0;
+    display: none;
+}
+.navbar-nav li.custom_dropdown:after {
+    content: "";
+    display: block;
+    width: 13px;
+    height: 7px;
+    background: url(../images/down-arrow.png) no-repeat;
+    position: absolute;
+    right: 0;
+    top: 13px;
+    background-size: 100%;
+}
+.navbar-nav li.custom_dropdown ul li {
+    padding: 0 15px;
+    background: none;
+}
+.navbar-nav li.custom_dropdown ul li a {
+    color: #85939d;
+    font-size: 16px;
+    border-bottom: 1px solid #EBEBEB;
+    padding: 10px 0;
+    text-decoration: none;
+    display: block;
+    transition: all 0.5s ease-in-out;
+}
+.navbar-nav li.custom_dropdown ul li a:hover{
+    color: #EF4C00;
+}
+.navbar-nav li.custom_dropdown:hover ul {
+    display: block;
+}
 
 /*Media Queries*/
 @media screen and (max-width: 1680px){

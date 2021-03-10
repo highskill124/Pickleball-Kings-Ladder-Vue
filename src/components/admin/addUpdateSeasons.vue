@@ -202,6 +202,9 @@ export default {
   methods: {
    async submit() {
      this.loader= true;
+     if(this.formObj.dates_not_decided == null || this.formObj.dates_not_decided == 'null'){
+       this.formObj.dates_not_decided = false;
+     }
      if(this.$route.params.id){
          await seasonsApis.requestSeasons("put", this.formObj)
       .then((response) => {

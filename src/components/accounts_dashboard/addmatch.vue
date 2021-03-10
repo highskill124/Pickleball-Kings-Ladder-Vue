@@ -46,7 +46,10 @@
                                 :key="data.id"
                                 :value="data.user"
                               >
-                                {{ data.user && data.user.full_name  ? data.user.full_name :''}}
+                              <v-template v-if=" data.user">
+                                     {{ data.user.full_name  ? data.user.full_name :''}} - {{ data.user.email  ? data.user.email :''}} - {{data.user.phone  ? data.user.phone :''}} 
+                              </v-template>
+                               
                               </option>
                             </select>
                             <v-errors

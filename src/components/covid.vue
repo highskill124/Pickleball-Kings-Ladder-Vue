@@ -20,13 +20,13 @@
               <div class="covid_content">
                 <ol>
                   <li>
-                    Kings Tennis (Or Pickleball) ladder cannot be held liable
+                    Kings Pickleball ladder cannot be held liable
                     for any illness (including but not limited to COVID-19) or
                     injury that may result from participation.
                   </li>
                   <li>
                     When any participant registers to play they also release
-                    Kings Tennis ladder of any liability including but not
+                    Kings pickleball ladder of any liability including but not
                     limited to injury or illness.
                   </li>
                   <li>

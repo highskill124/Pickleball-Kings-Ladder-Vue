@@ -7,7 +7,7 @@ export default {
         else if (type == 'post') {
             return axios.post(`${process.env.API_URL}/seasons`, form);
         } else if (type == 'delete') {
-            return axios.delete(`${process.env.API_URL}/seasons/${form.id}`);
+            return axios.delete(`${process.env.API_URL}/seasons/${form}`);
         }
         else {
             return axios.get(`${process.env.API_URL}/seasons`);

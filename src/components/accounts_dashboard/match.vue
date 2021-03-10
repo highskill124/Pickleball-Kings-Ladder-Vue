@@ -54,7 +54,7 @@
                                 :key="data.id"
                                 :value="data.id"
                               >
-                                {{ data.full_name }}
+                                {{ data.full_name }} - {{data.email}} - {{data.phone}}
                               </option>
                             </select>
                           </div>                          
@@ -70,7 +70,7 @@
                                 :key="data.id"
                                 :value="data.id"
                               >
-                                {{ data.full_name }}
+                                {{ data.full_name }} - {{data.email}} - {{data.phone}}
                               </option>
                             </select>
                           </div>                          

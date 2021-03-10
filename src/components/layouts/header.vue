@@ -18,7 +18,13 @@
             <ul class="navbar-nav ml-auto nav-admin">
               <li class="active"><router-link :to="{name:'home'}">Home</router-link></li>
               <li><router-link :to="{name:'calendar'}">Calendar</router-link></li>
-              <li><router-link :to="{name:'rules'}">Resources</router-link></li>
+              <li class="custom_dropdown">
+                <a href="#">Resources</a>
+                <ul>
+                  <li><router-link :to="{name:'how-it-works'}">How it works</router-link></li>
+                  <li><router-link :to="{name:'rules'}">Rules</router-link></li>
+                </ul>
+              </li>
               <li><router-link :to="{name:'playoffs'}">Playoffs</router-link></li>
               <li><router-link :to="{name:'covid'}">COVID - 19</router-link></li>
             </ul>

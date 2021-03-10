@@ -64,11 +64,12 @@ export default {
 }
 .nav-admin .router-link-exact-active{
     padding: 10px 15px;
+    color: #EF4C00 !important;
 }
 .menu_sidebar .router-link-exact-active img{
     filter: invert(1);
 }
-.router-link-exact-active{
+.menu_sidebar .router-link-exact-active{
     background: #355947;
 }
 .transparent{
@@ -90,5 +91,17 @@ input[type="date"], input[type="datetime-local"], input[type="number"]{
 }
 .preview-image-width {
   width: 15%;
+}
+.form_holder input[type="number"] {
+    width: 100%;
+    display: block;
+    background: #F8F8F8;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 15px 20px;
+}
+.form_holder input[type="number"]:focus {
+    border: 1px solid #3C3C3C;
+    outline: 0;
 }
 </style>
