@@ -31,12 +31,12 @@
               </p>
               <p class="mt-3">
                  <a
-                  href="https://www.youtube.com/watch?v=4vHhZ03O0PI&ab_channel=NinhLy"
-                  ><b>Beginner’s Guide</b></a></b><br />
+                  href="https://www.youtube.com/watch?v=4vHhZ03O0PI&ab_channel=NinhLy" target="#"
+                  ><b>Beginner’s Guide</b></a><br />
               </p>
               <p class="mt-3">
                 <a
-                  href="https://www.youtube.com/watch?v=-vdHeh3Tftk&t=203s&ab_channel=PickleballKitchen"
+                  href="https://www.youtube.com/watch?v=-vdHeh3Tftk&t=203s&ab_channel=PickleballKitchen" target="#"
                   > <b>Common Pickleball Rules Questions ANSWERED!</b></a><br />
               </p>
             </div>

@@ -21,7 +21,7 @@
                 Want to Play Pickleball in a <span>Super Fun</span> Super Flexible
                 league?
               </h2>
-              <h4>{{ season && season.title ? season.title : "" }}</h4>
+              <h4 class="d-none">{{ season && season.title ? season.title : "" }}</h4>
             </div>
           </div>
         </div>
@@ -41,7 +41,7 @@
                 Want to Play Pickleball in a <span>Super Fun</span> Super Flexible
                 league?
               </h2>
-              <h4>{{ season && season.title ? season.title : "" }}</h4>
+              <h4 class="d-none">{{ season && season.title ? season.title : "" }}</h4>
             </div>
           </div>
         </div>
