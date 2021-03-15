@@ -512,8 +512,8 @@
               </div>
             </div>
             <div class="form_group mb-4">
-              <!--  -->
-              <input type="submit" value="Signup" class="signup_btn" :disabled="!paidFor" />
+              <!--:disabled="!paidFor"  -->
+              <input type="submit" value="Signup" class="signup_btn"  />
             </div>
           </div>
         </form>
