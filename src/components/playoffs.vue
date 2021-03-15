@@ -143,7 +143,7 @@
 
           <!-- Playoffs -->
           <div class="playoffs_holder">
-            <div class="playoffs_header">
+            <div class="playoffs_header d-none">
               <h2>Fall Playoffs 2020</h2>
               <div class="playoffs_dropdown">
                 <select name="">
