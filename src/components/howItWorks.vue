@@ -5,7 +5,7 @@
     </div>
     <div class="inner_banner">
       <div class="container_large">
-        <h1>Kings Tennis Ladder Rules</h1>
+        <h1>Kings Pickleball Rules</h1>
       </div>
     </div>
     <!--  Banner Ends Here   -->
