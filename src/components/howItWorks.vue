@@ -24,24 +24,20 @@
               </p>
             </div>
             <div class="form_group">
-              <h3>How do I play?</h3>
+              <h3>How Do I Play?</h3>
               <p>
-                Here are a few great YouTube videos to help you with all things
+                Here are a couple of videos to help you with all things
                 pickleball!
               </p>
               <p class="mt-3">
-                <b>Beginner’s Guide</b><br />
-                <a
+                 <a
                   href="https://www.youtube.com/watch?v=4vHhZ03O0PI&ab_channel=NinhLy"
-                  >https://www.youtube.com/watch?v=4vHhZ03O0PI&ab_channel=NinhLy</a
-                >
+                  ><b>Beginner’s Guide</b></a></b><br />
               </p>
               <p class="mt-3">
-                <b>Common Pickleball Rules Questions ANSWERED!</b><br />
                 <a
                   href="https://www.youtube.com/watch?v=-vdHeh3Tftk&t=203s&ab_channel=PickleballKitchen"
-                  >https://www.youtube.com/watch?v=-vdHeh3Tftk&t=203s&ab_channel=PickleballKitchen</a
-                >
+                  > <b>Common Pickleball Rules Questions ANSWERED!</b></a><br />
               </p>
             </div>
             <div class="form_group">
@@ -50,8 +46,7 @@
                 If you are unsure which level rating to sign up for please refer
                 to the following rating guide.<br />
                 <span class="mt-3">
-                  https://usapickleball.org/tournaments/tournament-player-ratings/player-skill-rating-definitions/</span
-                >
+                  <a href="https://usapickleball.org/tournaments/tournament-player-ratings/player-skill-rating-definitions" target="#">Ratings Guide</a></span>
                 <br />
                 You are welcome to play on multiple ladders in one season if you
                 feel the ladder you initially sign up for does not match your

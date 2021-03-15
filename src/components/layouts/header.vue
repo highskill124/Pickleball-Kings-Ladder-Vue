@@ -21,8 +21,8 @@
               <li class="custom_dropdown">
                 <a href="#">Resources</a>
                 <ul>
-                  <li><router-link :to="{name:'how-it-works'}">How it works</router-link></li>
-                  <li><router-link :to="{name:'rules'}">Rules</router-link></li>
+                  <li><router-link :to="{name:'how-it-works'}">How It Works</router-link></li>
+                  <li><router-link :to="{name:'rules'}">System Navigation</router-link></li>
                 </ul>
               </li>
               <li><router-link :to="{name:'playoffs'}">Playoffs</router-link></li>

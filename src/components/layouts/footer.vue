@@ -2,7 +2,7 @@
   <footer>
     <div class="container_large">
       <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-6">
           <div class="footer_column">
             <div class="footer_logo mb-4">
               <img src="../../assets/images/logo.png" alt="" />
@@ -13,7 +13,7 @@
             </p>
           </div>
         </div>
-        <div class="col-md-4">
+        <!-- <div class="col-md-4 d-none">
           <div class="footer_column">
             <h2 class="mb-5">Quick Links</h2>
             <ul class="footer_list">
@@ -23,8 +23,8 @@
               <li class="d-none"><a href="#">News</a></li>
             </ul>
           </div>
-        </div>
-        <div class="col-md-3">
+        </div> -->
+        <div class="col-md-6">
           <div class="footer_column">
             <h2 class="mb-5">Follow Us</h2>
             <ul class="footer_social">
