@@ -20,6 +20,9 @@ export default {
         return axios.get(`${process.env.API_URL}/get-next-available-season`);
     },
     getRecentlyCompletedSeasonWithPlayers(){
+        return axios.get(`${process.env.API_URL}/get-recently-completed`);
+    }, 
+    getRecentlyCompletedSeason(){
         return axios.get(`${process.env.API_URL}/get-recently-completed-season`);
     }
 }

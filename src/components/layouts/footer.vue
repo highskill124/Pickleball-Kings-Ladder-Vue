@@ -26,8 +26,8 @@
         </div> -->
         <div class="col-md-6">
           <div class="footer_column">
-            <h2 class="mb-5">Follow Us</h2>
-            <ul class="footer_social">
+            <!-- <h2 class="mb-5">Follow Us</h2> -->
+            <ul class="footer_social justify-content-end">
               <li>
                 <a :href="facebook_link" target="_blank"
                   ><i class="fab fa-facebook-f"></i
