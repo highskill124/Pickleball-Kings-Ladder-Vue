@@ -19,9 +19,9 @@
                   <div class="table_header">
                     <h3>Manage Users</h3>
                     <div class="tables_filters">
-                      <!-- <router-link :to="{ name: 'admin-add-socials' }"
-                        ><button>Add</button></router-link
-                      > -->
+                      <a :href="'mailto:'+users_emails"
+                        ><button>Email all</button></a
+                      >
                     </div>
                   </div>
                   <div class="table-responsive">
@@ -39,7 +39,7 @@
                         <tr v-for="data in users" :key="data.id">
                           <td>{{ data.full_name }}</td>
                           <td>
-                            <strong>{{ data.email }}</strong>
+                            <a :href="'mailto:'+data.email"><strong>{{ data.email }}</strong></a>
                           </td>
                           <td>{{ data.phone }}</td>
                           <td>{{ data.city }}</td>
@@ -228,6 +228,7 @@ export default {
       get_id: "",
       users: null,
       current_user: "",
+      users_emails: [],
     };
   },
   methods: {
@@ -269,6 +270,13 @@ export default {
     },
     async getUsers() {
       this.users = (await usersApis.requestUsers("get", "")).data;
+      if(this.users){
+ this.users.forEach(element => {
+   this.users_emails.push(element.email);
+        
+      });
+      }
+     
     },
   },
   beforeDestroy: function () {

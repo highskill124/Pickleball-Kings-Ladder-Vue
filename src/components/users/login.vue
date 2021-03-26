@@ -11,7 +11,9 @@
             If you have forgotten your password, click
             <strong>Forgot your password</strong>, and it will be emailed to
             you. If you have forgotten your user account, email
-            <strong>{{admin_email && admin_email.url ? admin_email.url :''}}</strong> to obtain it.
+            <span v-if="admin_email && admin_email.url">
+                <a :href="'mailto:'+ admin_email.url"><span>{{admin_email && admin_email.url ? admin_email.url:''}}</span></a>
+              </span> to obtain it.
           </p>
         </div>
       </div>

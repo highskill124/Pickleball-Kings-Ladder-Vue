@@ -57,7 +57,7 @@
                         </div>
                         <button type="submit">Show</button>
                         <span v-if="is_shown">
-                          <button type="button" data-bs-toggle="modal" data-bs-target="#purposeAll" >Purpose All</button>
+                          <button type="button" data-bs-toggle="modal" data-bs-target="#purposeAll" >Propose All</button>
                         <router-link :to="{name:'account-add-match', params:{season:$route.params.season, ladder:$route.params.ladder, type:'purpose', rank: ladder.match_rank_categories_id} }"><button type="button">Add</button></router-link>
                         </span>
                       </form>
@@ -72,6 +72,7 @@
                           <th>Location</th>
                           <th>Status</th>
                           <th>Accepted By</th>
+                          <th>Phone</th>
                           <th>Action</th>
                         </tr>
                       </thead>
@@ -82,6 +83,14 @@
                           <td>{{data.location}}</td>
                           <td><span class="pending">{{data.status}}</span></td>
                           <td>{{data.to && data.to.full_name ? data.to.full_name :'' }}</td>
+                          <td>
+                            <v-template v-if="data.by">
+                                {{data.by.phone ? data.by.phone : ''}}
+                            </v-template>
+                            <v-template v-if="data.to">
+                               {{data.to.phone ?', '+ data.to.phone : ''}}
+                            </v-template>
+                          </td>
                           <td>
                             <span v-if="data.request_by != user_id && data.request_to != user_id && !data.matches_id && is_shown && (data.status=='pending' || data.status=='emailed' ) ">
                               <!-- actions for accept -->

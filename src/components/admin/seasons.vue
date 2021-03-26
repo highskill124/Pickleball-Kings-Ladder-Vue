@@ -59,7 +59,7 @@
                             </router-link>
                             <span
                               class="btn btn-danger"
-                            @click.prevent="openModal(id)"
+                              @click.prevent="openModal(data.id)"
                               >Delete</span
                             >
                           </td>
@@ -75,8 +75,6 @@
         </div>
       </section>
     </main>
-    <!--   Main Content End Here   -->
-
     <!-- Modal -->
                           <div
                             class="modal fade"
@@ -124,6 +122,8 @@
                               </div>
                             </div>
                           </div>
+                          <!-- end modal -->
+    <!--   Main Content End Here   -->
   </div>
 </template>
 <script>
@@ -141,7 +141,7 @@ export default {
     };
   },
   methods: {
-openModal(id){
+    openModal(id){
       this.delete_id = id
       let myModal = new bootstrap.Modal(
         document.getElementById("deleteModal")

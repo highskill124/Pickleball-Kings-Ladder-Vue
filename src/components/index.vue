@@ -203,7 +203,9 @@
             <h2>More Questions?</h2>
             <h3>
               Head to the <router-link :to="{name:'how-it-works'}"><span>How it Works</span></router-link> tab or email
-              <span>{{admin_email && admin_email.url ? admin_email.url:''}}</span>
+              <span v-if="admin_email && admin_email.url">
+                <a :href="'mailto:'+ admin_email.url"><span>{{admin_email && admin_email.url ? admin_email.url:''}}</span></a>
+              </span>              
             </h3>
             <div class="read_more"><router-link :to="{name:'signup'}">Sign up Today! </router-link></div>
           </div>

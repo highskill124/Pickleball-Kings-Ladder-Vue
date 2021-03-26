@@ -11,9 +11,9 @@
         PayPal’s secure payment site where you can either log in to your
         existing PayPal account or pay with credit card.
       </p>
-      <p><strong>$30 for singles, $30 for doubles by the deadline</strong></p>
+      <p><strong>$15 for singles, $10 for doubles by the deadline</strong></p>
       <p>
-        <strong>$30 for singles, $30 for doubles after the deadline with additional ${{upcoming_season && upcoming_season.late_fee ? upcoming_season.late_fee :''}} for late fee</strong>
+        <strong>$20 for singles, $15 for doubles after the deadline with additional ${{upcoming_season && upcoming_season.late_fee ? upcoming_season.late_fee :''}} for late fee</strong>
       </p>
       <p>
         Unsure what level to register for? please visit the
@@ -298,9 +298,9 @@
                   <div class="col-md-6">
                     <div class="form_group">
                       <label>Singles</label>
-                      <select name="" v-model="singles" @change.prevent="amountDue('Singles','singles', singles, 30)">
+                      <select name="" v-model="singles" @change.prevent="amountDue('Singles','singles', singles, 15)">
                         <option value="">Select</option>
-                       <option v-for="data in single_rankings" :key="data.id" :value="data">{{data.title}} - $30.00</option>
+                       <option v-for="data in single_rankings" :key="data.id" :value="data">{{data.title}} - $15.00</option>
                         <!-- <option value="2.5">2.5 - $30.00</option>
                         <option value="3.0">>3.0 - $30.00</option>
                         <option value="2.5">>3.5 - $30.00</option>
@@ -313,9 +313,9 @@
                   <div class="col-md-6">
                     <div class="form_group">
                       <label>Additional Singles</label>
-                      <select name="" v-model="additional_singles" @change.prevent="amountDue('Additional Singles','additional_singles', additional_singles, 30)">
+                      <select name="" v-model="additional_singles" @change.prevent="amountDue('Additional Singles','additional_singles', additional_singles, 15)">
                         <option value="">Select</option>
-                        <option v-for="data in single_rankings" :key="data.id" :value="data">{{data.title}} - $30.00</option>
+                        <option v-for="data in single_rankings" :key="data.id" :value="data">{{data.title}} - $15.00</option>
                         <!-- <option value="2.5">2.5 - $30.00</option>
                         <option value="3.0">3.0 - $30.00</option>
                         <option value="3.5">3.5 - $30.00</option>
@@ -330,9 +330,9 @@
                   <div class="col-md-4">
                     <div class="form_group">
                       <label>Doubles</label>
-                      <select name="" v-model="doubles" @change.prevent="amountDue('Doubles','doubles', doubles, 30)">
+                      <select name="" v-model="doubles" @change.prevent="amountDue('Doubles','doubles', doubles, 10)">
                         <option value="">Select</option>
-                        <option v-for="data in double_rankings" :key="data.id" :value="data">{{data.title}} - $30.00</option>
+                        <option v-for="data in double_rankings" :key="data.id" :value="data">{{data.title}} - $10.00</option>
                       </select>
                     </div>
                   </div>
@@ -366,9 +366,9 @@
                   <div class="col-md-4">
                     <div class="form_group">
                       <label>Additional Doubles</label>
-                      <select name="" v-model="additional_doubles" @change.prevent="amountDue('Additional Doubles','additional_doubles', additional_doubles, 30)">
+                      <select name="" v-model="additional_doubles" @change.prevent="amountDue('Additional Doubles','additional_doubles', additional_doubles, 10)">
                         <option value="">Select</option>
-                        <option v-for="data in double_rankings" :key="data.id" :value="data">{{data.title}} - $30.00</option>
+                        <option v-for="data in double_rankings" :key="data.id" :value="data">{{data.title}} - $10.00</option>
                       </select>
                     </div>
                   </div>

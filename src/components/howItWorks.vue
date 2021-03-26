@@ -56,6 +56,12 @@
               </p>
             </div>
             <div class="form_group">
+              <h3>Doubles</h3>
+              <p>
+                Doubles teams on this ladder can consist of two men, two women, or one man and one woman. Form your doubles pairs by approximate average skill rating. Based on your feedback, this may be adjusted in future seasons. We wanted to try it this way the first time around, so let us know how you feel about it!
+              </p>
+              </div>
+            <div class="form_group">
               <h3>League format:</h3>
               <p>
                 You accumulate points by playing matches. Your position on the

@@ -17,7 +17,8 @@
             <div class="col-md-12 col-lg-9">
               <div class="content_column">
                 <div class="content_header">
-                  <h1>{{ type ? type + " a " : "" }}Match</h1>
+                  <h1 v-if="type!='purpose'">{{ type ? type + " a " : "" }}Match</h1>
+                  <h1 v-if="type=='purpose'">Propose a Match</h1>
                 </div>
                 <div class="content_body">
                   <div

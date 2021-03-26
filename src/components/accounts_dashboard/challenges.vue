@@ -58,6 +58,7 @@
                         <tr>
                           <th>Date</th>
                           <th>Challenge</th>
+                          <th>Phone</th>
                           <th>Status</th>
                           <th>Responded</th>
                           <th>Action</th>
@@ -68,6 +69,14 @@
                           <td>{{data.date}} {{data.date_time}}</td>
                           <td>
                             <strong>{{data.by && data.by.full_name ? data.by.full_name :'' }} challenged {{data.to && data.to.full_name ? data.to.full_name :'' }}</strong>
+                          </td>
+                          <td>
+                            <v-template v-if="data.by">
+                                {{data.by.phone ? data.by.phone : ''}}
+                            </v-template>
+                            <v-template v-if="data.to">
+                               {{data.to.phone ?', '+ data.to.phone : ''}}
+                            </v-template>
                           </td>
                           <td><span class="pending">{{data.status}}</span></td>
                           <td>{{data.responded_at}}</td>
