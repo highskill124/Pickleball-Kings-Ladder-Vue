@@ -20,9 +20,18 @@
                   <h1>Update user season</h1>
                 </div>
                 <div class="content_body">
-                   <div class="alert alert-success alert-dismissible fade show" role="alert" v-if="status && status==200">
-                      <strong>Success!</strong>.
-                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  <div
+                    class="alert alert-success alert-dismissible fade show"
+                    role="alert"
+                    v-if="status && status == 200"
+                  >
+                    <strong>Success!</strong>.
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="alert"
+                      aria-label="Close"
+                    ></button>
                   </div>
                   <form @submit.prevent="submit()">
                     <div class="form_holder">
@@ -30,11 +39,41 @@
                         <div class="col-md-6">
                           <div class="form_group">
                             <label>Season</label>
-                             <select v-model="formObj.season_id" required>
+                            <select
+                              v-model="formObj.season_id"
+                              required
+                              @change="loadLaddersBySeasonChange()"
+                            >
                               <option value="">Select</option>
-                               <option v-for="data in seasons" :key="data.id" :value="data.id">{{data.title}}</option>
+                              <option
+                                v-for="data in seasons"
+                                :key="data.id"
+                                :value="data.id"
+                              >
+                                {{ data.title }}
+                              </option>
                             </select>
-                             <v-errors :errors="errorFor('season_id')"></v-errors>
+                            <v-errors
+                              :errors="errorFor('season_id')"
+                            ></v-errors>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form_group">
+                            <label>Change Ladder</label>
+                            <select v-model="formObj.match_ladder_id" required>
+                              <option value="">Select</option>
+                              <option
+                                v-for="data in matchLadders"
+                                :key="data.id"
+                                :value="data.id"
+                              >
+                                {{ data.title }}
+                              </option>
+                            </select>
+                            <v-errors
+                              :errors="errorFor('match_ladder_id')"
+                            ></v-errors>
                           </div>
                         </div>
                         <div class="col-md-12">
@@ -64,9 +103,10 @@
 import sidebarComponent from "./sidebar";
 import validationErrors from "../../mixins/validationErrors";
 import { is422 } from "../../utils/response";
-import seasonsApis from '../../Apis/seasons';
-import usersApis from '../../Apis/users';
-import userPaidRankingsApis from '../../Apis/user-paid-rankings'
+import seasonsApis from "../../Apis/seasons";
+import matchLaddersApi from "../../Apis/match-ladders";
+import usersApis from "../../Apis/users";
+import userPaidRankingsApis from "../../Apis/user-paid-rankings";
 export default {
   mixins: [validationErrors],
   components: {
@@ -79,25 +119,37 @@ export default {
       paid_rank: null,
       formObj: {
         id: this.$route.params.id,
-        season_id: '',
-        rank_category: '',
+        season_id: "",
+        rank_category: "",
+        match_ladder_id: "",
       },
     };
   },
   methods: {
-  
+    async loadLaddersBySeasonChange() {
+      this.loader = true;
+      console.log("loadLaddersBySeasonChange called");
+
+      if (this.formObj.season_id) {
+        this.matchLadders = (
+          await matchLaddersApi.getBySeason(this.formObj.season_id)
+        ).data;
+      }
+      this.loader = false;
+    },
     submit() {
       this.loader = true;
-      usersApis.adminUpdateSeason(this.formObj)
-      .then((response) => {
-         this.loader= false;
-        console.log(response);
+      console.log("this.formObj", this.formObj);
+      usersApis
+        .adminUpdateSeason(this.formObj)
+        .then((response) => {
+          this.loader = false;
+          console.log(response);
           if (response.status == 200) {
             this.status = response.status;
             setTimeout(() => {
-              this.$router.push({name:'admin-users'});
+              this.$router.push({ name: "admin-users" });
             }, 2000);
-
           }
         })
         .catch((error) => {
@@ -109,17 +161,26 @@ export default {
             error.response && error.response.status
               ? error.response.status
               : "";
-        }).then(()=>{
+        })
+        .then(() => {
           this.loader = false;
         });
     },
   },
- async created() {
-    this.seasons = (await seasonsApis.requestSeasons("get","")).data;
-    this.paid_rank = (await userPaidRankingsApis.getById(this.$route.params.id)).data;
-    if(this.paid_rank){
+  async created() {
+    this.seasons = (await seasonsApis.requestSeasons("get", "")).data;
 
-      this.formObj.rank_category= this.paid_rank.matchladder && this.paid_rank.matchladder.match_rank_categories_id ?this.paid_rank.matchladder.match_rank_categories_id : '';
+    console.log(" this.matchRankings", this.matchRankings);
+
+    this.paid_rank = (
+      await userPaidRankingsApis.getById(this.$route.params.id)
+    ).data;
+    if (this.paid_rank) {
+      this.formObj.rank_category =
+        this.paid_rank.matchladder &&
+        this.paid_rank.matchladder.match_rank_categories_id
+          ? this.paid_rank.matchladder.match_rank_categories_id
+          : "";
     }
     setTimeout(() => {
       this.loader = false;

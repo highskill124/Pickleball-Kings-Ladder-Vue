@@ -40,7 +40,7 @@
           </div>
         </div>
       </div>
-      <div class="copyright">© Copyright 2020 Kings Pickleball Ladder</div>
+      <div class="copyright">© Copyright 2021 Kings Pickleball Ladder</div>
     </div>
     
   </footer>
