@@ -63,12 +63,30 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"',
-        APP_URL:'"https://kingspickleballladder.com/"',
-        API_URL: '"https://api01.kingspickleballladder.com/api"',
-        Backend_URL:'"https://api01.kingspickleballladder.com"',
-        // APP_URL:'"http://pickles.com/"',
-        // API_URL: '"http://api.pickles.com/api"',
-        // Backend_URL:'"http://api.pickles.com"',
+        // APP_URL:'"https://kingspickleballladder.com/"',
+        // API_URL: '"https://api01.kingspickleballladder.com/api"',
+        // Backend_URL:'"https://api01.kingspickleballladder.com"',
+
+        // APP_URL:'"https://charlotte.kingspickleballladder.com/"',
+        // API_URL: '"https://apicharlotte.kingspickleballladder.com/api"',
+        // Backend_URL:'"https://apicharlotte.kingspickleballladder.com"',
+
+        
+        APP_URL:'"http://kingspickle.loc/"',
+        API_URL: '"http://api.kingspickle.loc/api"',
+        Backend_URL:'"http://api.kingspickle.loc"',
+
+        location: '"upstate"',
+        location_name: '"the Upstate SC"',
+        other_location_url: '"https://charlotte.kingspickleballladder.com/"',
+        other_location_name: '"Charlotte"',
+
+
+        // location: '"charlotte"',
+        // location_name: '"Charlotte"',
+        //other_location_url: '"https://upstate.kingspickleballladder.com/"',
+        // other_location_name: '"the Upstate SC"',
+
       }
     }),
     new webpack.optimize.UglifyJsPlugin({

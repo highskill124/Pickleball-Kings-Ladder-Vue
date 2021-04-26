@@ -19,7 +19,8 @@
       </div>
       <div class="col-md-12 col-lg-5">
         <div class="login_holder">
-          <h2>Sign In</h2>
+          <h2 style="margin-bottom: 1rem;">Sign In ({{ location_name }})</h2>
+          <h3 style="margin-bottom: 2rem;"><a :href="other_location_url">Switch to {{ other_location_name }}</a> ?</h3>
           <form method="post" @submit.prevent="submit()">
             <div class="form_holder">
               <div class="form_group">
@@ -85,6 +86,11 @@ export default {
   mixins: [validationErrors],
   data() {
     return {
+      location: process.env.location,
+      location_name: process.env.location_name,
+      other_location_url:process.env.other_location_url,
+      other_location_name:process.env.other_location_name,
+
       loader: true,
       errors: null,
       status: null,
