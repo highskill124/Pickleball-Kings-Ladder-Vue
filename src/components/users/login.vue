@@ -104,8 +104,8 @@ export default {
   methods: {
     async submit() {
       this.loader = true;
-      await usersApis.logout();
       await usersApis.getCSRF();
+      await usersApis.logout();
       await usersApis.login(this.loginObj)
         .then((response) => {
           if (response.status == 200 || response.status == 204) {

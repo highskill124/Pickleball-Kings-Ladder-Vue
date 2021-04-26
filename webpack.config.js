@@ -63,7 +63,7 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"',
-        // APP_URL:'"https://kingspickleballladder.com/"',
+        // APP_URL:'"https://upstate.kingspickleballladder.com/"',
         // API_URL: '"https://api01.kingspickleballladder.com/api"',
         // Backend_URL:'"https://api01.kingspickleballladder.com"',
 
