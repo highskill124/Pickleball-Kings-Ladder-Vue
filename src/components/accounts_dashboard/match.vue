@@ -78,7 +78,7 @@
 
                        <div class="col-md-12">
                           <div class="form_group">
-                            <label>Scores</label>
+                            <label>Scores  ({{match && match.request?  match.request.by.full_name : "" }} VS {{ match && match.request?  match.request.to.full_name : "" }})</label>
                           </div>                          
                       </div>
                       

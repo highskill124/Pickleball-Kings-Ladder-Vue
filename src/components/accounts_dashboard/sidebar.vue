@@ -104,7 +104,7 @@
                   aria-label="Close"
                 ></button>
               </div>
-              <h2>Are you sure you wants to logout?</h2>
+              <h2>Are you sure you want to logout?</h2>
               <!-- <p>I will not close if you click outside me. Don't even try to press escape key.</p> -->
               <div class="modal_actions">
                 <button type="button" class="close_btn" data-bs-dismiss="modal">

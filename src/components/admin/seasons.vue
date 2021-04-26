@@ -97,7 +97,7 @@
                                     </div>
                                     <h2>Are you sure?</h2>
                                     <p>
-                                      Are you sure you wants to delete this
+                                      Are you sure you want to delete this
                                       item?
                                     </p>
                                     <div class="modal_actions">

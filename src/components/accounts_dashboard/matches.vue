@@ -80,21 +80,21 @@
                           </td>
                           <td>
                             <strong
-                              >{{
-                                data.request &&
-                                data.request.to &&
-                                data.request.to.full_name
-                                  ? data.request.to.full_name
-                                  : ""
-                              }}
-                              vs.
-                              {{
+                              > {{
                                 data.request &&
                                 data.request.by &&
                                 data.request.by.full_name
                                   ? data.request.by.full_name
                                   : ""
-                              }}</strong
+                              }}
+                              vs.
+                            {{
+                                data.request &&
+                                data.request.to &&
+                                data.request.to.full_name
+                                  ? data.request.to.full_name
+                                  : ""
+                              }} </strong
                             >
                           </td>
                           <td>{{data.point1_user1}}-{{data.point1_user2}}, {{data.point2_user1}}-{{data.point2_user2}}, {{data.point3_user1}}-{{data.point3_user2}}</td>

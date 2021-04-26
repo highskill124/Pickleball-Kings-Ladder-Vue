@@ -146,7 +146,7 @@
                 ></button>
               </div>
               <h2>Confirmation</h2>
-              <p> Are you sure,you wants to purpose all participants?</p>
+              <p> Are you sure you want to propose to all participants?</p>
               <div class="modal_actions">
                 <button type="button" class="close_btn" data-bs-dismiss="modal">
                   Cancel
