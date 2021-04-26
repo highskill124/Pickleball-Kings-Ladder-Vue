@@ -37,7 +37,7 @@ axios.interceptors.response.use(
     if (401 == error.response.status) {
       console.log("Within interceptor error -");
 
-      this.$store.dispatch('islogut', []);
+      store.dispatch('islogut', []);
       logOut();
       users.logout();
       const logoutError = "Your session was expired. Please login again.";
