@@ -106,6 +106,7 @@ export default {
       this.loader = true;
       await usersApis.getCSRF();
       await usersApis.logout();
+      await usersApis.getCSRF();
       await usersApis.login(this.loginObj)
         .then((response) => {
           if (response.status == 200 || response.status == 204) {
