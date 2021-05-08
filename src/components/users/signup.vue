@@ -493,7 +493,9 @@
                     </div>
                   </div>
                 </div>
-                <div class="row">
+
+                <!-- :: Client dont need mix doubles in pickle ball - May 2021 -->
+                <!-- <div class="row">
                   <div class="col-md-4">
                     <div class="form_group">
                       <label>Mixed Doubles</label>
@@ -545,8 +547,8 @@
                       />
                     </div>
                   </div>
-                </div>
-                <div class="row">
+                </div> -->
+                <!-- <div class="row">
                   <div class="col-md-4">
                     <div class="form_group">
                       <label>Additional Mixed Doubles</label>
@@ -600,7 +602,7 @@
                       />
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <div class="payment_info">
                   <h3 class="mb-5">Payment</h3>
                   <ul>
