@@ -277,14 +277,14 @@ export default {
     
        const gender = (getCurrentUser()).gender;
        this.gender = gender;
-        if(this.ladder.gender==gender){
+        // if(this.ladder.gender==gender){ // :: Client update - gender is removed from pickleball May 2021
              const paidCategories = (getCurrentUser()).categories;
            if(paidCategories){
               // this.is_shown =  paidCategories.find(data => data.matchrankcategories.id==this.ladder.match_rank_categories_id);
               this.is_shown =  paidCategories.find(data => data.match_ladder_id==this.ladder.id);
               console.log(this.is_shown);
             }
-        }
+        // }
         // const user =  getCurrentUser();
       this.users  = (await userApis.PaidUserInLadderWithCurrent(gender, this.$route.params.ladder)).data;
       this.getPurposals("get", "");
