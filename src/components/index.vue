@@ -97,11 +97,7 @@
             <div class="about_content">
               <h2><span>About</span>Kings Pickleball Ladder</h2>
               <p>
-                Kings Pickleball ladder is a year-round pickleball ladder open to Adult
-                Men and Women of all skill levels in Upstate South Carolina.
-                This league is based out of Greenville, SC but players from
-                Anderson, Clemson, and any other surrounding areas in Upstate SC
-                are welcome! This league will include Singles and Doubles.
+                Kings Pickleball ladder is a year-round pickleball ladder open to Adult Men and Women of all skill levels. Currently we offer a ladder in two exciting locations- Upstate South Carolina and Charlotte, North Carolina. This ladder will include both singles and doubles.
               </p>
               <div class="read_more d-none"><a href="#">Read More</a></div>
             </div>
