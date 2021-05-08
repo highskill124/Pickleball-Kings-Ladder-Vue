@@ -114,7 +114,7 @@
               </p>
               <p>
                 (If there is any confusion about scoring or how to enter match
-                scores, email kingspickleballladder@gmail.com)
+                scores, email kingspickleball@gmail.com)
               </p>
             </div>
 

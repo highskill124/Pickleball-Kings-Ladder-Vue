@@ -26,7 +26,7 @@
                     <span>{{data.start_date}}</span>
                   </li>
                   <li>
-                    <span>Deadline to Register</span>
+                    <span>Deadline for $5 Off</span>
                     <span>{{data.registration_deadline}}</span>
                   </li>
                   <li>
