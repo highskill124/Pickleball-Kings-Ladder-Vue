@@ -170,7 +170,7 @@
                     }}
                   </li>
                   <li>
-                    <strong>Deadline to register</strong> for ${{ season.late_fee }} off
+                    <strong>Deadline </strong> for ${{ season.late_fee }} off
                     {{
                       season.registration_deadline_formated
                         ? season.registration_deadline_formated
