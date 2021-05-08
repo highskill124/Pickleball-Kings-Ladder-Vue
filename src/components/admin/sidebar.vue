@@ -8,62 +8,37 @@
       <li>
         <a href="#"
           ><img src="/src/assets/images/dashboard.svg" alt="" />
-          <span>Dasboard</span></a>
+          <span>Dasboard</span></a
+        >
       </li>
+     <li>
+       <router-link :to="{ name: 'admin-seasons' }"
+          ><img src="/src/assets/images/support.svg" alt="" />
+          <span>Seasons</span></router-link>
+     </li>
+     <li>
+       <router-link :to="{ name: 'admin-socials' }"
+          ><img src="/src/assets/images/support.svg" alt="" />
+          <span>Socials</span></router-link>
+     </li>
       <li>
        <button
-          data-bs-toggle="collapse"
-          href="#events"
-          role="button"
-          aria-expanded="false"
-          aria-controls="events"
-        >
-          <img src="/src/assets/images/events.svg" alt="" /> <span>Events</span>
-        </button>
-        <div class="collapse" id="events">
-          <ul class="submenu">
-            <!-- <li>
-              <router-link :to="{ name: 'account-events',  params:{type:'winter-singles'}  }"
-                >Winter Singles</router-link
-              >
-            </li> -->
-            <li v-for="data in seasons" :key="data.id">
-             
-                <router-link :to="{ name: 'account-events',  params:{season: data.id}  }"
-                > {{data.title}}</router-link
-              >
-            </li>
-            <!-- <li>
-              <router-link :to="{ name: 'account-events_doubles',  params:{type:'winter-doubles'} }"
-                >Winter Doubles</router-link
-              >
-            </li>
-            <li>
-              <router-link :to="{ name: 'account-events_mixed',  params:{type:'winter-mixed-doubles'} }"
-                >Winter Mixed Doubles</router-link
-              >
-            </li> -->
-          </ul>
-        </div>
-      </li>
-      <li>
-         <button
           data-bs-toggle="collapse"
           href="#profile"
           role="button"
           aria-expanded="false"
           aria-controls="profile">
-        <img src="/src/assets/images/user.svg" alt="" />
+       <img src="/src/assets/images/user.svg" alt="" />
           <span>Profile</span></button>
         <div class="collapse" id="profile">
           <ul class="submenu">
             <li>
-              <router-link :to="{ name: 'account-profile-settings' }"
+              <router-link :to="{ name: 'admin-profile-settings' }"
                 >Settings</router-link
               >
             </li>
             <li>
-              <router-link :to="{ name: 'account-reset-password' }"
+              <router-link :to="{ name: 'admin-reset-password' }"
                 >Reset Password</router-link
               >
             </li>
@@ -71,9 +46,9 @@
         </div>
       </li>
       <li>
-        <router-link :to="{ name: 'account-support' }"
+        <router-link :to="{ name: 'admin-users' }"
           ><img src="/src/assets/images/support.svg" alt="" />
-          <span>Support</span></router-link
+          <span>Users</span></router-link
         >
       </li>
       <li>
@@ -128,28 +103,18 @@
 <script>
 import { logOut, setCurrentUser, getCurrentUser } from "../../utils/auth";
 import userApis from "../../Apis/users";
-import seasonApis from '../../Apis/seasons';
 export default {
   data() {
     return {
       loader: false,
-      seasons: null,
     };
   },
   async created() {
-      this.seasons = (await seasonApis.requestSeasons("get","")).data;
     if (!getCurrentUser()) {
-      
-      // await userApis.getCurrentUser().then((response) => {
-      //   // this.$store.dispatch('islogedIn', response.data);
-      //   // setCurrentUser(response.data);
-      // });
-      const user =  (await userApis.getCurrentUser()).data;
-       const categories = (await userApis.getUserCategories(user.id)).data;
-        delete categories.id;
-       let merged = {...user, ...categories};
-       this.$store.dispatch('islogedIn', merged);
-        setCurrentUser(merged);
+      await userApis.getCurrentUser().then((response) => {
+        this.$store.dispatch("islogedIn", response.data);
+        setCurrentUser(response.data);
+      });
     }
   },
   methods: {
@@ -159,14 +124,14 @@ export default {
         .logout()
         .then((response) => {
           if (response.status == 200 || response.status == 204) {
-            this.$store.dispatch('islogut', []);
+            this.$store.dispatch("islogut", []);
             logOut();
             $("body").removeClass("modal-open");
             $(".fade").removeClass("modal-backdrop");
             $("body").css("padding-right", "0px");
-           
-             this.loader = false;
-            //  window.location.href ='/';
+
+            this.loader = false;
+            // window.location.href = "/";
             this.$router.push({ name: "login" });
           }
         })

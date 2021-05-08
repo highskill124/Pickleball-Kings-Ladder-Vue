@@ -104,6 +104,7 @@ export default {
   methods: {
     async submit() {
       this.loader = true;
+      await usersApis.getCSRF();
       await usersApis.logout();
       await usersApis.getCSRF();
       await usersApis.login(this.loginObj)
