@@ -765,8 +765,13 @@ export default {
   },
   mounted: function () {
     const script = document.createElement("script");
+    // script.src =
+    //   "https://www.paypal.com/sdk/js?client-id=AXtcvKvb-iR-7BYXv6BZktLuGsTWcjPbPkT73Fk5ryuEM9gu81PiJPBvhusquo4PcE2WdaBWpSUEKRrj";
+    
+/** prod env */
     script.src =
-      "https://www.paypal.com/sdk/js?client-id=AXtcvKvb-iR-7BYXv6BZktLuGsTWcjPbPkT73Fk5ryuEM9gu81PiJPBvhusquo4PcE2WdaBWpSUEKRrj";
+      "https://www.paypal.com/sdk/js?client-id=AV_UagLBvD8CEfhRHJLxqltJFNijOKdiV-56hCdwYMUNUx49hY08SwRh7Lq_Gg67pnwCdF3i_guDx0Ag";
+    
     script.addEventListener("load", this.setLoaded);
     document.body.appendChild(script);
   },
