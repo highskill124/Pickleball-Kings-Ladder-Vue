@@ -1,0 +1,307 @@
+[33mcommit e3eab0863c7755ee46968ea6f8c01d79509f6ad4[m[33m ([m[1;36mHEAD -> [m[1;32mmaster-develop[m[33m)[m
+Author: Hammad Asad <hammad.asad@nextscrum.dev>
+Date:   Fri Jun 18 15:04:17 2021 +0500
+
+    bugs fixing payment issue and update AM/PM
+
+[33mcommit 108412268677cad0054165c3a4d2d80d87328ba2[m[33m ([m[1;31morigin/master-develop[m[33m)[m
+Author: unknown <zeshan@nextscrum.com>
+Date:   Fri May 14 11:38:20 2021 +0500
+
+    stripe to prod
+
+[33mcommit bc234c6ad92f5bf6d9e45463d8a687f6f7fc8ed7[m
+Author: unknown <zeshan@nextscrum.com>
+Date:   Sun May 9 00:43:09 2021 +0500
+
+    text changes
+
+[33mcommit d941415a724fcd656c686f25f5fb09329f57e1de[m
+Author: unknown <zeshan@nextscrum.com>
+Date:   Sat May 8 23:50:29 2021 +0500
+
+    home about section update
+
+[33mcommit 4c4662f1f8608e477cc814e4a4afc24673f51de2[m
+Author: unknown <zeshan@nextscrum.com>
+Date:   Sat May 8 14:19:38 2021 +0500
+
+    home about section update
+
+[33mcommit 64116bbb24fee040de444325858e097a6a3e2875[m
+Author: unknown <zeshan@nextscrum.com>
+Date:   Sat May 8 14:12:51 2021 +0500
+
+    home about section update
+
+[33mcommit 503839020345a11a026bb4056e4ffe7cf5a68471[m
+Author: unknown <zeshan@nextscrum.com>
+Date:   Sat May 8 14:04:00 2021 +0500
+
+    gender check removed from proposal
+
+[33mcommit e243ec155082516ab06e39640a4896480ec1536b[m
+Author: unknown <zeshan@nextscrum.com>
+Date:   Sat May 8 13:40:00 2021 +0500
+
+    side bar - admin fix
+
+[33mcommit 2a02d402ebaf84e96b893eee5ae64429cd61a5f1[m
+Author: unknown <zeshan@nextscrum.com>
+Date:   Tue Apr 27 04:14:13 2021 +0500
+
+    config updates
+
+[33mcommit f6505b54d5852666a77cd5941eccf3dbfb0babfb[m
+Author: unknown <zeshan@nextscrum.com>
+Date:   Tue Apr 27 03:08:29 2021 +0500
+
+    config updates
+
+[33mcommit ac5e7d3c5196fcb64c0fea4048bb10de7c91197d[m
+Author: unknown <zeshan@nextscrum.com>
+Date:   Tue Apr 27 02:34:21 2021 +0500
+
+    pickle ball converted into to locations (two enviroments)
+
+[33mcommit a0a1f836f8a2352bff3ae2cb656cd86278258a4f[m
+Author: unknown <zeshan@nextscrum.com>
+Date:   Mon Apr 26 11:15:47 2021 +0500
+
+    interceptor fix
+
+[33mcommit 9b895382649fb5b832082b5ce1f030265688a134[m
+Author: unknown <zeshan@nextscrum.com>
+Date:   Mon Apr 26 11:10:56 2021 +0500
+
+    added interceptor for logout
+
+[33mcommit 846f18b5bb6f424a1d18d856f012cf2c954c056e[m
+Author: unknown <zeshan@nextscrum.com>
+Date:   Mon Apr 26 10:49:40 2021 +0500
+
+    20 april changes
+
+[33mcommit d7bc481aea5c7f748829bfda41c2994090f837df[m
+Author: unknown <zeshan@nextscrum.com>
+Date:   Mon Apr 5 04:51:52 2021 +0500
+
+    change User's Ladder by Admin
+
+[33mcommit 71e3fc066698100c95bfec2a31cb51496866cfdc[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Fri Mar 26 21:05:49 2021 +0500
+
+    changes as req in docs
+
+[33mcommit 17db78e27765b6cabe54f45ed303875dd88d7640[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Tue Mar 16 11:52:16 2021 +0500
+
+    playoff changes
+
+[33mcommit 2008122d387e6c4aa2e1c1a0441d2ae84f274e35[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Mon Mar 15 17:32:46 2021 +0500
+
+    changes
+
+[33mcommit 4a1ffb88add776d2edee8cca14d3e2e51d59f2a9[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Mon Mar 15 17:31:05 2021 +0500
+
+    before playoff
+
+[33mcommit 5e1c932d0aee955d5d19097581621f468ce87fcd[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Mon Mar 15 17:04:54 2021 +0500
+
+    changes
+
+[33mcommit 55a7001167ba1b6c56fda73440044e70010cd65d[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Mon Mar 15 17:00:41 2021 +0500
+
+    changes as per required in docs file
+
+[33mcommit 231fc5a51a22d9ab4c40b7614000b9aea35da100[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Mon Mar 15 14:41:53 2021 +0500
+
+    commenting payment require on signup for testing
+
+[33mcommit 73d9cf9e407c1003db5c6a282aa01d49890813e8[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Fri Mar 12 18:39:44 2021 +0500
+
+    changes regarding layout
+
+[33mcommit f8fb7a0d0158426c4554f0f3a67911cdba521184[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Wed Mar 10 12:09:26 2021 +0500
+
+    changes
+
+[33mcommit b4614b0a9c94326068d353c7500abb2e97ce29ec[m
+Merge: 85d83d7 41ad107
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Thu Feb 18 15:34:39 2021 +0500
+
+    Merge branch 'master-develop' of https://bitbucket.org/zeshan_nextscrum/kings_ladder_pickleball_vuejs into master-develop
+
+[33mcommit 85d83d7382db4742163810deef78b89d04a6f871[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Thu Feb 18 15:34:26 2021 +0500
+
+    change
+
+[33mcommit 41ad107ca40f1d3a4fb9c0702d424c1bf8f43026[m
+Author: muzaffar munir <muzaffar.munir@nextscrum.dev>
+Date:   Thu Feb 18 10:33:31 2021 +0000
+
+    changes from machine
+
+[33mcommit 8f893507d578161d1953d3bbed63230855f298dd[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Mon Feb 15 13:04:39 2021 +0500
+
+    changes
+
+[33mcommit a8ffe97a6fc80cb9df607cd39a385011d63d12cc[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Mon Feb 15 12:47:09 2021 +0500
+
+    changes
+
+[33mcommit a88897b8084078d678d4f79676e9b047e47735e3[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Mon Feb 15 12:36:03 2021 +0500
+
+    profile changes
+
+[33mcommit e08371e28ba1f0a0f33cba505667f4d15eca84d5[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Mon Feb 15 12:07:12 2021 +0500
+
+    changes
+
+[33mcommit ffa09eff289b47be504177af783c2d143f50cd09[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Tue Feb 9 16:52:21 2021 +0500
+
+    slider content issue
+
+[33mcommit 521a3ac0bae3c1548c52f06968d3aee8c4ac62a9[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Tue Feb 9 16:10:15 2021 +0500
+
+    changes
+
+[33mcommit 8d71dc56a8819973290fc9408dd44edab7b74d41[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Tue Feb 9 15:58:06 2021 +0500
+
+    change
+
+[33mcommit 6bc3be26f20bc2b52f69f83cd33a4523f5b3fa5e[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Tue Feb 9 15:24:08 2021 +0500
+
+    changes
+
+[33mcommit 82295e1c8eb5b96ae0235f1d6577ed9756d29585[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Tue Feb 9 15:19:18 2021 +0500
+
+    changes
+
+[33mcommit aeee0a100d318db5244630d46973b064c98b57f4[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Tue Feb 9 10:59:58 2021 +0500
+
+    changes
+
+[33mcommit 6bb85612ffe32af1412dce3fac7a84582cb0e463[m
+Merge: c6b52db 2e3f1a2
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Tue Feb 9 10:24:12 2021 +0500
+
+    Merge branch 'master-develop' of https://bitbucket.org/zeshan_nextscrum/kings_ladder_pickleball_vuejs into master-develop
+
+[33mcommit 2e3f1a221a88dc07be2d4570c0389a40a7de2f80[m
+Author: muzaffar munir <muzaffar.munir@nextscrum.dev>
+Date:   Tue Feb 9 05:23:29 2021 +0000
+
+    change
+
+[33mcommit c6b52db9e353b96383f0ac51a3f13b9333a96f43[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Tue Feb 9 10:22:54 2021 +0500
+
+    changes
+
+[33mcommit 3ef9002d3004818df3eb04e879e8167d7c5a920d[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Mon Feb 8 19:23:11 2021 +0500
+
+    changes
+
+[33mcommit 0a9d4da35697102fe4e05297a523a390328f12a1[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Thu Feb 4 15:53:49 2021 +0500
+
+    changes
+
+[33mcommit fc2a4cb73f811c982d3f1ecc380d0e0fa166902f[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Thu Feb 4 15:04:06 2021 +0500
+
+    changes
+
+[33mcommit f2a9a84e4a90088e9161053ab2fe53bb52dccc14[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Thu Feb 4 12:40:55 2021 +0500
+
+    initial changes
+
+[33mcommit 065fb82ed5bc5b455b834c58b4ba2762eb268629[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Mon Feb 1 19:09:24 2021 +0500
+
+    chanages
+
+[33mcommit 7fbc61634b4fa59d1196e01b84819cb1d5725f73[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Mon Feb 1 17:51:52 2021 +0500
+
+    localstorage issues in header
+
+[33mcommit dd0aec5f44d7e3bb16a95a042d552334c2f84434[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Fri Jan 29 18:43:33 2021 +0500
+
+    changes
+
+[33mcommit d602f9541af1aa2ff8260cffb74f74816cdb74b9[m
+Author: root <root@dev-machine.nextscrum.com>
+Date:   Fri Jan 29 13:42:36 2021 +0000
+
+    changes
+
+[33mcommit 8752b53a62e223617302304f8aa5aec35a674708[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Fri Jan 29 17:50:52 2021 +0500
+
+    new changes regarding logo
+
+[33mcommit 4bbe0327f0087db67dbad521c305b00b061a040e[m
+Author: muzaffarnextscrum <muzaffar.munir@nextscrum.dev>
+Date:   Fri Jan 29 17:00:46 2021 +0500
+
+    first commit
+
+[33mcommit f829b4632f6643d0e170107d57530eb911684e42[m
+Author: Zeshan Aman <zeshan.aman.ns@gmail.com>
+Date:   Fri Jan 29 11:52:31 2021 +0000
+
+    Initial commit

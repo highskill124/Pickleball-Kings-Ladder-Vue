@@ -769,7 +769,7 @@ export default {
     //   "https://www.paypal.com/sdk/js?client-id=AXtcvKvb-iR-7BYXv6BZktLuGsTWcjPbPkT73Fk5ryuEM9gu81PiJPBvhusquo4PcE2WdaBWpSUEKRrj";
     
     script.src =
-      "https://www.paypal.com/sdk/js?client-id=AWKpM81625g_1Cjpeg7A8gKOGso6xS144JLR1SC0yVDdDiSy_LRvr8kN_Ube3TGNx8qyhKPf6nD_nq6j";
+      "https://www.paypal.com/sdk/js?client-id="+process.env.PAYPAL_CLIENT_ID;
 /** prod env */
     // script.src =
     //   "https://www.paypal.com/sdk/js?client-id=AV_UagLBvD8CEfhRHJLxqltJFNijOKdiV-56hCdwYMUNUx49hY08SwRh7Lq_Gg67pnwCdF3i_guDx0Ag";
