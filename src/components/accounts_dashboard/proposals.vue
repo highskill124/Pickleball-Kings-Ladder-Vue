@@ -25,42 +25,48 @@
                   <div class="table_header">
                     <h3>Proposals</h3>
                     <div class="tables_filters">
-                      <form method="" action="" @submit.prevent="search()">
-                        <select class="form-select" v-model="searchForm.by">
-                          <option value="">Proposer</option>
-                          <option
-                                v-for="data in users"
-                                :key="data.id"
-                                :value="data.user_id"
-                              >
-                                {{ data.user && data.user.full_name  ? data.user.full_name :''}}
-                              </option>
-                        </select>
-                        <div class="checkbox_holder">
-                          <div class="custom_checkbox">
-                            <div class="form-check">
-                              <input
-                                class="form-check-input"
-                                type="checkbox"
-                                value=""
-                                v-model="searchForm.pending_only"
-                                id="flexCheckDefault"
-                              />
-                              <label
-                                class="form-check-label"
-                                for="flexCheckDefault"
-                              >
-                                Pending Only
-                              </label>
+                      <div class="row">
+                        <form method="" action="" @submit.prevent="search()">
+                          <div class="col-md-4">
+                            <select class="form-select" v-model="searchForm.by">
+                              <option value="">Proposer</option>
+                              <option
+                                    v-for="data in users"
+                                    :key="data.id"
+                                    :value="data.user_id"
+                                  >
+                                    {{ data.user && data.user.full_name  ? data.user.full_name :''}}
+                                  </option>
+                            </select>
+                          </div>
+                          <div class="col-md-3">
+                            <div class="checkbox_holder">
+                              <div class="custom_checkbox">
+                                <div class="form-check">
+                                  <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    value=""
+                                    v-model="searchForm.pending_only"
+                                    id="flexCheckDefault"
+                                  />
+                                  <label
+                                    class="form-check-label"
+                                    for="flexCheckDefault"
+                                  >
+                                    Pending Only
+                                  </label>
+                                </div>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <button type="submit">Show</button>
-                        <span v-if="is_shown">
-                          <button type="button" data-bs-toggle="modal" data-bs-target="#purposeAll" >Propose All</button>
-                        <router-link :to="{name:'account-add-match', params:{season:$route.params.season, ladder:$route.params.ladder, type:'purpose', rank: ladder.match_rank_categories_id} }"><button type="button">Add</button></router-link>
-                        </span>
-                      </form>
+                          <button type="submit">Show</button>
+                          <span v-if="is_shown" class="col-md-4 col-sm-12 col-xs-12">
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#purposeAll" >Propose All</button>
+                          <router-link :to="{name:'account-add-match', params:{season:$route.params.season, ladder:$route.params.ladder, type:'purpose', rank: ladder.match_rank_categories_id} }"><button type="button">Add</button></router-link>
+                          </span>
+                        </form>
+                      </div>
                     </div>
                   </div>
                   <div class="table-responsive">

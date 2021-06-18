@@ -96,6 +96,7 @@ export default {
       }
   },
   async created(){
+    console.log("payoff calling");
    this.playoffs =  (await seasonApis.getRecentlyCompletedSeasonWithPlayers()).data;
    this.season = (await seasonApis.getRecentlyCompletedSeason()).data;
    if (this.playoffs) {

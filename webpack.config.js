@@ -72,9 +72,13 @@ if (process.env.NODE_ENV === 'production') {
         // Backend_URL:'"https://apicharlotte.kingspickleballladder.com"',
 
         
-        APP_URL:'"http://kingspickle.loc/"',
-        API_URL: '"http://api.kingspickle.loc/api"',
-        Backend_URL:'"http://api.kingspickle.loc"',
+        // APP_URL:'"http://kingspickle.loc/"',
+        // API_URL: '"http://api.kingspickle.loc/api"',
+        // Backend_URL:'"http://api.kingspickle.loc"',
+
+        APP_URL:'"http://pickleball.local/"',
+        API_URL: '"http://api.pickleball.local/api"',
+        Backend_URL:'"http://api.pickleball.local"',
 
         location: '"upstate"',
         location_name: '"the Upstate SC"',
@@ -109,9 +113,13 @@ if (process.env.NODE_ENV === 'development') {
         // APP_URL:'"http://localhost:8080"',
         // API_URL: '"http://localhost:8000/api"',
         // Backend_URL:'"http://localhost:8000"'
-        APP_URL:'"http://kings.com/"',
-        API_URL: '"http://api.kings.com/api"',
-        Backend_URL:'"http://api.kings.com"',
+        // APP_URL:'"http://kings.com/"',
+        // API_URL: '"http://api.kings.com/api"',
+        // Backend_URL:'"http://api.kings.com"',
+
+        APP_URL:'"http://pickleball.local/"',
+        API_URL: '"http://api.pickleball.local/api"',
+        Backend_URL:'"http://api.pickleball.local"',
       }
     })
   ]);

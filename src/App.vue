@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header-component></header-component>
-    <main>
+    <main id="router-view-wrapper">
       <section class="account_wraper">
         <router-view></router-view>
       </section>
@@ -32,6 +32,9 @@ export default {
 </script>
 
 <style>
+#router-view-wrapper{
+  min-height: 64vh;
+}
 .invalid-feedback{
   display: block !important;
 }
@@ -76,7 +79,7 @@ export default {
   background: transparent !important;
   filter: none !important;
 }
-input[type="date"], input[type="datetime-local"], input[type="number"]{
+input[type="date"], input[type="datetime-local"], input[type="number"],input[type="time"]{
         padding: 10px 15px;
           width: 100%;
     display: block;
