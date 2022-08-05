@@ -42,7 +42,7 @@
           <div class="form_holder">
             <div class="row">
               <div class="col-md-6 pe-sm-0 pe-md-5 pe-lg-5 pe-xl-5">
-               
+
 
                 <h3 class="mb-5">Personal Info</h3>
                 <div class="row">
@@ -645,7 +645,6 @@
                 type="submit"
                 value="Signup"
                 class="signup_btn"
-                :disabled="!paidFor"
               />
             </div>
           </div>
@@ -767,11 +766,11 @@ export default {
     const script = document.createElement("script");
     // script.src =
     //   "https://www.paypal.com/sdk/js?client-id=AXtcvKvb-iR-7BYXv6BZktLuGsTWcjPbPkT73Fk5ryuEM9gu81PiJPBvhusquo4PcE2WdaBWpSUEKRrj";
-    
+
 /** prod env */
-     script.src =
-       "https://www.paypal.com/sdk/js?client-id="+process.env.PAYPAL_CLIENT_ID;
-    
+    script.src =
+      "https://www.paypal.com/sdk/js?client-id=AV_UagLBvD8CEfhRHJLxqltJFNijOKdiV-56hCdwYMUNUx49hY08SwRh7Lq_Gg67pnwCdF3i_guDx0Ag";
+
     script.addEventListener("load", this.setLoaded);
     document.body.appendChild(script);
   },

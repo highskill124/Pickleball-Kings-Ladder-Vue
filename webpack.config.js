@@ -73,7 +73,7 @@ if (process.env.NODE_ENV === 'production') {
         // API_URL: '"https://apicharlotte.kingspickleballladder.com/api"',
         // Backend_URL:'"https://apicharlotte.kingspickleballladder.com"',
 
-        
+
         //APP_URL:'"http://kingspickle.loc/"',
         //API_URL: '"http://api.kingspickle.loc/api"',
         //Backend_URL:'"http://api.kingspickle.loc"',
@@ -110,13 +110,13 @@ if (process.env.NODE_ENV === 'development') {
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
       'process.env': {
-        // NODE_ENV: '"development"',
-        // APP_URL:'"http://localhost:8080"',
-        // API_URL: '"http://localhost:8000/api"',
-        // Backend_URL:'"http://localhost:8000"'
-        APP_URL:'"http://kings.com/"',
-        API_URL: '"http://api.kings.com/api"',
-        Backend_URL:'"http://api.kings.com"',
+        NODE_ENV: '"development"',
+        APP_URL:'"http://localhost:8080"',
+        API_URL: '"http://localhost:8000/api"',
+        Backend_URL:'"http://localhost:8000"'
+        // APP_URL:'"http://kings.com/"',
+        // API_URL: '"http://api.kings.com/api"',
+        // Backend_URL:'"http://api.kings.com"',
       }
     })
   ]);
