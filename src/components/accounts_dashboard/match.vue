@@ -27,7 +27,7 @@
                               type="datetime-local"
                               v-model="formObj.challenged" disabled
                             />
-                          </div>                          
+                          </div>
                       </div>
                       <!-- removing played as per client suggestions -->
                        <!-- <div class="col-md-6">
@@ -57,7 +57,7 @@
                                 {{ data.full_name }} - {{data.email}} - {{data.phone}}
                               </option>
                             </select>
-                          </div>                          
+                          </div>
                       </div>
 
                        <div class="col-md-6">
@@ -73,23 +73,23 @@
                                 {{ data.full_name }} - {{data.email}} - {{data.phone}}
                               </option>
                             </select>
-                          </div>                          
+                          </div>
                       </div>
 
                        <div class="col-md-12">
                           <div class="form_group">
                             <label>Scores  ({{match && match.request?  match.request.by.full_name : "" }} VS {{ match && match.request?  match.request.to.full_name : "" }})</label>
-                          </div>                          
+                          </div>
                       </div>
-                      
-                
+
+
                        <div class="col-md-4">
                           <div class="form_group">
                             <input
                               type="number"
                               v-model="formObj.point1_user1"
                             />
-                          </div>                          
+                          </div>
                       </div>
 
                       <div class="col-md-4 col-md-offset-4"></div>
@@ -100,7 +100,7 @@
                               type="number"
                               v-model="formObj.point1_user2"
                             />
-                          </div>                          
+                          </div>
                       </div>
 
                        <div class="col-md-4">
@@ -109,7 +109,7 @@
                               type="number"
                               v-model="formObj.point2_user1"
                             />
-                          </div>                          
+                          </div>
                       </div>
 
                       <div class="col-md-4 col-md-offset-4"></div>
@@ -120,7 +120,7 @@
                               type="number"
                               v-model="formObj.point2_user2"
                             />
-                          </div>                          
+                          </div>
                       </div>
 
                        <div class="col-md-4">
@@ -132,7 +132,7 @@
                             <v-errors
                               :errors="errorFor('point3_user1')"
                             ></v-errors>
-                          </div>                          
+                          </div>
                       </div>
 
                       <div class="col-md-4 col-md-offset-4"></div>
@@ -146,11 +146,10 @@
                             <v-errors
                               :errors="errorFor('point3_user2')"
                             ></v-errors>
-                          </div>                          
+                          </div>
                       </div>
-                      
 
-                    <div class="col-md-12" v-if="match && match.request && match.request.to && match.request.to.id==user || match.request.by && match.request.by.id==user ">
+                        <div class="col-md-12" v-if="match && match.request && match.request.to && match.request.to.id==user || match.request.by && match.request.by.id==user ">
                           <div class="form_group">
                             <input
                               type="submit"
@@ -161,6 +160,7 @@
                           </div>
                         </div>
 
+                      </div>
                     </div>
                   </form>
                 </div>
@@ -198,7 +198,7 @@ export default {
         id: this.$route.params.id,
         season_id: this.$route.params.season,
         match_ladder: this.$route.params.ladder,
-        match_rank: this.$route.params.rank,        
+        match_rank: this.$route.params.rank,
         by: null,
         to: null,
         played: null,
@@ -219,7 +219,7 @@ export default {
   },
   methods: {
      async submit(){
-       this.formObj.played = 
+       this.formObj.played =
            await matchesApis.requestMatches("put", this.formObj)
         .then((response) => {
           this.loader = false;
@@ -227,7 +227,7 @@ export default {
           if (response.status == 200) {
             this.status = response.status;
             //   setCurrentUser(response.data);
-             this.$router.push({ name: "account-matches",  params:{type: this.$route.params.type, category:this.$route.params.category } });                     
+             this.$router.push({ name: "account-matches",  params:{type: this.$route.params.type, category:this.$route.params.category } });
           }
         })
         .catch((error) => {
