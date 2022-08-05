@@ -16,6 +16,13 @@
               </span> to obtain it.
           </p>
         </div>
+         <!-- <div class="men_playing_tennis" style="border:1px solid black">
+          <img
+            src="/src/assets/images/image.png"
+            class="img-fluid"
+            alt=""
+          />
+      </div> -->
       </div>
       <div class="col-md-12 col-lg-5">
         <div class="login_holder">
@@ -67,9 +74,10 @@
         </div>
       </div>
     </div>
+    <!-- test style="width: 50%;top: 39%;" -->
     <div class="men_playing_tennis">
       <img
-        src="/src/assets/images/men-playing-tennis.png"
+        src="/src/assets/images/new_image.png"
         class="img-fluid"
         alt=""
       />

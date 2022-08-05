@@ -75,7 +75,7 @@
                             <v-errors :errors="errorFor('category')"></v-errors>
                           </div>
                         </div> -->
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                           <div class="form_group">
                             <label>Preferred Area</label>
                             <input
@@ -87,19 +87,28 @@
                             <v-errors :errors="errorFor('location')"></v-errors>
                           </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-7">
                           <div class="form_group">
                             <label>Preferred Time</label>
                             <div class="row">
                               <div class="col-md-6">
-                                <input type="date"  v-model="date"/>
+                                <input type="date" required  v-model="date"/>
                               </div>
-                              <div class="col-md-3">
+                              <div class="col-md-6">
+                                <input type="time" :class="{'time_placeholder':time_placeholder}" @click="time_placeholder = false" required v-model="time" placeholder="HH:MM AM/PM" value="">
+                              </div>
+                              <!-- <div class="col-md-2">
                                 <input type="text" placeholder="HH"  v-model="hours" @input.prevent="timeChanges()"/>
                               </div>
-                              <div class="col-md-3">
+                              <div class="col-md-2">
                                 <input type="text" placeholder="MM" v-model="minitues"  @input.prevent="timeChanges()"/>
                               </div>
+                              <div class="col-md-3">
+                                <select class="form-select" name="" id="">
+                                  <option value="AM">AM</option>
+                                  <option value="PM">PM</option>
+                                </select>
+                              </div> -->
                             </div>
                                 <!-- <input
                               type="datetime-local"
@@ -151,9 +160,11 @@ export default {
       loader: true,
       errors: null,
       status: null,
+      time_placeholder:true,
       date: '',
-      hours: '00',
-      minitues: '00',
+      time:'',
+      hours: '',
+      minitues: '',
       type: "",
       users: null,
       categories: null,
@@ -187,6 +198,7 @@ export default {
   methods: {
     async submit() {
       this.loader = true;
+      this.timeChanges();
       this.formObj.challenge_to = this.formObj.request_to && this.formObj.request_to.id ? this.formObj.request_to.id :'' ;
       this.formObj.type = this.type;
       await requestsApis
@@ -226,9 +238,11 @@ export default {
     },
 
     timeChanges(){
-      console.log('ddddd');
-   const timeString = this.hours + ':' + this.minitues ;
-    this.formObj.time = moment(`${this.date} ${timeString}`, 'YYYY-MM-DD HH:mm:s').format();
+      // console.log('ddddd');
+      // console.log(this.time,"Selected time");
+      // const timeString = this.hours + ':' + this.minitues ;
+      // this.formObj.time = moment(`${this.date} ${timeString}`, 'YYYY-MM-DD HH:mm:s').format();
+      this.formObj.time = moment(`${this.date} ${this.time}`, 'YYYY-MM-DD HH:mm:s').format();
     }
   },
   async created() {
@@ -261,3 +275,19 @@ export default {
   },
 };
 </script>
+<style scoped>
+.time_placeholder{
+  position: relative;
+}
+.time_placeholder::before{
+  content: 'HH:MM AM/PM';
+  position: absolute;
+  top: 10px;
+  /* border: 1px solid black; */
+  background-color: #F8F8F8;
+  width: 70%;
+  /* height: 100%; */
+  box-sizing: border-box;
+  padding: 5px;
+}
+</style>

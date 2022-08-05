@@ -62,7 +62,9 @@ export default {
     async getLadders(){
       this.loader = true;
           this.ladders =  (await matchLadderApis.getBySeason(this.$route.params.season)).data;
+          // console.log("Leaders from events",this.ladders);
           this.season = (await seasonsApis.getById(this.$route.params.season)).data
+          // console.log("Season = ",this.season);
           this.loader = false;
     }
     
@@ -74,6 +76,7 @@ export default {
   },
   async created() {
     if(this.$route.params.season){
+      // alert("Season Id ="+this.$route.params.season);
       this.getLadders();
     }    
     // setTimeout(() => {

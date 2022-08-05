@@ -6,6 +6,13 @@
 	# RewriteCond %{HTTPS} !on
   	# RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L]
 	# --
+	
+	<Files webpack.config.js>
+   		order allow,deny
+    		Deny from all
+	</Files>	
+
+	RewriteBase /
 
 	RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
 	RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d

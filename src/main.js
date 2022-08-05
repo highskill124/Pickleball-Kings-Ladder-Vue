@@ -12,7 +12,7 @@ import { logOut} from "../src/utils/auth";
 const VueUploadComponent = require('vue-upload-component');
 
 Vue.use(VueRouter);
-// Vue.config.devtools = true
+ Vue.config.devtools = false
 // Vue.use(axios)
 Vue.prototype.$axios = axios
 axios.defaults.withCredentials = true;

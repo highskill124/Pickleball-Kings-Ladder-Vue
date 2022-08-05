@@ -370,13 +370,15 @@ const routes = [
     },
 ];
 const router = new VueRouter({
+    mode: "hash",
     routes, // short for `routes: routes`
-    mode: "history",
     linkActiveClass: "active",
     scrollBehavior() {
         return { x: 0, y: 0 }
     }
 });
+
+// console.log("base URl = ",process.env.BASE_URL);
 
 router.beforeEach((to, from, next) => {
     /** CASE@  if user not login and try to access Client dashboaard protected path*/

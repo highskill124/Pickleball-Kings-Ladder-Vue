@@ -640,7 +640,7 @@
               </div>
             </div>
             <div class="form_group mb-4">
-              <!--  -->
+              <!-- :disabled="!paidFor" -->
               <input
                 type="submit"
                 value="Signup"
@@ -769,8 +769,8 @@ export default {
     //   "https://www.paypal.com/sdk/js?client-id=AXtcvKvb-iR-7BYXv6BZktLuGsTWcjPbPkT73Fk5ryuEM9gu81PiJPBvhusquo4PcE2WdaBWpSUEKRrj";
     
 /** prod env */
-    script.src =
-      "https://www.paypal.com/sdk/js?client-id=AV_UagLBvD8CEfhRHJLxqltJFNijOKdiV-56hCdwYMUNUx49hY08SwRh7Lq_Gg67pnwCdF3i_guDx0Ag";
+     script.src =
+       "https://www.paypal.com/sdk/js?client-id="+process.env.PAYPAL_CLIENT_ID;
     
     script.addEventListener("load", this.setLoaded);
     document.body.appendChild(script);
