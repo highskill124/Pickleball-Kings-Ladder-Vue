@@ -149,6 +149,7 @@
                           </div>
                       </div>
 
+
                         <div class="col-md-12" v-if="match && match.request && match.request.to && match.request.to.id==user || match.request.by && match.request.by.id==user ">
                           <div class="form_group">
                             <input
@@ -159,7 +160,6 @@
                             />
                           </div>
                         </div>
-
                       </div>
                     </div>
                   </form>
