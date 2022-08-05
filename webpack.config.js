@@ -73,7 +73,7 @@ if (process.env.NODE_ENV === 'production') {
         // API_URL: '"https://apicharlotte.kingspickleballladder.com/api"',
         // Backend_URL:'"https://apicharlotte.kingspickleballladder.com"',
 
-        
+
         //APP_URL:'"http://kingspickle.loc/"',
         //API_URL: '"http://api.kingspickle.loc/api"',
         //Backend_URL:'"http://api.kingspickle.loc"',
