@@ -80,7 +80,7 @@ if (process.env.NODE_ENV === 'production') {
 	PAYPAL_CLIENT_ID:'"AV_UagLBvD8CEfhRHJLxqltJFNijOKdiV-56hCdwYMUNUx49hY08SwRh7Lq_Gg67pnwCdF3i_guDx0Ag"',
        
 	 //Client ID for test Purpose
-       // PAYPAL_CLIENT_ID:'"AWKpM81625g_1Cjpeg7A8gKOGso6xS144JLR1SC0yVDdDiSy_LRvr8kN_Ube3TGNx8qyhKPf6nD_nq6j"',
+       PAYPAL_CLIENT_ID2:'"AWKpM81625g_1Cjpeg7A8gKOGso6xS144JLR1SC0yVDdDiSy_LRvr8kN_Ube3TGNx8qyhKPf6nD_nq6j"',
 	location: '"upstate"',
         location_name: '"the Upstate SC"',
         other_location_url: '"https://charlotte.kingspickleballladder.com/"',
